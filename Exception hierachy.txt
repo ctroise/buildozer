@@ -1,0 +1,133 @@
+https://docs.python.org/3/library/exceptions.html
+https://docs.python.org/2/library/traceback.html
+
+
+When an exception occurs, Python will create an exception object. You can examine the exception object by assigning it to a variable using the as statement:
+try:
+	raise ImportError('Bad import')
+except ImportError as error:
+	print(type(error))
+	print(error.args)
+	print(error)
+
+<class 'ImportError'>
+('Bad import',)
+Bad import
+
+except Exception:
+	print(f"FUNCTION_NAME(): Unexpected error: '{sys.exc_info()[0]}' : '{sys.exc_info()[1]}'")  
+	
+try:
+	code goes here
+except:
+	print(f"FUNCTION_NAME(): Unexpected error: '{sys.exc_info()[0]}' : '{sys.exc_info()[1]}'")  
+	raise
+else:    			- ONLY IF RAN SUCCESSFULLY!
+	pass
+finally: 			- for cleanup actions that MUST happen, whether an error occurred or not
+	pass
+
+
+	   
+BaseException								The base exception that all the others are based on. Do not catch "BaseException", only go as high as "Exception"
+ +-- SystemExit
+ +-- KeyboardInterrupt						when the user hits the interrupt key (normally Control-C or Delete).    
+ +-- GeneratorExit
+ +-- Exception
+      +-- StopIteration
+      +-- StopAsyncIteration
+      +-- ArithmeticError
+      |    +-- FloatingPointError
+      |    +-- OverflowError
+      |    +-- ZeroDivisionError			when the second argument of a division or modulo operation is zero.
+      +-- AssertionError
+      +-- AttributeError					when an attribute reference or assignment fails.
+      +-- BufferError
+      +-- EOFError
+      +-- ImportError						when an import statement fails to find the module definition or when a from … import fails to find a name that is to be imported.
+      |    +-- ModuleNotFoundError			when a module could not be located   
+      +-- LookupError
+      |    +-- IndexError					when a sequence subscript is out of range.
+      |    +-- KeyError						when a mapping (dictionary) key is not found in the set of existing keys.
+      +-- MemoryError
+      +-- NameError							when a local or global name is not found.
+      |    +-- UnboundLocalError
+      +-- OSError							when a function returns a system-related error.
+      |    +-- BlockingIOError
+      |    +-- ChildProcessError
+      |    +-- ConnectionError
+      |    |    +-- BrokenPipeError
+      |    |    +-- ConnectionAbortedError
+      |    |    +-- ConnectionRefusedError
+      |    |    +-- ConnectionResetError
+      |    +-- FileExistsError
+      |    +-- FileNotFoundError
+      |    +-- InterruptedError
+      |    +-- IsADirectoryError
+      |    +-- NotADirectoryError
+      |    +-- PermissionError
+      |    +-- ProcessLookupError
+      |    +-- TimeoutError
+      +-- ReferenceError
+      +-- RuntimeError						when an error is detected that doesn’t fall in any of the other categories.
+      |    +-- NotImplementedError
+      |    +-- RecursionError
+      +-- SyntaxError						when the parser encounters a syntax error.
+      |    +-- IndentationError
+      |         +-- TabError
+      +-- SystemError
+      +-- TypeError							when an operation or function is applied to an object of inappropriate type. The associated value is a string giving details about the type mismatch.
+      +-- ValueError						when a built-in operation or function receives an argument that has the right type but an inappropriate value, and the situation is not described by a more precise exception such as IndexError.
+      |    +-- UnicodeError
+      |         +-- UnicodeDecodeError
+      |         +-- UnicodeEncodeError
+      |         +-- UnicodeTranslateError
+      +-- Warning
+           +-- DeprecationWarning
+           +-- PendingDeprecationWarning
+           +-- RuntimeWarning
+           +-- SyntaxWarning
+           +-- UserWarning
+           +-- FutureWarning
+           +-- ImportWarning
+           +-- UnicodeWarning
+           +-- BytesWarning
+           +-- ResourceWarning
+		   
+		   
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+
+SQLITE3:
+- import inspect
+- for name, value in vars(sqlite3).items():
+      if inspect.isclass(value) and issubclass(value, Exception):
+          print(name, value)
+        
+Error             <class 'sqlite3.Error'>
+Warning           <class 'sqlite3.Warning'>
+InterfaceError    <class 'sqlite3.InterfaceError'>
+DatabaseError     <class 'sqlite3.DatabaseError'>
+InternalError     <class 'sqlite3.InternalError'>
+OperationalError  <class 'sqlite3.OperationalError'>
+ProgrammingError  <class 'sqlite3.ProgrammingError'>
+IntegrityError    <class 'sqlite3.IntegrityError'>
+DataError         <class 'sqlite3.DataError'>
+NotSupportedError <class 'sqlite3.NotSupportedError'>
+
+
+----------------------------------------------------------------------------------------------------
+/mnt/c/Users/ctroi/AppData/Local/JetBrains/PyCharm2022.1/python_stubs/686733341> clear ; grep 'class ' _sqlite3.py
+
++-- Warning(Exception)
++-- Error(Exception)		
+|    +-- InterfaceError(Error) 
+|    +-- DatabaseError(Error)
+|         +-- class DataError
+|         +-- class IntegrityError
+|         +-- class InternalError
+|         +-- class NotSupportedError
+|         +-- class OperationalError
+|         +-- class ProgrammingError
+
+----------------------------------------------------------------------------------------------------

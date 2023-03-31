@@ -1,0 +1,36 @@
+<templateSet group="SQL">
+  <template name="div" value="select curtime, ticker, ex_date, dividend, source, record_date, pay_date, announcement_date, curdate, checked&#10;from tbl_dividends where split=False and ticker=upper(&quot;$ticker$&quot;) order by ex_date desc, curtime desc;" description="Get divs from tbl_dividends" toReformat="false" toShortenFQNames="true">
+    <variable name="ticker" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="SQL" value="true" />
+    </context>
+  </template>
+  <template name="live" value="select conId, permId, secType, broker, ticker, is_live, quantity, lmtPrice, int_expiry, account, expiry, strike, &#10;       putCall, action, orderType, tif, transmited, reqId, curtime, currency, exchange&#10;from tbl_LIVE_ORDERS order by permId desc;" description="Get live orders I made" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="SQL" value="true" />
+    </context>
+  </template>
+  <template name="order" value="select curtime, ticker, reqId, conId, permId, is_live, account, sectype, exchange, action, orderType, totalQuantity, cashQty,&#10;       lmtPrice, auxPrice, status, clientId, orderId, comboLegs, comboLegsDescrip, currency, deltaNeutralContract,&#10;       includeExpired, lastTradeDateOrContractMonth, localSymbol, multiplier, primaryExchange, putCall, secId,&#10;       secIdType, strike, tradingClass, contract, expiry, lastUpdate&#10;from tbl_IB_orders where ticker=upper(&quot;$ticker$&quot;) order by curtime desc;" description="Get orders from tbl_IB_orders" toReformat="false" toShortenFQNames="true">
+    <variable name="ticker" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="SQL" value="true" />
+    </context>
+  </template>
+  <template name="error" value="select curtime, fixed, reqId, errorCode, errorString, ticker, contract, report &#10;from tbl_errors where errorCode='$code$' order by curtime desc;" description="tbl_errors" toReformat="false" toShortenFQNames="true">
+    <variable name="code" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="SQL" value="true" />
+    </context>
+  </template>
+  <template name="pos" value="select source, broker, curdate, curtime, ticker, secType, shares, good_position, isin, account, shortName, tradedate, cost_basis,&#10;       name, currency, notes, IB, etrade, commission, last, close, only_etrade, only_IB, closed_end_fund, last_div_update,&#10;       pays_dividends, last_split_update, bad_yfinance_ticker, has_options, last_option_update, not_for_option_report, &#10;       date_added, trade_date_notes, avgPrice, trading_notes, conId, getGreeks, option_exchange, option_primary_exchange,&#10;       divYield, rank, multiplier, putCall, strike, positionId, osiKey, expiry, quarterlyDivs, divsPerYear, lastOrderId &#10;from tbl_positions where ticker=upper('$ticker$') order by curdate desc;&#10;" description="pos" toReformat="false" toShortenFQNames="true">
+    <variable name="ticker" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="SQL" value="true" />
+    </context>
+  </template>
+  <template name="last" value="select what, last_update, curdate, curtime, time_stamp, cycle, morning_routine, type, needs_live_market &#10;from tbl_last_updates&#10;where morning_routine and last_update!=CURRENT_DATE order by what;" description="last_updates" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="SQL_ALL" value="true" />
+    </context>
+  </template>
+</templateSet>

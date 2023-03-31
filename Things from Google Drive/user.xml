@@ -1,0 +1,173 @@
+<templateSet group="user">
+  <template name="qs" value="qry = f&quot;SELECT () FROM tbl WHERE &quot;&#10;res = sql_utils.sql_execute(qry)" description="query default" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="qu" value="qry = f&quot;UPDATE {table} SET xx={num}, yy='{text}' WHERE field={field}&quot;&#10;res = sql_utils.sql_execute(qry)" description="query update" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="qi" value="qry = f&quot;INSERT INTO {table} (field1, field2) VALUES ({num}, '{text}')&quot;&#10;res = sql_utils.sql_execute(qry)" description="query insert" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="33" value="{$number$}" description="{}" toReformat="false" toShortenFQNames="true">
+    <variable name="number" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="pp" value="print(f&quot;{}&quot;)" description="print(f&quot;{}&quot;)" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="tt" value="try:&#10;$CODE$&#10;except:&#10;    print(f&quot;[FUNCTION_NAME]: Unexpected error: {sys.exc_info()[0]}&quot;)&#10;    raise" description="try-except with error message" toReformat="false" toShortenFQNames="true">
+    <variable name="CODE" expression="clipboard()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="44" value="'{$text$}'" description="'{}'" toReformat="false" toShortenFQNames="true">
+    <variable name="text" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="fta" value="# utils.makeFormatterTitlesArray(formatter, titles)&#10;formatter_titles_arr = [&#10;    (&quot;&quot;,  [&quot;&quot;, &quot;&quot;]),&#10;    (&quot;&quot;,  [&quot;&quot;, &quot;&quot;]),&#10;    (&quot;&quot;,  [&quot;&quot;, &quot;&quot;]),&#10;    (&quot;&quot;,  [&quot;&quot;, &quot;&quot;])&#10;]" description="formatter_titles_arr" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="#---" value="# -------------------------------------------------------------------------------------------------------------------" description="delimeter" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="cur" value="order by curtime desc;" description="order by curdate desc" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="ntn" value="print(f&quot;\n\t***    \n&quot;)" description="\n\t\n" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="joe" value="myjoe(&quot;$what$&quot;)" description="myjoe()" toReformat="false" toShortenFQNames="true">
+    <variable name="what" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="algo" value="select curdate, is_live, ticker, reqId, permId, conId, action, quantity, lmtPrice,&#10;       expiry, strike, putCall, account, lmtPrice, from_algo, curtime, &#10;       secType, IB_expiry, currency, exchange, orderType, tif, transmited, source, tradeReco, gtd, goodAfterTime, last_live_check&#10;from ALGO_ORDERS where ticker=upper('$ticker$')&#10;order by curdate desc, secType desc;&#10;" description="ALGO order(s)" toReformat="false" toShortenFQNames="true">
+    <variable name="ticker" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="SQL" value="true" />
+    </context>
+  </template>
+  <template name="ret" value="select curdate, curtime, ticker, max_1day, max_2day, max_3day, max_1wk, max_1mo, max_3mos, max_6mos, max_1yr, returnNote,&#10;       price, price_1day, price_2day, price_3day, price_1wk, price_1mo, price_3mos, price_6mos, price_1yr,  &#10;       return_1day, return_2day, return_3day, return_1wk, return_1mo, return_3mos, return_6mos, return_1yr&#10;from tbl_returns where ticker=upper('$ticker$')order by curtime desc" description="tbl_returns" toReformat="false" toShortenFQNames="true">
+    <variable name="ticker" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="SQL_ALL" value="true" />
+    </context>
+  </template>
+  <template name="reco" value="select curdate, curtime, broker, ticker, expiry, strike, tradeReco, account, permId, secType, action, &#10;    QTY, lmtPrice, auxPrice, div_ct, lastTrade, lastCommission, recoNotes, putCall, div_date, &#10;    dontTradeIt, conId, IB_expiry, is_an_ETF, gotGreeks, tradeTheme &#10;from tbl_recommendations where ticker=upper('$ticker$') and curdate=CURRENT_DATE&#10;order by curtime desc&#10;" description="tbl_recommendations" toReformat="false" toShortenFQNames="true">
+    <variable name="ticker" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="SQL_ALL" value="true" />
+    </context>
+  </template>
+  <template name="curr" value=" curdate=CURRENT_DATE" description="curdate=CURRENT_DATE" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="SQL" value="true" />
+    </context>
+  </template>
+  <template name="tick" value="order by ticker;" description="order by ticker" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="SQL" value="true" />
+    </context>
+  </template>
+  <template name="nonew" value="self.NO_NEW_VARIABLES = True  # &lt;---- leave this as the very last line of the __init__" description="self.NO_NEW_VARIABLES = True" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="&lt;abbreviation&gt;" value="        if get_sql_today() == &quot;2022-03-30&quot;:&#10;            pyperclip.copy(u_qry)&#10;        else:&#10;            raise UserWarning" description="" toReformat="false" toShortenFQNames="true" />
+  <template name="today" value="if get_sql_today() == '$date$':&#10;    # do some work&#10;else:&#10;    raise UserWarning  # reminds me to delete this&#10;" description="a test just for today" toReformat="false" toShortenFQNames="true">
+    <variable name="date" expression="" defaultValue="CURRENT_DATE" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="added" value="if params.msg in [&quot;added&quot;, &quot;updated&quot;]:&#10;    debugMsg(reqId, f&quot;$function_name$(1): $table$ [{ticker}] was {params.msg} - {params.update_msg}&quot;)" description="if params.msg == &quot;added&quot;: .." toReformat="false" toShortenFQNames="true">
+    <variable name="function_name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="table" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="option" value="select source, curdate, curtime, ticker, strike, putCall, expiry, delta, optPrice, last_greek_update, last_optPrice_update, contractSize, currency,&#10;       pvDividend, get_greeks, optPrice, undPrice, gamma, theta, vega, ib_impliedVol, volume, openInterest,&#10;       yfinance_contractSymbol, lastTradeDate, x_lastPrice, bid, ask, change, percentChange,&#10;       yf_impliedVol, inTheMoney, tickType, tickAttrib, close, last, conId, IB_expiry&#10;from tbl_options where ticker=upper(&quot;$ticker$&quot;) order by curtime desc;" description="option details" toReformat="false" toShortenFQNames="true">
+    <variable name="ticker" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="SQL" value="true" />
+    </context>
+  </template>
+  <template name="no_new" value="self.NO_NEW_VARIABLES = True  # &lt;---- leave this as the very last line of the __init__" description="NO_NEW_VARIABLES" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="seal" value="if not orderDict.SEAL_ME():&#10;    msg = f&quot;*** Can not seal [{orderDict['whatAmI']}] due to: {orderDict.seal_error}&quot;&#10;    infoMsg(&quot;create_trade_recommendations(2)&quot;, msg)&#10;    print(f&quot;\tcreate_trade_recommendations(2): {msg}&quot;)&#10;    myjoe(msg)&#10;" description="SEAL_ME()" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="filew" value="with open($filename$, 'w+') as file:&#10;    file.write(self.print_version)&#10;" description="Writing to a file" toReformat="false" toShortenFQNames="true">
+    <variable name="filename" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="filer" value="with open($filename$) as file:&#10;    all_lines = file.read()&#10;    lines = all_lines.splitlines()&#10;    for line in lines:&#10;        res = line.split(&quot;|&quot;)&#10;" description="Reading from a file" toReformat="false" toShortenFQNames="true">
+    <variable name="filename" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="time" value="start = time.time()&#10;#&#10;end = time.time()&#10;time_in_secs = end - start&#10;debug_print(f&quot;$fn$(): Time taken: {time_in_secs:,.2f} seconds&quot;, printIt=True)&#10;#&#10;" description="timer" toReformat="false" toShortenFQNames="true">
+    <variable name="fn" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="jj" value="_joe = 12" description="_joe = 12" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="newlogger" value="newlogger = mylogger()" description="newlogger = mylogger()" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="pickledump" value="pickle.dump(THE_DATA, open(FILE_NAME, &quot;wb&quot;))&#10;" description="pickle.dump(dict_arr, open(to_file, &quot;wb&quot;))" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="pickle.load" value="THE_DATA = pickle.load(open($FILENAME$, &quot;rb&quot;))" description="data_arr = pickle.load(open(pickle_file, &quot;rb&quot;))" toReformat="false" toShortenFQNames="true">
+    <variable name="FILENAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="rev" value=" # revert" description="#  revert" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+</templateSet>

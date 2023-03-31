@@ -1,0 +1,8 @@
+<templateSet group="SQL (DBN)">
+  <template name="price" value="select curdate, conId, secType, ticker, close, price, bid, ask, last from tbl_prices where ticker=upper('$ticker$') and secType=&quot;STK&quot; order by curdate desc;" description="Get price details from tbl_prices" toReformat="false" toShortenFQNames="true">
+    <variable name="ticker" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="SQL" value="true" />
+    </context>
+  </template>
+</templateSet>

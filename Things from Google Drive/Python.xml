@@ -1,0 +1,87 @@
+<templateSet group="Python">
+  <template name="conn" value="# conn = sqlite3.connect(&quot;D:/Program Files (x86)/Python38-32/Sudoku/SQL/sudoku.db&quot;)&#10;conn = sqlite3.connect(&quot;D:/Program Files (x86)/Python38-32/Market Data/my_portfolio.db&quot;)&#10;qry = f&quot;&quot;&#10;print(qry)&#10;res = conn.execute(qry).fetchall()&#10;print(&quot;Done!&quot;)&#10;conn.commit()&#10;conn.close()&#10;" description="Make a new sql connection" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CSS" value="false" />
+      <option name="CUCUMBER_FEATURE_FILE" value="false" />
+      <option name="Django" value="false" />
+      <option name="HAML" value="false" />
+      <option name="HTML" value="false" />
+      <option name="JSON" value="false" />
+      <option name="OTHER" value="true" />
+      <option name="PUPPET_FILE" value="false" />
+      <option name="R" value="false" />
+      <option name="REQUEST" value="false" />
+      <option name="SQL" value="false" />
+      <option name="XML" value="false" />
+    </context>
+  </template>
+  <template name="select" value="SELECT " shortcut="TAB" description="capitalize 'select'" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="from" value="FROM " shortcut="TAB" description="capitalize 'from'" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+      <option name="SQL" value="true" />
+    </context>
+  </template>
+  <template name="where" value="WHERE " shortcut="TAB" description="capitalize 'where'" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+      <option name="SQL" value="true" />
+    </context>
+  </template>
+  <template name="and" value="AND " shortcut="TAB" description="capitalize 'and'" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+      <option name="SQL" value="true" />
+    </context>
+  </template>
+  <template name="update" value="UPDATE " shortcut="TAB" description="capitalize 'update'" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+      <option name="SQL" value="true" />
+    </context>
+  </template>
+  <template name="set" value="SET " shortcut="TAB" description="capitalize 'set'" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+      <option name="SQL" value="true" />
+    </context>
+  </template>
+  <template name="ft" value="formatter_titles_arr = [&#10;    (&quot;{§:^6} &quot;,        [&quot;&quot;, &quot;&quot;]),&#10;    (&quot;{§:&lt;7} &quot;,        [&quot;&quot;, &quot;&quot;]),&#10;    (&quot;{§:&gt;7,.0f} &quot;,    [&quot;&quot;, &quot;&quot;]),&#10;    (&quot;{§:^4} &quot;,        [&quot;&quot;, &quot;&quot;]),&#10;    (&quot;${§:&gt;8,.2f} &quot;,   [&quot;&quot;, &quot;&quot;]),&#10;    (&quot;${§:6,.0f} &quot;,    [&quot;&quot;, &quot;&quot;]),&#10;    (&quot;${§:^7,.0f} &quot;,   [&quot;&quot;, &quot;&quot;]),&#10;    (&quot;| {§:30} &quot;,      [&quot;&quot;, &quot;&quot;])&#10;]&#10;formatter, titles = makeFormatterAndTitlesFromArray(formatter_titles_arr)&#10;" description="formatter_titles_arr" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="if params.msg" value="if params.msg == &quot;added&quot;:&#10;    self.thislogger.debug(f&quot;$program$(): $what$ was added to params.table&quot;)&#10;    _joe = 12  # Check I'm not duplicating a position!&#10;elif params.msg == &quot;updated&quot;:&#10;    self.thislogger.debug(f&quot;$program$(): params.table was updated: {params.differences}&quot;)&#10;" description="Logging an update" toReformat="false" toShortenFQNames="true">
+    <variable name="program" expression="" defaultValue="pyFunctionName()" alwaysStopAt="true" />
+    <variable name="what" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="params" value="params = self.MD.Master_Params.newParam(" description="params = self.SC.Master_Params.newParam(" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="thislogger" value="thislogger = logging.getLogger(&quot;myapp.thislogger&quot;)" description="thislogger = logging.getLogger(&quot;myapp.thislogger&quot;)" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="sqllogger" value="sqllogger = logging.getLogger(&quot;myapp.sqllog&quot;)" description="sqllogger = logging.getLogger(&quot;myapp.sqllog&quot;)" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="params_MASTER_OVERRIDE" value="params = Parameters(&quot;$table$&quot;, &quot;$calling_fn$&quot;, MASTER_OVERRIDE=True)" description="params = Parameters(&quot;tbl_options&quot;, &quot;snapper_update_tbl_options&quot;, MASTER_OVERRIDE=True)" toReformat="false" toShortenFQNames="true">
+    <variable name="table" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="calling_fn" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+</templateSet>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8105317d-f558-467c-990c-3924d8a8e7ae" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Sudoku GUI/xx_Sudoku_dialog_window.ui" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sudoku GUI/xx_chains.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sudoku GUI/xx_debug.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sudoku GUI/xx_misc_functions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sudoku/options_out.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sudoku/puzzle_out.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Trading/EtradePythonClient/etrade_python_client/account_summary.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sudoku GUI/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Sudoku GUI/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sudoku GUI/Data/cellphone_options_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Sudoku GUI/cellphone_options_out.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sudoku GUI/cellphone_sudoku.py" beforeDir="false" afterPath="$PROJECT_DIR$/Sudoku GUI/cellphone_sudoku.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sudoku GUI/gbl_dict.json" beforeDir="false" afterPath="$PROJECT_DIR$/Sudoku GUI/gbl_dict.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sudoku GUI/options_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Sudoku GUI/options_out.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sudoku GUI/puzzle_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Sudoku GUI/puzzle_out.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sudoku GUI/sudoku_gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/Sudoku GUI/sudoku_gui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sudoku/cls_helper_fns.py" beforeDir="false" afterPath="$PROJECT_DIR$/Sudoku/cls_helper_fns.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sudoku/sudoku.py" beforeDir="false" afterPath="$PROJECT_DIR$/Sudoku/sudoku.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/Data/IB_codes_count.json" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/Data/IB_codes_count.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/Data/holidays.json" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/Data/holidays.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/Data/my_portfolio.db" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/Data/my_portfolio.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/EtradePythonClient/etrade_python_client/ETrade_class.py" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/EtradePythonClient/etrade_python_client/ETrade_class.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/EtradePythonClient/etrade_python_client/order/etrade_order.py" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/EtradePythonClient/etrade_python_client/order/etrade_order.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/Logs/infoup_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/Logs/infoup_log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/Logs/my_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/Logs/my_log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/MASTER TO-DO LIST.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/MASTER TO-DO LIST.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/MY_ORDERS/SELL_A_PUT.json" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/MY_ORDERS/SELL_A_PUT.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/MY_ORDERS/SELL_covered_call.json" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/MY_ORDERS/SELL_covered_call.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/Reports/error_report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/Reports/error_report.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/Reports/morning_report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/Reports/morning_report.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/U10574270.py" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/U10574270.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/data_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/data_file.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/dates.py" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/dates.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/db_analysis.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/db_analysis.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/dividends.py" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/dividends.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/formatter.py" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/formatter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/jojo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/jojo.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/market_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/market_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/myLogging.py" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/myLogging.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/myRequest.py" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/myRequest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/my_Program.py" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/my_Program.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/nasdaq.py" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/nasdaq.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/needs_no_imports.py" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/needs_no_imports.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/orderDict.py" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/orderDict.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/reporting.py" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/reporting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/snapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/snapper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/splits.py" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/splits.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/sql_table_checks.py" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/sql_table_checks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/sql_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/sql_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/ticker_obj.py" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/ticker_obj.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/todo_lists.py" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/todo_lists.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/trading.py" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/trading.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/variables.py" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/variables.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/Sudoku" />
+  </component>
+  <component name="ProjectId" id="2IUFuDqtVdkWReOo8HiCnDiVCT5" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/ctroi/Pycharm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8105317d-f558-467c-990c-3924d8a8e7ae" name="Changes" comment="" />
+      <created>1670228475238</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1670228475238</updated>
+      <workItem from="1670228476334" duration="1000" />
+    </task>
+    <servers />
+  </component>
+</project>

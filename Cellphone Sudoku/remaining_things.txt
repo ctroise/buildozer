@@ -1,0 +1,43 @@
+CLONE
+2023-02-12 14:15:02.982071
+------------------------
+Remaining ROWS solutions
+------------------------
+ROWS #0:  (solved)
+ROWS #1:  (solved)
+ROWS #2:  (solved)
+ROWS #3:  (solved)
+
+------------------------
+Remaining COLS solutions
+------------------------
+COLS #0:  (solved)
+COLS #1:  (solved)
+COLS #2:  (solved)
+COLS #3:  (solved)
+
+
+----------------------
+Remaining cell options
+----------------------
+ROW: 0:  [   ]  [   ]  [   ]  [   ]  
+ROW: 1:  [   ]  [   ]  [   ]  [   ]  
+ROW: 2:  [   ]  [   ]  [   ]  [   ]  
+ROW: 3:  [   ]  [   ]  [   ]  [   ]  
+
+
+The solution so far:
+	(with guess: Row: 0, Col: 0, Num: 2)
+
+	 0 1 2 3
+    ---------
+ 0  [2 8 4 3]
+ 1  [9 7 3 8]
+ 2  [8 9 7 5]
+ 3  [7 4 2 1]
+
+Column missing:
+col 0
+col 1
+col 2
+col 3

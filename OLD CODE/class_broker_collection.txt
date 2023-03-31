@@ -1,0 +1,157 @@
+class broker_collection(simple_array_of_OrderDicts):
+    """ """
+    def __repr__(self):
+        return f"broker_collection"
+
+    def __len__(self):
+        b_ct = 0
+        ct = 0
+        for broker in self:
+            b_ct += 1
+            for xx in self[broker]:
+                ct += 1
+        #print(f"{b_ct} brokers, {ct} trades")
+        return ct  #
+
+    def __init__(self, name, filename=""):
+        # FIXME: Do I need this class anymore?  2022-09-23
+        myjoe("")
+        super().__init__()
+        self.name = name
+        self.filename = filename
+        #
+        # self.data = {"IB": [], "ETrade": []}
+        self.data = {"IB": simple_array_of_OrderDicts(),
+                     "ETrade": simple_array_of_OrderDicts()}
+        self.JSON_data = {"IB": [], "ETrade": []}
+        self.NO_NEW_VARIABLES = True  # <---- leave this as the very last line of the __init__
+
+    def __contains__(self, item):
+        for broker in self.data:
+            # TODO: Clarify that I am defauled to searching by ticker here: (add a .get(ticker=ticker) ?)
+             if item in self.data[broker]:
+                return True
+        return False
+
+    def get(self, ticker):
+        res_arr = []
+        for one_OD in self:
+            if one_OD.data["ticker"] == ticker:
+                res_arr.append(one_OD)
+        return res_arr
+
+    def __iter__(self):
+        for broker in self.data:
+            for xx in self.data[broker]:
+                yield xx
+        return
+
+
+    def __add__(self, other):  # xxxbroker_collection
+        newDict = self.add(other)
+        return newDict
+
+    def add(self, other):
+        broker = ""
+        new_orderDict = one_OrderDict()
+        # FIXME: add to 'self.JSON_data' as well
+        if isinstance(other, one_OrderDict):
+            broker = other["broker"]
+            new_orderDict.data = deepcopy(other.data)
+            self.JSON_data[broker].append(other.data)
+        elif isinstance(other, dict):
+            broker = other["broker"]
+            new_orderDict.data = deepcopy(other)
+            self.JSON_data[broker].append(other)
+        elif isinstance(other, str) and other.find("PRINTED TO FILE") != -1:
+            return
+        else:
+            myjoe("whut?")
+
+        self.data[broker].orderDict_arr.append(new_orderDict)
+        return new_orderDict
+
+    def get_ticker(self, ticker):
+        for orderDict in self:
+            if orderDict["ticker"] == ticker:
+                return orderDict
+        return None
+
+    def populate_from_a_file(self):
+        filename = self.filename
+        with open(filename) as file:
+            DINGE = load(file)
+        if isinstance(DINGE, list):
+            for xx in DINGE:
+                self + xx
+        elif isinstance(DINGE, dict):
+            for broker in DINGE.keys():
+                if broker not in ["IB", "ETrade"]:
+                    newlogger.info(f"populate_from_a_file(): Skipping {broker=} in {filename=}")
+                    continue
+                for xx in DINGE[broker]:
+                    added_OrderDict = self + xx
+                    added_OrderDict.SEAL_ME()
+        else:
+            raise UserWarning
+        #
+        return
+
+    # noinspection PyStatementEffect
+    def update_from_a_broker_dict(self, p_dict: dict):
+        brokers = ["IB", "ETrade"]
+        for broker in brokers:
+            for xx in p_dict[broker]:
+                self.data[broker] + xx
+            #broker_arr = p_dict[broker]
+            #self[broker] = broker_arr
+            #
+            #for data_dict in broker_arr:
+            #    for key, value in data_dict.items():
+            #        self[broker][key] = value
+        return
+
+
+    def make_writeable_data_dict_for_json(self):
+        # TODO: Use   'def get_JSON_data_out_of' to streamline code?
+        #       Should I rename this function?
+        # FIXME: Do I still need this now that I made self.JSON_data ?
+        myjoe("FIXME: Do I still need this now that I made self.JSON_data ?") # does this get hit anymore? 8/23/2022
+        DATA = {"IB": [], "ETrade": []}
+        #
+        if isinstance(self, broker_collection):
+            for broker in DATA:
+                _odict_collection = self.data[broker]
+                for odict in _odict_collection:  # self.data[broker].orderDict_arr:
+                    assert isinstance(odict, one_OrderDict)
+                    _odict_data = odict.data
+                    assert isinstance(_odict_data, dict)
+                    DATA[broker].append(odict.data)
+            _joe = 12
+        else:
+            myjoe("Does this ever get hit? (May 30, 2022)")
+            for broker in self:
+                for xx in self[broker]:
+                    DATA[broker].append(xx.data)
+        return DATA
+
+
+    def write_my_JSON_to_file(self):
+        # self:  broker_collection
+        filename = self.name
+        filename = filename.upper()
+        filename = f"MY_ORDERS/{filename}.json"
+        self.JSON_data["2) PRINTED TO FILE BY"] = "write_my_JSON_to_file"
+        with open(filename, "w") as fp:
+            dump(self.JSON_data, fp, indent=4, sort_keys=True)
+        return
+
+    def my_pickle_write(self):
+        today = TODAY.replace("-", "")
+        name = self.name
+        pickle_file = f"Data/Pickle/{name}_{today}.p"
+        data_arr = []
+        for xx in self:
+            data_arr.append(xx)
+        pickle.dump(data_arr, open(pickle_file, "wb"))
+        return

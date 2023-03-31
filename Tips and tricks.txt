@@ -1,0 +1,592 @@
+PIP - USE 'TERMINAL' window on PyCharm
+
+- Dec  4, 2022: I did:  pip -m pip install --upgrade pip		and it worked!
+- Mar 19, 2023: I did:	pip install pytz						and it said "Requirement already satisfied"
+
+Using Pip, Instally, PYUIC5 and so on
+	Use it within PyCharm's "Terminal" window - there the python version is up to date, and other good things
+	are installed like pip and pyuic5. For some reason the "BASH" environment is old and crappy compared to 
+	what's inside PyCharm/Terminal 
+
+https://www.jetbrains.com/help/pycharm/package-installation-issues.html#terminal
+
+-------------------------------------------------------------------------------------------------------------	
+"__repr__(self)" versus "__str__(self)":
+- For debugging, it seems 'repr' works better, otherwise 'str' just shows "OBJECT" type garbage in the debugger
+  'repr' is some representation of THE OBJECT to the system, while 'str' just makes a string
+-------------------------------------------------------------------------------------------------------------
+Useful Decorators:
+- https://bytepawn.com/python-decorators-for-data-scientists.html
+-------------------------------------------------------------------------------------------------------------
+Function declarations:   From: "Effective Python" book on my shelf
+- Page  99: "The * symbol in the argument list indicates the end of positional arguments and the beginning of keyword-only arguments"
+- Page 100: "The / symbol in the argument list indicates where positional-only arguments end"
+- Page 101: "One notable consequence  of keyword and positional only arguments is that any parameter name between the / and the * symbols in the
+             argument list may be passed either by position or by keyword (which is the default for all function arguments in Python)
+-------------------------------------------------------------------------------------------------------------
+WORKING DIRECTORY:
+- To find the current working directory in Python, use os.getcwd()
+- to change the current working directory, use os. chdir(path)
+
+-------------------------------------------------------------------------------------------------------------
+The Python Requirements File and How to Create it - https://learnpython.com/blog/python-requirements-file/
+*****************************************************************************************************************************
+Installation of new PyCharm IDE on Dec 4, 2022:
+- Wanted to check out the new "UI", decided I didn't like it. Got it reset to using "High Contracts" Theme, ok fine.
+- But then couldn't get it to work as it crapped out on:
+	
+	"AttributeError: module 'numpy.core' has no attribute 'numerictypes' when importing panda"
+	
+  when loading panda in sql_utils.py:
+
+[28]   import pandas as pd                            # <---- errrored here
+[29]   from numpy import float64, int64, isnan
+
+I think what happened was, some panda, or numpy, was updated with the Pycharm download, and it was using a too new version of SOMETHING.
+(Maybe using numpy version=1.21.2  
+So I tried doing : 'pip install numpy=1.20.0'  in the pycharm 'terminal' window
+      then I did : 'pip install -r requirements.txt'  which installed numpy 1.21.2 again
+	  then I did : 'pip install numpy=1.20.0'  in the pycharm 'terminal' window
+	  AND AND AND
+	  removed the reference to 'numpy~=1.21.2' in requirements.txt
+THEN IT WORKED!	 
+What I did to get it to work was it needed older numpy version='1.20.0'  but it couldn't do it, because 'requirements.txt' said it needed a higher version.
+
+I think in the future, just get rid of the requirements.txt file?
+*****************************************************************************************************************************
+
+TELEBOT:
+Adding a package/library to Python now that Anaconda is gone:
+- Settings
+- Python Interpreter
+- "+" at the top left
+- search for it (pyTelegramBotAPI), "Install Package"
+LAPTOP:
+  If that does nothing, go into "Terminal" and run:       https://pypi.org/project/pyTelegramBotAPI/
+  pip install pyTelegramBotAPI
+(After this, PC version of Countdown didn't work)
+  So I went into Settings-Interpretter, +, pyTelegramBotAPI  and it worked
+
+------------------------------------------------------------------------------------------
+March 15, 2022: I went into "Python Interpreter" thing, and installed "pip"! It didn't complain about it not already being there or anything!!
+NOTE: Make sure your pycharm configuration is set to "Python 3.9" and not Python 3.8, as all new installs I do go to 3.9
+
+------------------------------------------------------------------------------------------
+Why my TODO's were turning up as orange (First the TODO highlighting properly worked, then it was overwritten in orange)
+- Settings -> Editor -> Inspections -> General -> "TODO comment"   ("Reports TODO comments in your code")
+- UNCHECK THIS !!!!
+- Go through all "Profile:" up top, just above the search box, to make sure you got them all
+
+-------------------------------------------------------------------------------------------------------------
+
+ERRORS:				  	      https://docs.python.org/2/tutorial/errors.html
+	- Default error catching: https://docs.python.org/3/tutorial/errors.html
+	- Traceback: https://docs.python.org/2/library/traceback.html	
+	  import friendly_traceback		https://aroberge.blogspot.com/2020/12/pytest-apparently-modifies-calls-to.html
+	# -----
+	from contextlib import suppress
+	with suppress(TypeError, KeyError, IndexError):  # ignores these errors!  https://stackabuse.com/python-catch-multiple-exceptions-in-one-line/
+		do_the_thing()
+	# -----	
+	def test():							Errors get caught by the first valid thing listed. So handle "ValueError" before "BaseError" or else "BaseError" will catch everything!
+		try:
+			range(1.0)
+		except:
+			friendly_traceback.explain_traceback()
+	---
+	except IOError as err:
+		print(f"I/O error({err.errno}): {err.strerror}")
+	
+	try:
+		pass
+	except:
+		print(f"FUNCTION_NAME(): Unexpected error: '{sys.exc_info()[0]}' : '{sys.exc_info()[1]}'")  
+		raise
+	else:    			- ONLY IF RAN SUCCESSFULLY!
+		pass
+	finally: 			- for cleanup actions that MUST happen, whether an error occurred or not
+		pass
+	
+	try:
+		pass
+	except A:
+		pass	(just eat the error basically
+
+	Using tuples of errors:
+		except (RuntimeError, TypeError, NameError):
+
+	raise ValueError("Car must be at least one of petrol, electric.")
+
+	class IncompatibleEngineTypeError(ValueError):
+		def __init__(self, message=None):
+			if not self.message:
+				self.message = "Car must be at least one of petrol, electric."
+			super().__init__(message)
+	class Car:
+		def __init__(self, electric=False, petrol=False):
+			if not electric and not petrol:
+				raise IncompatibleEngineTypeError()
+------------------------------------------------------------------------------------------
+- Checking if a class instance has an attribute:
+  if hasattr(self, "contract_details_file_handle"):
+    self.contract_details_file_handle.close()
+- Getting the name of a variable as a string:
+  joe = 12
+  f'{joe=}'.split('=')[0]
+'joe'
+------------------------------------------------------------------------------------------			
+Easy way to get the time:
+  import time
+  time.strftime("pyibapi.%Y%m%d_%H%M%S.log")
+------------------------------------------------------------------------------------------			
+Comprehensions:
+- goodFields = [xx for xx in fields if xx not in ignores]
+- Nested comprehensions:	https://spapas.github.io/2016/04/27/python-nested-list-comprehensions/
+  Turning a nested for loop into a comprehension:
+    A  for xx in needs.keys():
+    B      if needs[xx] is True:
+    C          if xx.find("ETrade") != -1:
+    D              xx
+  --> [ D A B C]   [ xx for xx in needs if needs[xx] is True if xx.find("ETrade") != -1 ]  
+  
+  [xx for xx in IB_tickers if xx in ETrade_tickers]
+  
+  for yy in [x for x in cols if x != col_num]:
+  
+  [a+b for a in A for b in B]
+  [(a, b) for a in A for b in B]
+  Platform = [[0 for i in  "."*9] for i in "."*9]
+  --
+  # Iterating over one column - `f` is some function that processes your data
+  result = [f(x) for x in df['col']]
+  # Iterating over two columns, use `zip`
+  result = [f(x, y) for x, y in zip(df['col1'], df['col2'])]
+  # Iterating over multiple columns - same data type
+  result = [f(row[0], ..., row[n]) for row in df[['col1', ...,'coln']].to_numpy()]
+  # Iterating over multiple columns - differing data type
+  result = [f(row[0], ..., row[n]) for row in zip(df['col1'], ..., df['coln'])]
+------------------------------------------------------------------------------------------
+MAKING MATRICES:   https://snakify.org/en/lessons/two_dimensional_lists_arrays/
+  - Initializing matrix:
+    arr = [[0] * 9] * 9
+  - Assigning:
+    arr[1][2] = [1, 2, 3]  <--------- careful! Repeats memory because [0] is immutable!!??
+									           You'll have to do some .copy() logic?
+  How Sudoku does it:
+  def get_new_opt_rows():
+    one_cell = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    one_row = one_cell + one_cell + one_cell + one_cell + one_cell + one_cell + one_cell + one_cell + one_cell
+    puz_opts = one_row + one_row + one_row + one_row + one_row + one_row + one_row + one_row + one_row
+    res = reshape(puz_opts, (9, 9, 9))
+    return res
+
+------------------------------------------------------------------------------------------
+SUPER FUNCTION:
+class Foo(Bar):
+    def baz(self, arg):
+        return super().baz(arg)
+------------------------------------------------------------------------------------------
+- How to share variables between functions in python:		https://stackoverflow.com/questions/41636867/how-to-share-variable-between-functions-in-python
+- Use "timeit" to time functions:  https://bbengfort.github.io/observations/2017/05/02/python-unique-benchmark.html
+	%timeit np.unique(sample1) # 16.4 µs ± 464 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+	%timeit pd.unique(sample1) # 60.3 µs ± 5.39 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+	%timeit list(set(sample1)) # 16.3 µs ± 1.63 µs per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+------------------------------------------------------------------------------------------
+GIT - see "GIT Tips and Tricks" file
+------------------------------------------------------------------------------------------
+TIMING
+  before = datetime.datetime.now()
+  (code)
+  after = datetime.datetime.now()
+  diff = after - before
+  f"{diff.total_seconds():.3}"
+------------------------------------------------------------------------------------------		
+THREADING
+  - https://wiki.python.org/moin/PyQt5/Threading%2C_Signals_and_Slots
+  - Threading for PyQt: https://realpython.com/python-pyqt-qthread/
+  - Do thread improvements, get GUI working again (Queue?)
+  - Revisit GUI tutorial. I only have one CPU
+	https://realpython.com/intro-to-python-threading/		Only multiprocessing actually runs these at literally the same time.
+	https://realpython.com/python-concurrency/			Threading and asyncio both run on a single processor and therefore only run one at a time. 
+------------------------------------------------------------------------------------------
+DICTIONARIES
+- Removing an element: dictionary.pop(key)
+- Joining two into one:
+	both = {**a_dict, **b_dict}
+	my_arg = '-'.join(f"{key}:{value}" for key, value in my_parameter_dict.items())
+	-----
+	UniqueRectangleTests = [4, 5, 6, 7, 10]
+	Types = ["Type 1", "Type 2", "Type 3", "Type 3 single num", "Type 5"]
+	URDict = dict(zip(UniqueRectangleTests, Types))
+	-----
+	Creating a reverse dictionary:
+		d_rev = dict(value,key for key,value in d.iteritems())
+		reversed_dictionary = {value : key for (key, value) in a_dictionary.items()}
+- Seeing if a dictionary (of prices) has a non-zero value in it:
+	- {x: y for x, y in joe.items() if y != 0}
+	- if {True for x in self.tickDict.values() if x != 0} == {True}:
+	
+------------------------------------------------------------------------------------------
+WRAPPERS / DECORATORS:
+	https://realpython.com/primer-on-python-decorators/
+------------------------------------------------------------------------------------------
+THREADS:
+	Eat their errors because they happen in a new stack and context
+	https://stackoverflow.com/questions/2829329/catch-a-threads-exception-in-the-caller-thread-in-python
+	Multiprocessing library doc:	https://docs.python.org/3/library/multiprocessing.html
+	Good concurrency overview:		https://realpython.com/python-concurrency/
+	Good intro to threading:		https://realpython.com/intro-to-python-threading/
+	Creating Multiple Processes:	https://www.blog.pythonlibrary.org/2020/07/15/python-101-creating-multiple-processes/
+MULTIPROCESSING:
+	Multiprocessing: Cannot take a SudokuGUI (self) as an arg!
+    From: https://www.blog.pythonlibrary.org/2020/07/15/python-101-creating-multiple-processes/ 
+    https://docs.python.org/3/library/multiprocessing.html """
+    If I "multiprocess", then I can't keep track of the thread?
+------------------------------------------------------------------------------------------
+LISTS:
+- Prepending something upfront:
+  my_list.insert(0, new_first_elem)
+------------------------------------------------------------------------------------------
+FORMATTING/FORMATS:		https://docs.python.org/3.4/library/string.html	
+	Leading zeros:
+		joe = 3
+		f"{joe:02d}"
+	-> '03'
+	"f" is the key for decimal places!
+	"format_time": ".2f",             F FLOAT!
+	{rank_ud[key]:10,.2f}
+	
+	Functions to add padding to strings: https://stackabuse.com/padding-strings-in-python/
+	- ljust(), center(), rjust(), zfill()
+	
+	Book: Page 226
+	%[(keyname)][flags][width][.precision]typecode	
+	f"{num:{width}.2%}"					# 2 decimal places, PERCENT
+	"{0:5,.1%}".format(123.456789)
+	--> '12,345.7%'						# comma
+	"{0:{1}}\n".format(yy, width)
+	"{0:{1}} : {2}\n".format(yy, width, xx)
+	"{0:{1}.{2}f}".format(725.2344, 15, 2)        KEY!  the {1} has to be bigger than the number, or else no padding!
+	--> '         725.23'
+	print(("Hello, {first_name} {last_name}. You are {age}. You are a {profession}. You were a member of {affiliation}.").format(
+		first_name=first_name, last_name=last_name, age=age, profession=profession, affiliation=affiliation))
+	If you had the variables you wanted to pass to .format() in a dictionary, then you could just unpack it
+	with .format(**some_dict) and reference the values by key in the string, but there has got to be a better way to do this.
+	
+	"f" formatting:	https://realpython.com/python-f-strings/
+	  name = "Eric"
+      age = 74
+      f"Hello, {name}. You are {age}."
+	  'Hello, Eric. You are 74.'
+	
+	  f"{2 * 37}"
+	  '74'
+------------------------------------------------------------------------------------------
+PYCHARM:
+- How to search for "grid = " but not return "# grid ="
+	^\s*grid =				from beg of line, whitespace, grid =
+- Color of file names: https://www.jetbrains.com/help/pycharm/file-status-highlights.html#views
+	white - hasn't been changed since last check-in
+	green - not checked in at all?
+	teal  - modified
+- Things I can put into the code that will get picked up by the linter: File->Settings, search for "todo"
+   TODO, TIP, BUG, OPTIMIZE - yellow
+   ! HACK, FIXME, CHECKTHIS - red
+   ? CHECKTHIS              - blue
+   https://www.jetbrains.com/help/pycharm/using-todo.html
+------------------------------------------------------------------------------------------
+Profile code with F10, to see which functions are being called, how much time is spent in them
+	Doesn't work with the GUI unfortunately
+	Tools -> Open CProfile snapshot		C:\Users\Chris New PC\AppData\Local\JetBrains\PyCharm2020.3\snapshots
+	https://www.jetbrains.com/help/pycharm/profiler.html#work-with-profiling-results
+------------------------------------------------------------------------------------------
+Use 'exec()' to have python execute code, not 'eval()'    (so, not like other languages)
+	https://docs.python.org/3/library/functions.html#eval
+------------------------------------------------------------------------------------------
+"nonlocal" declaration: grabs a variable from a higher scope:
+	def test1():
+		joe = 1
+		def test2():
+			nolocal joe
+			joe = 2      <-- changes the joe from "test1"
+------------------------------------------------------------------------------------------
+Adding a directory to a search path:
+	import sys
+	sys.path.insert(0, "D:/Program Files (x86)/Python38-32/Sudoku")    # has to be explicit to what you want
+------------------------------------------------------------------------------------------
+MY IDIOMS:
+
+UNIQUES via 'set()':
+	"joe" is a tuple == (1, 2, 1, 2)
+	"bob" is a array == [1, 2, 1, 2]
+	set(joe) = {1, 2}
+	set(bob) = {1, 2}   <-- but then sets are a pain to use!
+	for xx in set(joe):
+		print(xx)
+	1
+	2
+  Where a number is still an option for a cell in the puzzle box:
+	hits = 1*(cls.opt_rows[:,:,3-1]==3)   # returns a 9x9
+	hits = (cls.opt_rows==3).sum(axis=2)
+------------------------------------------------------------------------------------------
+For Loop Definition:
+	- You can use "else" at the end of a loop-it gets executed if the loop completes successfully (no breaks)
+	- The expression list is evaluated once; it should yield an iterable object.
+	- An iterator is created for the result of the expression_list. 
+	- The suite is then executed once for each item provided by the iterator, in the order of ascending indices. 
+	- Each item in turn is assigned to the target list using the standard rules for assignments, and then the suite is executed. 
+	- When the items are exhausted (which is immediately when the sequence is empty), the suite in the else clause, if present, is executed, and the loop terminates.
+
+	"for" target_list "in" expression_list ":" suite
+              ["else" ":" suite]
+			  
+	the "[]" portion of a for loop seems to have a vary narrow scope:
+		pete=12
+		[print(pete) for xx in range(1,10)]
+		*** NameError: name 'pete' is not defined
+		
+	pete = 12
+	[print(xx) for xx in range(pete)]     # THIS WORKS! It knows the 'pete' on the right
+	[pete == xx for xx in range(pete)]    # THIS DOES NOT! Does not know the 'pete' on the left
+										  # June 5 - this works all of a sudden
+	joe="hi there brown bier"
+	[xx for xx in joe if xx=="e"]
+	['e', 'e', 'e']						  # WORKS"
+	https://eli.thegreenplace.net/2015/the-scope-of-index-variables-in-pythons-for-loops/
+------------------------------------------------------------------------------------------
+Strings/formatting:
+	- string.isnumeric() function		https://www.geeksforgeeks.org/python-string-isnumeric-application/
+	msg = "The sum of 1 + 2 is {0}".format(1+2)
+	print(msg)
+
+	call_stack = "LOL call_stack!"		row = 11	col = 22	ee = 33		puz_num = 44
+	msg = "**** {0}".format(call_stack)     # {0} means the zero (first) variable in the format() call
+	msg += "\n\tI am trying to put #{0} into cell ({1}, {2}) but that that already has solved number {3} in it!".format(puz_num, row, col, ee)
+	print(msg)
+		Norvig 1) **** LOL call_stack!
+		I am trying to put #44 into cell (11, 22) but that that already has solved number 33 in it!
+	
+	print("%s\t%s" % (line, cls.birth_time.get_time(1)))
+
+	txt = "For only {price:.2f} dollars!"
+	print(txt.format(price = 49)) 
+
+	from parse import parse
+	parse('{} fish', '1')
+------------------------------------------------------------------------------------------
+"Overloading" methods (class functions)
+	https://docs.python.org/3/library/functools.html#functools.singledispatch
+	Python doesn't support this, but what you can do is register different versions of the method
+	('different' == uses a different first argument type):
+
+	1st) Make the 'generic' case of the method:
+	    @singledispatch
+		def process_one_cell(cls, aCell):
+	2nd) 'Register' the other version of the function. Tell python wha
+	    @process_one_cell.register(int)
+		def _(cls, row, col, num):
+
+	Note: I think it's easier to make the complicated case first (process_one_cell takes a acell.aCell argument)
+	      and then register the "simple" version (process_one_cell takes ints)
+----------------------------------------------------------------------------------------------------
+To find hits, and peel out rows or columns:
+WRONG!
+	colrows = (np.nonzero(range(9) * rowcol_hits))[0]    <-- this gets rid of "0" as a valid hit!
+	res 	= cls.iota9 * hits[three_rowcol]             <-- this turns hits[x] == [1,0,0,0,1,0,0,0,1] into 1, 5, 9 when it should be 0,4,8
+	res		= res[res != 0]
+RIGHT!
+	colrows = (np.nonzero(range(1,10) * rowcol_hits))[0] <-- this properly gets "0" as a good result
+															 (using iota9 would work too)
+----------------------------------------------------------------------------------------------------
+SETS AND AUTOMATIC DUPLICATION REMOVAL!  (not lists, sets!)
+---------------------------------------
+thisset = {"apple", "banana", "cherry"}
+for x in thisset:
+  print(x)
+
+ A set uses the same curly braces that you used to create a dictionary. Note that instead of
+ key: value pairs, you have a series of values. When you print out the set, you can see that
+ duplicates were removed automatically. (!!!!!!!!!!!!!!!)
+
+    union() – Combines two sets and returns a new set
+    intersection() – Returns a new set with the elements that are common between the two sets
+    difference() – Returns a new set with elements that are not in the other set
+------------------------------------------------------------------------------------------
+if NO_OUTPUT:	https://stackoverflow.com/questions/2828953/silence-the-stdout-of-a-function-in-python-without-trashing-sys-stdout-and-resto
+	old_stdout = cls.turn_off_output()
+
+(later on)
+
+if NO_OUTPUT:
+	cls.turn_on_output(old_stdout)
+------------------------------------------------------------------------------------------
+Adding to a list:  .append()
+Deleting a file: os.remove(file_name)
+------------------------------------------------------------------------------------------
+twoarray = []
+twos = self.opt_rows
+for n in twos:
+	twoarray.append(1*(np.count_nonzero(n, axis=1) == 2))
+# "twoarray" is now an array of where a pair (of anything) occurs in the options
+------------------------------------------------------------------------------------------
+hits = 1 * (self.opt_rows[:, :, num3 - 1] == num3)
+hits = np.where(self.opt_rows[:, :, num3 - 1] == num3, 1, 0)
+r = self.iota9[hits.sum(axis=1) == 2] - 1
+c = self.iota9[hits.sum(axis=0) == 2] - 1
+------------------------------------------------------------------------------------------
+UNIQUES:
+to find singletons in a 3x3/9x9 option box:
+	nums = np.unique(box, return_counts=True)
+	singletons = (nums[0])[nums[1] == 1]
+
+	uniq = np.unique(box, return_counts=True)
+	twos = (uniq[0])[uniq[1] == 2]
+
+	uniqs = gf.get_unique_remaining_options(self.opt_rows)
+	uniqs = uniqs[uniqs != 0]
+
+	return [x for x in cell if x != 0]
+------------------------------------------------------------------------------------------
+cells = (np.arange(81)+1).reshape((9, 9))
+res = (self.iota9*[box.sum(axis=0) == self.iota9])
+for rr in res[np.nonzero(res)]:
+	offset = (cells*(box == rr)).sum()
+------------------------------------------------------------------------------------------
+from itertools import product
+	for row, col in product(range(9), repeat=2):
+	--> this replaces double looping with two "for" loops
+------------------------------------------------------------------------------------------
+Getting rid of some things from an array:
+	B = set(B); only_in_A = [x for x in A if x not in B]
+Other array loop cuteness:
+	for r1 in range(9):
+		for r2 in [x for x in range(r1 + 1, 9) if x != r1]:
+
+	([True for x in [4,7,7] if x in [4,6,7]])
+	[True, True, True]
+	([True for x in [4,7,8] if x in [4,6,7]])
+	[True, True]
+------------------------------------------------------------------------------------------
+box1 = 1 * (self.opt_rows[:, :, t1-1] == t1)
+box2 = 1 * (self.opt_rows[:, :, t2-1] == t2)
+hits = box1 & box2
+------------------------------------------------------------------------------------------
+Printing to text file:
+1)  text_file = open(file_name, "a", buffering=1) # print after every char(?)
+    for n in range(runs):
+        out_grid = return_good_grid(grid)
+        text_file.write(out_grid + "\n")
+    text_file.close()
+2)  with open(excel_file, 'w', newline='') as f:
+		for x in range(9):
+			for y in range(9):
+				csv.writer(f, delimiter=' ').writerow(Puzzle.options_rows[x,y])
+			csv.writer(f, delimiter=' ').writerow("") # Puts a blank line in
+------------------------------------------------------------------------------------------
+def cross(A, B):
+    "Cross product of elements in A and elements in B."
+
+    return [a+b for a in A for b in B]
+
+	digits   = '123456789'
+	rows     = 'ABCDEFGHI'
+	cols     = digits
+	squares  = cross(rows, cols)
+	unitlist = ([cross(rows, c) for c in cols] +
+				[cross(r, cols) for r in rows] +
+				[cross(rs, cs) for rs in ('ABC','DEF','GHI') for cs in ('123','456','789')])
+	units = dict((s, [u for u in unitlist if s in u])
+				for s in squares)
+	peers = dict((s, set(sum(units[s],[]))-set([s]))
+             for s in squares)
+----------------------------------------------------------------------------------------------------------
+FILES:
+- os.path.isfile(), os.path.isdir(), os.path.exists()
+
+for filename in os.listdir(DIR):
+	print(os.path.join(DIR, filename))
+	print(filename)
+	if not filename.endswith(str(x) + ".txt"):
+		continue
+		
+for cc in peer_corners:
+	peers.append(cls.norvig.get_peers(cls, ''.join(map(str,cc))))
+----------------------------------------------------------------------------------------------------------
+Printing a function name within a function:    https://docs.python.org/3/library/inspect.html
+	import inspect
+	all_frames = inspect.getouterframes(inspect.currentframe())
+	previous_frame = all_frames[1]
+	frame, filename, lineno, function, code_context, index = previous_frame
+	# "function" is it
+----------------------------------------------------------------------------------------------------------
+"SPLATTING"
+    def splatter(*args):
+        my_dict = args[0]
+        for xx, yy in my_dict.items():
+            print(f"my_dict: {xx}, {yy}")
+----------------------------------------------------------------------------------------------------------
+UNIX:
+-	My old .vimrc:
+	:nnoremap j jzz
+	:nnoremap k kzz
+--------------------------------------------------------------------------------------
+- When searching subdirectories for a file beginning with "SONY" say, you cannot do this:
+
+	grep -r exDividendDate SONY*
+	
+  as the subdirectory "OLD" will come up as "OLD/SONY.." and the search breaks
+  You need to do this:
+  
+	grep -r exDividendDate * | grep SONY                              ...OR...
+	grep -r exDividendDate * | grep *SONY*                            ...OR...
+----------------------------------------------------------------------------------------------------------
+LINKS / READING:
+- Greedy vs non-greedy searching:	https://docs.python.org/3/howto/regex.html#greedy-versus-non-greedy
+- "Dmitry’s TWS API FAQ"			https://dimon.ca/dmitrys-tws-api-faq/
+- Scrape/parse websites : https://realpython.com/python-web-scraping-practical-introduction/
+- "How to clear plots in Matplot"	https://www.pythonpool.com/clear-plot-matplotlib/?utm_source=rss&utm_medium=rss&utm_campaign=clear-plot-matplotlib
+- PyQt GUI	  			: https://build-system.fman.io/pyqt5-tutorial
+-      Dialogs	        : https://www.learnpyqt.com/courses/qt-creator/creating-dialogs-qt-designer/
+- CSS colors - what their values are:	https://www.w3schools.com/cssref/css_colors.asp
+- PySimpleGUI			: https://realpython.com/pysimplegui-python/
+- EasyGUI			    : http://easygui.sourceforge.net/tutorial.html#easygui-s-demonstration-routine
+- Using "inspect"       : https://docs.python.org/3/library/inspect.html
+- Using "logging"       : https://docs.python.org/3/library/logging.html#logging.captureWarnings
+						  https://www.jetbrains.com/help/pycharm/setting-log-options.html
+- Globals()				: https://www.pythonpool.com/python-globals/?utm_source=rss&utm_medium=rss&utm_campaign=python-globals
+- Using "warnings"      : https://lerner.co.il/2020/04/27/working-with-warnings-in-python/
+- Regular expressions   : https://docs.python.org/3/library/re.html
+                        : https://docs.python.org/3/howto/regex.html#regex-howto
+Databases  - https://www.python.org/dev/peps/pep-0249/
+Exceptions - https://www.codementor.io/@henrygeorge/a-comprehensive-guide-to-handling-exceptions-in-python-178ikwc2ot
+Errors     - https://docs.python.org/2/tutorial/errors.html
+Excel      - https://realpython.com/openpyxl-excel-spreadsheets-python/
+Matplot "violin" chart:
+           - https://stackabuse.com/matplotlib-violin-plot-tutorial-and-examples/   (for Sudoku result plotting)
+"What is 'data engineering'?
+           - https://realpython.com/python-data-engineer/
+Splitting a class into separate modules:		http://www.qtrac.eu/pyclassmulti.html
+----------------------------------------------------------------------------------------------------------
+SPYDER:
+	Use Anaconda Navigator, set it to "Acnaconda3_2020.02" then Spyder 4.0.1 should be an option to launch
+------------------------------------------------------------------------------------------
+If Visual Studio complains about not finding numpy, then switch to "Anaconda3_2020.02..." environment in the
+	drop down menu underneath the menu bar
+------------------------------------------------------------------------------------------
+explain()
+dir() - from book, page 995
+dir(self)
+Out[6]: ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', 
+		 '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'assign', 
+		 'check_my_work_vs_answer', 'check_norvig_vs_options_given_by_excel', 'cross', 'display', .....]
+help(module) - 
+help(self) - 
+__dict__
+self.__dict__.keys()
+Out[5]: dict_keys(['nor_digits', 'nor_rows', 'nor_cols', 'nor_squares', 'nor_unitlist', 'nor_units', 'nor_peers', 'nor_bigbox', 'norvig_answers'])
+
+-------------------------------------------------------------------------------------------------------------
+
+Where are the yPycharm breakpoints actually stored?
+	D:/Program Files (x86)/Python38-32/Market Data/.idea/workspace.xml
+	

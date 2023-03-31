@@ -1,0 +1,36 @@
+CREATE TRIGGER trg_mktval_upd AFTER UPDATE ON tbl_positions
+    FOR EACH ROW
+    BEGIN
+        UPDATE tbl_positions
+            SET mktVal = tbl_positions.close * tbl_positions.shares
+            WHERE tbl_positions.ticker = ticker and curdate=tbl_positions.curdate;
+    END;
+
+
+CREATE TRIGGER trg_mktval_ins AFTER INSERT ON tbl_positions
+    FOR EACH ROW
+    BEGIN
+        UPDATE tbl_positions
+            SET mktVal = tbl_positions.close * tbl_positions.shares
+            WHERE tbl_positions.ticker = ticker and curdate=tbl_positions.curdate;
+    END;
+
+
+
+CREATE TRIGGER trg_mktval_ins AFTER INSERT ON jojo
+    FOR EACH ROW
+    BEGIN
+        UPDATE jojo
+            SET mktVal = jojo.close * jojo.shares
+            WHERE ticker = jojo.ticker and curdate=jojo.curdate;
+    END;
+
+
+CREATE TRIGGER trg_mktval_upd AFTER UPDATE ON jojo
+    FOR EACH ROW
+    BEGIN
+        UPDATE jojo
+            SET mktVal = jojo.close * jojo.shares
+            WHERE ticker = jojo.ticker and curdate=jojo.curdate;
+    END;
+

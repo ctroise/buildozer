@@ -1,0 +1,116 @@
+https://www.jetbrains.com/help/pycharm/navigating-through-the-source-code.html#
+
+
+
+add new hotkeys
+
+
+----------------------------
+    INSTALLING PACKAGES
+----------------------------	
+1 - Settings - Python Interpretter - +
+2 - View - Tool Windows - Python Packages  (search for it)
+3 - alt-enter	By a module name, will bring up menu to import it
+- https://www.jetbrains.com/help/pycharm/installing-uninstalling-and-upgrading-packages.html
+
+------------------------------------------
+       ALT-SHIFT-CTRL hotkeys
+------------------------------------------
+ctrl-alt-v		 - extra line into a new variable
+ctrl-left-mouse  - when done on a file's tab, will allow you to navigate to any part of its directory path
+shft-shft        - bring up "Search anywhere" box (different from ctrl-shft-f search box)
+ctrl-shft-s      - Settings
+alt-i            - add to inline watches
+alt-w            - add to watches
+ctrl-F12         - navigate file structure (shows functions and such)
+alt+F8	         - evaluate any selected expression while debugging
+alt-enter        - Context menu (just for breakpoints?)	
+alt-F7           - locate all occurrences of code referencing the symbol at the cursor
+------------------------------------------------------------------------------------------
+ctrl-o           - override method
+ctrl-w			 - extend selection - do it a few times to select current method
+ctrl-alt-F7      - show usages of a class
+ctrl-shft-Bkspc  - go through last code edits in turn
+ctrl-shft-i      - quick definition viewer
+ctrl-p           - Inside method parens, bring up list of valid parameters
+ctrl-shft-J		 - Join two lines together and remove unnecessary spaces
+ctrl-shft-M		 - Match brace
+ctrl-alt-e		 - highlight 'find' items only in current selection
+ctrl-alt-t		 - "surround with" - context sensitive addition of "if", "while", "try/except" and so on
+ctrl-shft-u		 - toggle case
+ctrl-alt-shft-i  - Search inspections
+Edit a language injection:  	Alt+Enter and choose Edit RegExp Fragment. The regular expression opens in a separate tab in the editor, where you can type backslashes as is.
+
+ 
+------------------
+    BOOKMARKS
+------------------
+ESC				move focus to editor from tool window
+shft-ESC		Move focus to editor, hide last used tool window
+ctrl-F8			Toggle breakpoint
+F11				Toggle bookmark
+F12				Move focus from editor to last focused tool window
+shft-F11		Show all bookmarks
+shft-F11-number - go to bookmark number 'number'
+shft-F11-letter - go to bookmark mnemonic 'letter'
+ctrl-F11		Create a "mnemonic" bookmark
+shft-F11-g      Sudoku_GUI
+shft-F11-c      config file
+
+---------------------
+      GOTO
+---------------------
+F4				goto to sql table's data (Jump to source)
+alt-home		goto navigation bar
+alt-up			Previous method/function
+alt-down		Next method/function
+ctrl-shft-n		Find file (name)
+ctrl-shft-f		Find text in all project files
+ctrl-shft-R		Find/Replace text in all project files
+ctrl-alt-shft-n MEGA SEARCH!
+ctrl-shft-back  Last edit location
+F2				Next issue
+shft-F2			Prev issue
+alt-up			Previous method
+alt-down		Next method
+ctrl-b			Function declaration
+ctrl-mouse		hover mouse over something, declaration pops up
+shft-F6			Rename
+alt-F7			Find usages of selection
+
+SHOW:
+alt-F1			Select current element in another view
+alt-2			Show favorites
+ctrl-shft-e		Show recent places (w/changes only option)
+ctrl-shft-V		Show-use recent clipboard contents
+ctrl-F12		Show structure view
+
+
+---------------------
+RUNNING AND DEBUGGING
+---------------------
+Shift+F10		Run
+Shift+Alt+F10	Choose configuration and run
+Ctrl+F5			Rerun
+Shift+F10		Rerun without loosing focus in the editor
+Shift+F9		Debug
+Shift+Alt+F9	Choose configuration and debug
+Alt+F10 		Show Execution Point
+F8				Step Over
+F7				Step Into 	
+Ctrl-F7			Step into MY code
+Shift+F7 		Smart Step Into
+Shift+F8 		Step Out	
+Shift+Alt+F8 	Force Step Over	
+Shift+Alt+F8	Step Into My Code
+Shift+Alt+F7 	Force Step Into	
+Alt+F9 			Run to Cursor	
+Ctrl+Alt+F9 	Force Run To Cursor
+F9				Resume Program
+Ctrl+Pause 		Pause Program	
+Ctrl-F2			Stop
+Shift+F2 		Stop Program
+Alt+F8 			Evaluate Expression
+Ctrl+Alt+F8 	Quick Evaluate Expression
+Ctrl+F8			Toggle breakpoint at the current line.
+Ctrl+Shift+F8	View Breakpoints

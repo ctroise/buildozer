@@ -1,0 +1,32 @@
+-------------------------------------------------------------------------------------------------------------
+
+LINKS:
+    https://realpython.com/mobile-app-kivy-python/
+    "SDK Platform Tools release notes"  https://developer.android.com/tools/releases/platform-tools
+    "Buildozer Installation"            https://buildozer.readthedocs.io/en/latest/installation.html#targeting-android
+    "Buildozer Documentation"           https://buildozer.readthedocs.io/en/latest/index.html
+    "Kivy Programming Guide"            https://kivy.org/doc/stable/guide/basic.html
+
+-------------------------------------------------------------------------------------------------------------
+
+TO MAKE THE CELLPHONE BUILD:
+
+1) Folder 'Pycharm/buildozer':
+  - contains 'main.py' with the code   (main.py is a required hardcoded filename)
+  - contains 'buildozer.spec' with settings
+
+2) From a regular bash window (ie, not 'terminal' within Pycharm):
+    buildozer -v android debug    (doing 'release' is also an option, but i don't have notes how to install that on the phone yet)
+
+3) This creates a file in 'Pycharm/buildozer/bin' called something like:
+	'kvcalc-0.1-arm64-v8a_armeabi-v7a-debug.apk'
+
+4) Connect the cellphone to the PC using its charging cable
+  - this pops up an explorer
+  - on the phone, 'Allow' the PC access
+  - drag/drop/copy the 'kvcalc-0.1-arm64-v8a_armeabi-v7a-debug.apk' file into 
+    the cellphone's 'Download' folder
+  - On the phone, open 'Files' app, go to 'Downloads', find the .apk file, click to install it / 'Update' it
+    (follow safety prompts to say 'yes')
+
+-------------------------------------------------------------------------------------------------------------

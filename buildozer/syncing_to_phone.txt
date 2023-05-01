@@ -1,0 +1,25 @@
+HOW TO GET CODE TO THE CELLPHONE:
+
+1) Upload evens.py to Google Drive:
+   Folder: 'PyCharm Stuff'
+   Folder: 'Cellphone Python'
+
+2) On cellphone, go to 'Pydroid 3' screen
+   'Google Drive' app
+   Folder: 'PyCharm Stuff'  (colored red)
+   Folder: 'Cellphone Python'
+
+3) hit the three dots to the right of 'Evens.py' and then 'download'
+
+4) Go back to Pydroid screen
+   'Files'
+   'Downloads'
+   Delete the old 'Evens.py' and rename what was just downloaded to be 'Evens.py'
+
+5) Go to 'Pydroid' app
+   Click on the current evens file, close it
+
+6) Click on the folder icon to open the downloaded evens
+   'Internal Storage'
+   'Download'
+   Open Evens, rename it if need be

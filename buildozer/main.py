@@ -1,154 +1,112 @@
+import os
+import re
+from typing import Callable
+#
 from kivy.app import App
 #from kivy.uix.image import Image
 #from kivy.uix.behaviors import ToggleButtonBehavior
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.togglebutton import ToggleButton
-from kivy.uix.button import Button
-from kivy.uix.textinput import TextInput
+#from kivy.uix.button import Button
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.label import Label
-import re
+from kivy.uix.textinput import TextInput
+from kivy.graphics.instructions import Canvas, CanvasBase
+from utils import NORMAL_COLOR, NO_FOCUS_COLOR, HIGHLIGHT_COLOR, ALL_POTENTIAL_SOLUTIONS
+from utils import static_vars, get_sql_today
 
-ALL_POTENTIAL_SOLUTIONS = {
-  10: {2: [[1,2,3,4]]},
 
-  11: {1: [[1,2,3,5]]},
+res = get_sql_today()
+TODAY = res[0]
+HOUR = int(res[1])
 
-  12: {2: [[1,2,3,6], [61,2,4,5]]},
 
-  13: {1: [[1,2,3,7], [1,3,4,5]],
-       3: [[1,2,4,6]]},
-
-  14: {2: [[1,2,3,8], [1,2,4,7], [1,2,5,6], [1,3,4,6], [2,3,4,5]]},
-
-  15: {1: [[1,2,3,9], [1,2,5,7], [1,3,4,7], [1,3,5,6]],
-       3: [[1,2,4,8], [2,3,4,6]]},
-
-  16: {0: [[1,3,5,7]],
-       2: [[1,2,4,9], [1,2,5,8], [1,2,6,7], [1,3,4,8], [1,4,5,6], [2,3,4,7], [2,3,5,6]]},
-
-  17: {1: [[1,2,5,9], [1,3,4,9], [1,3,5,8], [1,3,6,7], [1,4,5,7], [2,3,5,7]],
-       3: [[1,2,6,8], [2,3,4,8], [2,4,5,6]]},
-
-  18: {0: [[1,3,5,9]],
-       2: [[1,2,6,9], [1,2,7,8], [1,3,6,8], [1,4,5,8], [1,4,6,7], [2,3,4,9], [2,3,5,8], [2,3,6,7], [2,4,5,7], [3,4,5,6]]},
-
-  19: {1: [[1,2,7,9], [1,3,6,9], [1,3,7,8], [1,4,5,9], [1,5,6,7], [2,3,5,9], [3,4,5,7]],
-       3: [[1,4,6,8], [2,3,6,8], [2,4,5,8], [2,4,6,7]]},
-
-  20: {0: [[1,3,7,9]],
-       2: [[1,2,8,9], [1,4,6,9], [1,4,7,8], [1,5,6,8], [2,3,6,9], [2,3,7,8], [2,4,5,9], [2,5,6,7], [3,4,5,8], [3,4,6,7]],
-       4: [[2,4,6,8]]},
-
-  21: {1: [[1,3,8,9], [1,4,7,9], [1,5,6,9], [1,5,7,8], [2,3,7,9], [3,4,5,9], [3,5,6,7]],
-       3: [[2,4,6,9], [2,4,7,8], [2,5,6,8], [3,4,6,8]]},
-
-  22: {0: [[1,5,7,9]],
-       2: [[1,4,8,9], [1,6,7,8], [2,3,8,9], [2,4,7,9], [2,5,6,9], [2,5,7,8], [3,4,6,9], [3,4,7,8], [3,5,6,8], [4,5,6,7]]},
-
-  23: {1: [[1,5,8,9], [1,6,7,9], [2,5,7,9], [3,4,7,9], [3,5,6,9], [3,5,7,8]],
-       3: [[2,4,8,9], [2,6,7,8], [4,5,6,8]]},
-
-  24: {0: [[3,5,7,9]],
-       2: [[1,6,8,9], [2,5,8,9], [2,6,7,9], [3,4,8,9], [3,6,7,8], [4,5,6,9], [4,5,7,8]]},
-
-  25: {1: [[1,7,8,9], [3,5,8,9], [3,6,7,9], [4,5,7,9]],
-       3: [[2,6,8,9], [4,6,7,8]]},
-
-  26: {2: [[2,7,8,9], [3,6,8,9], [4,5,8,9], [4,6,7,9], [5,6,7,8]]},
-
-  27: {1: [[3,7,8,9], [5,6,7,9]],
-       3: [[4,6,8,9]]},
-
-  28: {2: [[4,7,8,9], [5,6,8,9]]},
-
-  29: {1: [[5,7,8,9]]},
-
-  30: {2: [[6,7,8,9]]}
-}
-
+# -------------------------------------------------------------------------------------------------------------------
 def flatten_list(alist):
     # only works for one level deep
     res = [item for xx in alist for item in xx]
     return res
 
 
-def net_out(aa, bb):
-    opts = None
-    if not aa:
-        opts = bb
-    else:
-        opts = [xx for xx in aa if xx in bb]
-    res = ", ".join([str(xx) for xx in opts])
-    return opts, res
-
 
 # ----- class myTextInput - START -----------------------------------------------------------------------------------
 class myTextInput(TextInput):
-    def __init__(self, row:int=None, col:int=None, multiline:bool=False, halign="center"):
-        super().__init__(multiline=multiline, halign=halign)
-        self.AROW = row
-        self.ACOL = col
+    def __init__(self, *args, **kwargs):
+        self.AROW = args[0]
+        self.ACOL = args[1]
+        kwargs["halign"] = "center"
+        super().__init__(**kwargs)
 
-    # def _on_focus(self, instance, value, *largs):
-    #     WHITE = [1, 1, 1, 1]
-    #     BLACK = [1, 1, 1, 0]
-    #     ib = instance.background_color
-    #     if value:
-    #         if instance.background_color == WHITE:
-    #             instance.background_color = BLACK
-    #         else:
-    #             instance.background_color = WHITE
-    #     else:
-    #         if instance.background_color == WHITE:
-    #             instance.background_color = BLACK
-    #         else:
-    #             instance.background_color = WHITE
-
-
-
-    def my_box_press(self, instance):
-        #current = self.solution.text
-        ODD = [1, 1, 1, 1]
-        EVEN = [1, 1, 1, 0]
-        if instance.background_color == EVEN:
-            instance.background_color = ODD
-        else:
-            instance.background_color = EVEN
+    def on_focus(self, instance, value, *largs):
+        self.reset_top_boxes()
+        self.reset_sum_colors()
+        instance.background_color = HIGHLIGHT_COLOR
+        if instance.ANAME == "rowsum":
+            row = instance.ANUM
+            self.hightlight_row_col(p_row=row)
+            rowsum = self.ROW_SUMS[row]
+            self.THE_SUM_INPUT.text = str(rowsum)
+            numevens = self.NUM_EVENS_BY_ROW[row]
+            self.NUM_EVENS_INPUT.text = str(numevens)
+            must_have = [xx for xx in self.MY_SOLUTION[row] if xx != 0]
+            if must_have:
+                self.MUST_HAVE_INPUT.text = ", ".join(map(str, must_have))
+            pot_sols = self.populate_potential_solutions_box(thesum=rowsum, numevens=numevens, must_have=must_have)
+            if pot_sols:
+                self.find_unique_to_all(pot_sols)
+        elif instance.ANAME == "colsum":
+            col = instance.ANUM
+            self.hightlight_row_col(p_col=col)
+            colsum = self.COL_SUMS[col]
+            self.THE_SUM_INPUT.text = str(colsum)
+            numevens = self.NUM_EVENS_BY_COL[col]
+            self.NUM_EVENS_INPUT.text = str(numevens)
+            # must_have = [yy for xx in self.MY_SOLUTION for yy in xx if yy != 0]
+            must_have = [xx[col] for xx in self.MY_SOLUTION if xx[col] != 0]
+            if must_have:
+                self.MUST_HAVE_INPUT.text = ", ".join(map(str, must_have))
+            pot_sols = self.populate_potential_solutions_box(thesum=colsum, numevens=numevens, must_have=must_have)
+            if pot_sols:
+                self.find_unique_to_all(pot_sols)
+        return
 # ----- class myTextInput - END   -----------------------------------------------------------------------------------
-
-
-# ----- class myTextInput_NEW - START -----------------------------------------------------------------------------------
-class myTextInput_NEW(TextInput):
-    def __init__(self, row:int, col:int, multiline:bool):
-        super().__init__(multiline=multiline)
-        self.AROW = row
-        self.ACOL = col
-# ----- class myTextInput_NEW - END   -----------------------------------------------------------------------------------
 
 
 
 # ----- class myNumbersOnlyInput - START ----------------------------------------------------------------------------
 class myNumbersOnlyInput(TextInput):
-    def __init__(self, num=None, name="", multiline=False, halign="center", size_hint=None):
-        self.ANUM = num
-        self.ANAME = name
-        # To only allow floats (0 - 9 and a single period):
-        self.PATTERN = re.compile('[^0-9]')
-        if size_hint:
-            super().__init__(multiline=multiline, halign=halign, size_hint=size_hint)
+    TAB_NUM = -1
+    TAB_ORDER = {}
+    TAB_NEXT = None
+
+    def __init__(self, *args, **kwargs):
+        self.MYAPP = args[0]
+        self.ANAME = args[1]
+        self.ANUM = kwargs.get("num", None)
+        readonly = kwargs.get("readonly", False)
+        kwargs["halign"] = "center"
+        kwargs.pop("num", None)
+        self.PATTERN = re.compile('[^0-9]')  # To only allow floats (0 - 9 and a single period):
+        #
+        super().__init__(**kwargs)
+        #
+        if not readonly:
+            myNumbersOnlyInput.TAB_NUM += 1
+            self.TAB_NUM = myNumbersOnlyInput.TAB_NUM
+            myNumbersOnlyInput.TAB_ORDER[self.TAB_NUM] = self
         else:
-            super().__init__(multiline=multiline, halign=halign)
+            self.TAB_NUM = None
+            self.background_color = NO_FOCUS_COLOR
         return
 
-    # def on_focus(self, instance, value):
-    #     if value:
-    #         print('User focused', instance)
-    #     else:
-    #         print('User defocused', instance)
+    # def _on_focus(self, instance, value, *largs):
+    #     for cell in self.MYAPP.THE_TOP_THREE:
+    #         if cell:
+    #             cell.background_color = NORMAL_COLOR
+    #     instance.background_color = HIGHLIGHT_COLOR
 
-    def insert_text(self, substring, from_undo=False):
-        #pat = self.pat
+
+    def insert_text(self, substring, from_undo=False):  # myNumbersOnlyInput(TextInput):
         if '.' in self.text:
             s = re.sub(self.PATTERN, '', substring)
         else:
@@ -156,23 +114,32 @@ class myNumbersOnlyInput(TextInput):
             s = ''.join(re.sub(self.PATTERN, '', s) for s in substring.split('.', 1))
         return super().insert_text(s, from_undo=from_undo)
 
-
     def keyboard_on_key_down(self, window, keycode, text, modifiers):
+        TextInput.keyboard_on_key_down(self, window, keycode, text, modifiers)
         if keycode[1] == ".":
             _joe = 12
             self.text = ""
-        # elif keycode[1] == "backspace":
-        #     print("print backspace down", keycode)
-        TextInput.keyboard_on_key_down(self, window, keycode, text, modifiers)
-
-    def keyboard_on_key_up(self, window, keycode):  # , text, modifiers):
-        if keycode[1] == ".":
-            _joe = 12
-        # elif keycode[1] == "backspace":
-        #     print("print backspace up", keycode)
+        elif keycode[1] == "tab":
+            # to make this smarter: https://kivy.org/doc/stable/api-kivy.uix.behaviors.focus.html
+            INC = 1
+            if "shift" in modifiers:
+                INC = -1
+            which = self.TAB_NUM
+            next = (which + INC) % (myNumbersOnlyInput.TAB_NUM+1)
+            # self.TAB_ORDER[next].focus = True  #  tab_order[next].focus = True
+            self.TAB_NEXT = next
         #TextInput.keyboard_on_key_down(self, window, keycode, text, modifiers)
+
+    def keyboard_on_key_up(self, window, keycode):
+        # Note: After key_up, for tab-shifting, 'on_focus' gets triggered
+        if keycode[1] == "tab":
+            self.TAB_ORDER[self.TAB_NEXT].focus = True
         return
 
+    def keyboard_on_textinput(self, window, text):
+        _joe = 12
+        TextInput.keyboard_on_textinput(self, window, text)
+        return
 
 # ----- class myNumbersOnlyInput - END   ----------------------------------------------------------------------------
 
@@ -193,7 +160,7 @@ class myButton(ToggleButton):
 
 
     def on_state(self, widget, value):
-        #text = self.text
+        #self.MYAPP.reset_top_boxes()
         if value == "down":
             #self.source = 'atlas://data/images/defaulttheme/checkbox_on'
             self.text = "even"
@@ -202,12 +169,33 @@ class myButton(ToggleButton):
             #self.source = 'atlas://data/images/defaulttheme/checkbox_off'
             self.text = "odd"
             self.MYTEXT = "odd"
-        #thesum = value
-        #numevens = sum([1 for xx in self.MYAPP.ODD_EVEN_CELLS[widget.MYAPP.ANUM] if xx.MYTEXT=='even'])
-        self.MYAPP.NUM_EVENS_INPUT.text = ""  # str(numevens)
-        self.MYAPP.MUST_HAVE_INPUT.text = ""
-        self.MYAPP.THE_SUM_INPUT.text = ""
-        self.MYAPP.POTENTIAL_SOLUTIONS.text = ""
+        self.resum_numevens()
+        return
+
+    def resum_numevens(self):
+        for row in range(4):
+            numevens = sum([1 for xx in self.MYAPP.ODD_EVEN_CELLS[row] if xx.MYTEXT == 'even'])
+            self.MYAPP.NUM_EVENS_BY_ROW[row] = numevens
+        for col in range(4):
+            numevens = 0
+            for row in range(4):
+                if self.MYAPP.ODD_EVEN_CELLS[row][col].MYTEXT == 'even':
+                    numevens += 1
+            self.MYAPP.NUM_EVENS_BY_COL[col] = numevens
+        return
+
+    def on_release(self):
+        for row in range(4):
+            numevens = sum([1 for xx in self.MYAPP.ODD_EVEN_CELLS[row] if xx.MYTEXT == 'even'])
+            self.MYAPP.NUM_EVENS_BY_ROW[row] = numevens
+        for col in range(4):
+            numevens = 0
+            for row in range(4):
+                if self.MYAPP.ODD_EVEN_CELLS[row][col].MYTEXT == 'even':
+                    numevens += 1
+            self.MYAPP.NUM_EVENS_BY_COL[col] = numevens
+        self.MYAPP.MEGA_POPULATE_OPTIONS()
+        return
 
 # ----- class MyButton - END   --------------------------------------------------------------------------------------
 
@@ -215,109 +203,279 @@ class myButton(ToggleButton):
 
 
 # ----- class LoginScreen - START -----------------------------------------------------------------------------------
-class myInputs(GridLayout):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        self.cols = 1         # Set columns for main layout
-
+class myVariables:
+    def __init__(self):
+        self.INIT_IS_DONE = False
+        # TOP STUFF:
+        self.SUM20_INPUT = None
+        self.NUM_EVENS_INPUT = None
+        self.MUST_HAVE_INPUT = None
+        self.THE_TOP_THREE = None
+        #
+        self.UNIQUE_TO_ALL = None
+        self.POTENTIAL_SOLUTIONS = None
+        #
         self.potential_solutions = None
+        self.CELL_OPTIONS = [[None, None, None, None], [None, None, None, None], [None, None, None, None], [None, None, None, None]]
         self.ODD_EVEN_CELLS = [[None, None, None, None], [None, None, None, None], [None, None, None, None], [None, None, None, None]]
         self.POT_SOL_CELLS = [[None, None, None, None], [None, None, None, None], [None, None, None, None], [None, None, None, None]]
-        self.CELL_OPTIONS = [[None, None, None, None], [None, None, None, None], [None, None, None, None], [None, None, None, None]]
+        self.MY_SOLUTION_CELLS = [[None, None, None, None], [None, None, None, None], [None, None, None, None], [None, None, None, None]]
         self.THE_SOLUTION = [[None, None, None, None], [None, None, None, None], [None, None, None, None], [None, None, None, None]]
+        self.MY_SOLUTION = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 
-        self.inside = GridLayout()
-        self.inside.cols = 2  # Set columns for the new grid layout
+        self.NUM_EVENS_BY_ROW = [None, None, None, None]
+        self.NUM_EVENS_BY_COL = [None, None, None, None]
 
-        # THE SUM:
-        self.inside.add_widget(Label(text="Sum (20):"))
-        self.THE_SUM_INPUT = myNumbersOnlyInput()
-        self.THE_SUM_INPUT.bind(text=self.THE_SUM_entry)
-        self.inside.add_widget(self.THE_SUM_INPUT)
-
-        # THE # OF EVENS:
-        self.inside.add_widget(Label(text="# Evens (2):"))
-        self.NUM_EVENS_INPUT = myNumbersOnlyInput()
-        self.NUM_EVENS_INPUT.bind(text=self.NUM_EVENS_entry)
-        self.inside.add_widget(self.NUM_EVENS_INPUT)
-
-        # 'MUST HAVE' numbers
-        self.inside.add_widget(Label(text="Must have:"))
-        self.MUST_HAVE_INPUT = myNumbersOnlyInput(name="must have")
-        self.MUST_HAVE_INPUT.bind(text=self.MUST_HAVE_entry)
-        self.inside.add_widget(self.MUST_HAVE_INPUT)
-
-        # # Add the above GridLayout to the main layout:
-        self.add_widget(self.inside)
-
-        # THE POTENTIAL SOLUTIONS:
-        potsol_layout = BoxLayout()
-        potsol_layout.add_widget(Label(text="Potential Solutions:"))
-        self.POTENTIAL_SOLUTIONS = TextInput(multiline=True)
-        potsol_layout.add_widget(self.POTENTIAL_SOLUTIONS)
-        self.add_widget(potsol_layout)
+        self.ROW_SUMS = [None, None, None, None]
+        self.COL_SUMS = [None, None, None, None]
+        self.ROW_SUMS_TEXT_INPUTS = [None, None, None, None]
+        self.COL_SUMS_TEXT_INPUTS = [None, None, None, None]
+        self.ROW_POT_SOLS = [None, None, None, None]
+        self.ROW_POT_SOLS_TEXT_INPUTS = [None, None, None, None]
 
 
-        # -----------------------------------------------------------------------
+class myInputs(myVariables, GridLayout):
+    def __init__(self, **kwargs):
+        myVariables.__init__(self)
+        GridLayout.__init__(self, **kwargs)
+        self.cols = 1
+        #
+        self.CREATE_THE_GUI()
+        #
+        if HOUR > 14:
+            self.cycle_me(self.canvas)
+        return
+
+
+    def CREATE_THE_GUI(self):
+        #
+        self.add_widget(self.MAKE_Top_Section(size_hint=(0.5, 1)))
+        #
+        self.add_widget(self.MAKE_Odd_Even_Cells())
+        #
+        self.add_widget(self.MAKE_Remaining_Options())
+        #
+        self.add_widget(self.MAKE_Solutions())
+        #
+        return
+
+    def entry_TEXT(self, instance, value):
+        if instance.ANAME == "rowsum":
+            thesum = int(value)
+            if thesum < 13:
+                return
+            therow = instance.ANUM
+            self.ROW_SUMS[therow] = int(value)
+            numevens = sum([1 for xx in self.ODD_EVEN_CELLS[instance.ANUM] if xx.MYTEXT == 'even'])
+            musthave = [xx for xx in self.MY_SOLUTION[3] if xx != 0]
+            pot_sols = self.populate_potential_solutions_box(thesum=thesum, numevens=numevens, must_have=musthave)
+            if pot_sols:
+                self.populate_remaining_options(pot_sols, rownum=therow)
+            self.MEGA_POPULATE_OPTIONS()
+        elif instance.ANAME == "colsum":
+            thesum = int(value)
+            if thesum < 13:
+                return
+            thecol = instance.ANUM
+            self.COL_SUMS[thecol] = int(value)
+            self.MEGA_POPULATE_OPTIONS(ok=True)
+        return
+
+    def cycle_me(self, what):
+        if what.children:
+            for ct, yy in enumerate(what.children):
+                if isinstance(yy, Canvas):
+                    _joe = 12
+                if isinstance(yy, CanvasBase):
+                    continue
+                else:
+                    _joe = 12
+        return
+
+
+    def send_keystrokes(self):
+        # The row sums:
+        self.ROW_SUMS_TEXT_INPUTS[0].text = "27"
+        self.ROW_SUMS_TEXT_INPUTS[1].text = "13"
+        self.ROW_SUMS_TEXT_INPUTS[2].text = "13"
+        self.ROW_SUMS_TEXT_INPUTS[3].text = "25"  # unique to all: 6, 8
+        # The column sums:
+        self.COL_SUMS_TEXT_INPUTS[0].text = "16"
+        self.COL_SUMS_TEXT_INPUTS[1].text = "14"
+        self.COL_SUMS_TEXT_INPUTS[2].text = "25"
+        self.COL_SUMS_TEXT_INPUTS[3].text = "23"        #
+        # The odd/even buttons:
+        for cell in [(0,3), (1,1), (2,3), (3,1), (3,2), (3,3)]:
+            row, col = cell
+            self.ODD_EVEN_CELLS[row][col].state = "down"
+        # The solutions I know already:
+        for row, col, num in [(3, 0, 7), (0, 2, 9)]:
+            self.MY_SOLUTION_CELLS[row][col].text = str(num)
+        #self.MEGA_POPULATE_OPTIONS()
+        self.INIT_IS_DONE = True
+        return
+
+
+    def keyboard_on_key_down(self, window, keycode, text, modifiers):
+        if keycode[1] == "\t":
+            _joe = 12
+        # elif keycode[1] == "backspace":
+        #     print("print backspace down", keycode)
+        TextInput.keyboard_on_key_down(self, window, keycode, text, modifiers)
+
+
+    def keyboard_on_key_up(self, window, keycode):  # , text, modifiers):
+        if keycode[1] == "tab":
+            _joe = 12
+        # elif keycode[1] == "backspace":
+        #     print("print backspace up", keycode)
+        #TextInput.keyboard_on_key_down(self, window, keycode, text, modifiers)
+        return
+
+
+
+    def MAKE_Remaining_Options(self):
+        OPTIONS = GridLayout()
+        OPTIONS.cols = 1
+        OPTIONS.add_widget(Label(text="REMAINING OPTIONS:"))
+        for row in range(4):
+            row_layout = BoxLayout()
+            for col in range(4):
+                box = myTextInput(row, col, multiline=True, readonly=True, is_focusable=False)
+                self.POT_SOL_CELLS[row][col] = box
+                row_layout.add_widget(box)
+            OPTIONS.add_widget(row_layout)
+        return OPTIONS
+
+
+    def MAKE_Solutions(self):
+        SOLUTIONS = GridLayout()
+        SOLUTIONS.cols = 1
+        #
+        SOLUTIONS.add_widget(Label(text="MY SOLUTION:"))
+        #
+        for row in range(4):
+            row_layout = BoxLayout()
+            for col in range(4):
+                box = myTextInput(row, col, multiline=True)
+                self.MY_SOLUTION_CELLS[row][col] = box
+                box.bind(text=self.entry_A_SOLUTION)
+                box.bind(focus=self.on_focus)
+                row_layout.add_widget(box)
+            SOLUTIONS.add_widget(row_layout)
+        return SOLUTIONS
+
+
+    def MAKE_Odd_Even_Cells(self):
         # The 4x4 of odd/even cells
-        # -----------------------------------------------------------------------
+        CELLS = GridLayout()
+        CELLS.cols = 1
+        #
         left = .125
         middle = .647
         right = 1 - left - middle
         for row in range(4):
             AROW = BoxLayout()
-            # left side ("0" / "1" / "2" / "3")
-            arow_left = Label(text=str(row), size_hint=(left, 1))
-            AROW.add_widget(arow_left)
-            # middle:
+
+            # left side ('0'/'1'/'2'/'3')
+            AROW.add_widget(Label(text=str(row), size_hint=(left, 1)))
+
+            # MIDDLE:  (this is the main chunk of this section)
             arow_middle = BoxLayout(size_hint=(middle, 1))
+            #
             for col in range(4):
-                acell = myButton(app=self, text='odd', group=f"oe{row}{col}", row=row, col=col)  # 'odd' / 'even'
+                acell = myButton(app=self, text='odd', group=f"oe{row}{col}", row=row, col=col)         # odd/even
                 self.ODD_EVEN_CELLS[row][col] = acell
                 arow_middle.add_widget(acell)
             AROW.add_widget(arow_middle)
-            # right:
-            arow_right = BoxLayout(size_hint=(right, 1))
-            arow_right_lbl = Label(text="r sum:")                         # 'r sum'
-            arow_right.add_widget(arow_right_lbl)
+
+            # right R SUM:
+            arow_right_r_sum = BoxLayout(size_hint=(right, 1))
             #
-            arow_right_txt = myNumbersOnlyInput(num=row)
-            arow_right_txt.bind(text=self.ROW_SUM_entry)
-            arow_right.add_widget(arow_right_txt)
-            AROW.add_widget(arow_right)
+            arow_right_r_sum.add_widget(Label(text="r sum:"))
+            arow_right1_txt = myNumbersOnlyInput(self, "rowsum", num=row)
+            arow_right1_txt.bind(text=self.entry_TEXT)  # entry_R_SUM)                                  # 'r sum'
+            arow_right1_txt.bind(focus=self.on_focus)
+            arow_right_r_sum.add_widget(arow_right1_txt)
+            AROW.add_widget(arow_right_r_sum)
+            self.ROW_SUMS_TEXT_INPUTS[row] = arow_right1_txt
+            #
             # add the row to the main GUI:
-            self.add_widget(AROW)
+            CELLS.add_widget(AROW)
+        #                                                                                                 'col sums'
+        CELLS.add_widget(self.MAKE_C_Sums_Row())
         #
+        return CELLS
 
-        # BOTTOM ROW / column sums
-        bottom_row = self.make_bottom_row()
-        self.add_widget(bottom_row)
+    def reset_sum_colors(self):
+        for cell in self.ROW_SUMS_TEXT_INPUTS:
+            cell.background_color = NORMAL_COLOR
+        for cell in self.COL_SUMS_TEXT_INPUTS:
+            cell.background_color = NORMAL_COLOR
+        return
 
-        # -----------------------------------------------------------------------
-        self.operators = ["/", "*", "+", "-"]
-        self.last_was_operator = None
-        self.last_button = None
-        #main_layout = BoxLayout(orientation="vertical")
-        #self.solution = TextInput(multiline=False, readonly=True, halign="right", font_size=55)
-        #main_layout.add_widget(self.solution)
-
-        # -----------------------------------------------------------------------
-        self.add_widget(Label(text="THE CELLS:"))
-        # -----------------------------------------------------------------------
-        for row in range(4):
-            row_layout = BoxLayout()
-            for col in range(4):
-                box = myTextInput(row, col, multiline=True, )
-                self.POT_SOL_CELLS[row][col] = box
-                box.bind(text=self.A_BOX_entry)
-                box.bind(on_press=self.my_box_press)
-                row_layout.add_widget(box)
-            self.add_widget(row_layout)
-
+    def hightlight_row_col(self, p_row=None, p_col=None):
+        assert p_row is not None or p_col is not None
+        # Reset all the colors:
+        for rr in range(4):
+            for cc in range(4):
+                self.POT_SOL_CELLS[rr][cc].background_color = NO_FOCUS_COLOR
+        # Now highlight:
+        if p_row is not None:
+            for cell in self.POT_SOL_CELLS[p_row]:
+                cell.background_color = HIGHLIGHT_COLOR
+        else:
+            for row in self.POT_SOL_CELLS:
+                row[p_col].background_color = HIGHLIGHT_COLOR
         return
 
 
-    def make_bottom_row(self):
+    def on_focus(self, instance, value, *largs):
+        """ self.NUM_EVENS_BY_ROW = [None, None, None, None]
+            self.NUM_EVENS_BY_COL = [None, None, None, None]
+        self.SUM20_INPUT = self.labelled_input(GUI_ADD_TO=TOP_SECTION, label="Sum (20):", textbindfn=self.entry_THE_SUM, )
+        self.NUM_EVENS_INPUT = self.labelled_input(GUI_ADD_TO=TOP_SECTION, label="# Evens (2):", textbindfn=self.entry_NUM_EVENS)
+        self.MUST_HAVE_INPUT = self.labelled_input(GUI_ADD_TO=TOP_SECTION, label="Must have:", textbindfn=self.entry_MUST_HAVE)
+        """
+        self.reset_top_boxes()
+        self.reset_sum_colors()
+        # if instance in self.THE_TOP_THREE:
+        #     # It's one of the top 3 input boxes
+        #     if instance.focused:
+        #         instance.background_color = HIGHLIGHT_COLOR
+        instance.background_color = HIGHLIGHT_COLOR
+        if instance.ANAME == "rowsum":
+            row = instance.ANUM
+            self.hightlight_row_col(p_row=row)
+            rowsum = self.ROW_SUMS[row]
+            self.SUM20_INPUT.text = str(rowsum)
+            numevens = self.NUM_EVENS_BY_ROW[row]
+            self.NUM_EVENS_INPUT.text = str(numevens)
+            must_have = [xx for xx in self.MY_SOLUTION[row] if xx != 0]
+            if must_have:
+                self.MUST_HAVE_INPUT.text = ", ".join(map(str, must_have))
+            pot_sols = self.populate_potential_solutions_box(thesum=rowsum, numevens=numevens, must_have=must_have)
+            if pot_sols:
+                self.find_unique_to_all(pot_sols)
+        elif instance.ANAME == "colsum":
+            col = instance.ANUM
+            self.hightlight_row_col(p_col=col)
+            colsum = self.COL_SUMS[col]
+            self.SUM20_INPUT.text = str(colsum)
+            numevens = self.NUM_EVENS_BY_COL[col]
+            self.NUM_EVENS_INPUT.text = str(numevens)
+            #must_have = [yy for xx in self.MY_SOLUTION for yy in xx if yy != 0]
+            must_have = [xx[col] for xx in self.MY_SOLUTION if xx[col] != 0]
+            if must_have:
+                self.MUST_HAVE_INPUT.text = ", ".join(map(str, must_have))
+            pot_sols = self.populate_potential_solutions_box(thesum=colsum, numevens=numevens, must_have=must_have)
+            if pot_sols:
+                self.find_unique_to_all(pot_sols)
+        return
+
+
+
+    def MAKE_C_Sums_Row(self):
         left = .125
         middle = .647
         right = 1 - left - middle
@@ -330,12 +488,14 @@ class myInputs(GridLayout):
         # MIDDLE:
         bottom_middle = BoxLayout(size_hint=(middle, 1))
         for col in range(4):
-            txt = myNumbersOnlyInput(num=col, size_hint=(.8, 1))
-            txt.bind(text=self.COL_SUM_entry)
+            txt = myNumbersOnlyInput(self, "colsum", num=col, size_hint=(.8, 1))
+            txt.bind(text=self.entry_TEXT)  # entry_C_SUM)
+            txt.bind(focus=self.on_focus)
             bottom_middle.add_widget(txt)
+            self.COL_SUMS_TEXT_INPUTS[col] = txt
         BOTTOM_ROW.add_widget(bottom_middle)
 
-        # RIGHT SIDE:
+        # RIGHT SIDE (just a blank)
         bottom_right = Label(text="", size_hint=(right, 1))
         #hlayout.add_widget(Label(text="", size_hint=(right, 1)))
         BOTTOM_ROW.add_widget(bottom_right)
@@ -343,147 +503,249 @@ class myInputs(GridLayout):
         return BOTTOM_ROW
 
 
-    def ROW_SUM_entry(self, instance, value):
-        thesum = value
+
+    def labelled_input(self, GUI_ADD_TO, label:str, textbindfn:Callable=None, readonly=False):
+        #
+        this_layout = BoxLayout()
+        this_layout.add_widget(Label(text=label))
+        #
+        text_box = myNumbersOnlyInput(self, label, readonly=readonly)
+        text_box.font = "RobotoMono-Regular.ttf"
+        #text_box.font = "Courier New"  # - Regular.ttf
+        if callable(textbindfn):
+            text_box.bind(text=textbindfn)
+        text_box.bind(focus=self.on_focus)
+        this_layout.add_widget(text_box)
+        GUI_ADD_TO.add_widget(this_layout)
+        return text_box
+
+
+    def MAKE_Top_Section(self, size_hint):
+        TOP_SECTION = GridLayout(size_hint=size_hint)  # (0.5, 1))
+        TOP_SECTION.cols = 1
+
+        # Accepts input:
+        self.SUM20_INPUT = self.labelled_input(GUI_ADD_TO=TOP_SECTION, label="Sum (20):", textbindfn=self.entry_THE_SUM)
+        self.NUM_EVENS_INPUT = self.labelled_input(GUI_ADD_TO=TOP_SECTION, label="# Evens (2):", textbindfn=self.entry_NUM_EVENS)
+        self.MUST_HAVE_INPUT = self.labelled_input(GUI_ADD_TO=TOP_SECTION, label="Must have:", textbindfn=self.entry_MUST_HAVE)
+
+        self.THE_TOP_THREE = [self.SUM20_INPUT, self.NUM_EVENS_INPUT, self.MUST_HAVE_INPUT]
+
+        # Readonly:
+        self.UNIQUE_TO_ALL = self.labelled_input(GUI_ADD_TO=TOP_SECTION, label="# Unique to all:", readonly=True)
+        self.POTENTIAL_SOLUTIONS = self.labelled_input(GUI_ADD_TO=TOP_SECTION, label="Potential Solutions:", readonly=True)
+        #
+        return TOP_SECTION
+
+
+    def entry_R_POT_SOLS(self, instance, value):
+        thesum = int(value)
+        if thesum < 13:
+            return
         therow = instance.ANUM
+        self.ROW_SUMS[therow] = int(value)
         numevens = sum([1 for xx in self.ODD_EVEN_CELLS[instance.ANUM] if xx.MYTEXT == 'even'])
-        self.MUST_HAVE_INPUT.text = ""
-        self.THE_SUM_INPUT.text = value
-        self.NUM_EVENS_INPUT.text = str(numevens)
-        pot_sols = self.popuplate_potential_solutions_box(thesum, numevens)  # , musthave)
+        musthave = [xx for xx in self.MY_SOLUTION[3] if xx != 0]
+        pot_sols = self.populate_potential_solutions_box(thesum=thesum, numevens=numevens, must_have=musthave)
         if pot_sols:
-            self.populate_row_with_its_pot_sol_options(pot_sols, therow)
+            self.populate_remaining_options(pot_sols, rownum=therow)
+        self.MEGA_POPULATE_OPTIONS()
         return
 
-    def COL_SUM_entry(self, instance, value):
-        thesum = value
+    """
+    def entry_R_SUM(self, instance, value):
+        thesum = int(value)
+        if thesum < 13:
+            return
+        therow = instance.ANUM
+        self.ROW_SUMS[therow] = int(value)
+        numevens = sum([1 for xx in self.ODD_EVEN_CELLS[instance.ANUM] if xx.MYTEXT == 'even'])
+        musthave = [xx for xx in self.MY_SOLUTION[3] if xx != 0]
+        pot_sols = self.populate_potential_solutions_box(thesum=thesum, numevens=numevens, must_have=musthave)
+        if pot_sols:
+            self.populate_remaining_options(pot_sols, rownum=therow)
+        self.MEGA_POPULATE_OPTIONS()
+        return
+    """
+    """
+    def entry_C_SUM(self, instance, value):
+        thesum = int(value)
+        if thesum < 13:
+            return
         thecol = instance.ANUM
-        numevens = 0
+        self.COL_SUMS[thecol] = int(value)
+        self.MEGA_POPULATE_OPTIONS(ok=True)
+        return
+    """
+
+    def reset_top_boxes(self):
+        self.NUM_EVENS_INPUT.text = ""
+        self.MUST_HAVE_INPUT.text = ""
+        self.SUM20_INPUT.text = ""
+        self.UNIQUE_TO_ALL.text = ""
+        self.UNIQUE_TO_ALL.background_color = NO_FOCUS_COLOR
+        self.POTENTIAL_SOLUTIONS.text = ""
+        #
+        self.SUM20_INPUT.background_color = NORMAL_COLOR
+        self.NUM_EVENS_INPUT.background_color = NORMAL_COLOR
+        self.MUST_HAVE_INPUT.background_color = NORMAL_COLOR
+        #
+        return
+
+
+    def MEGA_POPULATE_OPTIONS(self, ok=False):
+        #self.reset_top_boxes()
         for row in range(4):
-            if self.ODD_EVEN_CELLS[row][thecol].MYTEXT == 'even':
-                numevens += 1
-        pot_sols = self.popuplate_potential_solutions_box(thesum, numevens)  # , musthave)
-        if pot_sols:
-            self.populate_col_with_its_pot_sol_options(pot_sols, thecol)
+            rowsum = self.ROW_SUMS[row]
+            if not rowsum:
+                continue
+            numevens = sum([1 for xx in self.ODD_EVEN_CELLS[row] if xx.MYTEXT == 'even'])
+            must_have = [xx for xx in self.MY_SOLUTION[row] if xx != 0]
+            pot_sols = self.populate_potential_solutions_box(thesum=rowsum, numevens=numevens, must_have=must_have)
+            if pot_sols:
+                self.populate_remaining_options(pot_sols, rownum=row, ok=ok)
+            _joe = 12
+        #
+        for col in range(4):
+            colsum = self.COL_SUMS[col]
+            if not colsum:
+                continue
+            numevens = sum([1 for xx in self.ODD_EVEN_CELLS for yy in xx if yy.MYTEXT=='even'])
+            must_have = [yy for xx in self.MY_SOLUTION for yy in xx if yy != 0]
+            pot_sols = self.populate_potential_solutions_box(thesum=colsum, numevens=numevens, must_have=must_have)
+            if pot_sols:
+                self.populate_remaining_options(pot_sols, colnum=col, ok=ok)
+        #
+        #self.reset_top_boxes()
         return
 
 
-    def populate_col_with_its_pot_sol_options(self, pot_sols, colnum):
-        #the_cells = self.POT_SOL_CELLS
-        #the_col = the_cells[colnum]
-        #odd_evens = self.ODD_EVEN_CELLS[colnum]
-        pot_sols = list(set(flatten_list(pot_sols)))
-        even_pot_sols = [xx for xx in pot_sols if xx in [2, 4, 6, 8]]
-        odd_pot_sols = [xx for xx in pot_sols if xx not in [2, 4, 6, 8]]
-        for row in range(4):
-            cur_opts = self.CELL_OPTIONS[row][colnum]
-            if self.ODD_EVEN_CELLS[row][colnum].MYTEXT == "even":
-                kk, kkstr = net_out(cur_opts, even_pot_sols)
-                self.CELL_OPTIONS[row][colnum] = kk
-                self.POT_SOL_CELLS[row][colnum].text = kkstr
-            else:
-                kk, kkstr = net_out(cur_opts, odd_pot_sols)
-                self.CELL_OPTIONS[row][colnum] = kk
-                self.POT_SOL_CELLS[row][colnum].text = kkstr
-        return
-
-
-    def populate_row_with_its_pot_sol_options(self, pot_sols, rownum):
-        the_cells = self.POT_SOL_CELLS
-        the_row = the_cells[rownum]
-        odd_evens = self.ODD_EVEN_CELLS[rownum]
-        pot_sols = list(set(flatten_list(pot_sols)))
-        even_pot_sols = [xx for xx in pot_sols if xx in [2, 4, 6, 8]]
-        odd_pot_sols = [xx for xx in pot_sols if xx not in [2, 4, 6, 8]]
-        for col, cell in enumerate(the_row):
-            cur_opts = self.CELL_OPTIONS[rownum][col]  #  cell.text
-            if odd_evens[col].MYTEXT == "even":
-                kk, kkstr = net_out(cur_opts, even_pot_sols)
-                self.CELL_OPTIONS[rownum][col] = kk
-                cell.text = kkstr
-            else:
-                kk, kkstr = net_out(cur_opts, odd_pot_sols)
-                self.CELL_OPTIONS[rownum][col] = kk
-                cell.text = kkstr
-        return
-
-
-
-    def my_box_press(self, instance):
-        #current = self.solution.text
-        ODD = [1, 1, 1, 1]
-        EVEN = [1, 1, 1, 0]
-        if instance.background_color == EVEN:
-            instance.background_color = ODD
+    @static_vars(ct=0)
+    def find_unique_to_all(self, pot_sols, ok=False):
+        if not ok:
+            _joe = 12
+        self.find_unique_to_all.__func__.ct = self.find_unique_to_all.ct + 1
+        #
+        ll = len(pot_sols)
+        if ll == 1:
+            # there is only one solution left, so every number is 'unique' to all
+            return
+        adict = {}
+        for arr in pot_sols:
+            for num1 in arr:
+                adict[num1] = adict.get(num1, 0) + 1
+        res = []
+        for num2, ct in adict.items():
+            if ct == ll:
+                res.append(num2)  # found one!
+        if res:
+            unique_str = ", ".join([str(xx) for xx in res])
+            # FIXME: The issue is, why does this update, when 'Sum (20)' and '# Evens (2):' isn't being updated?
+            self.UNIQUE_TO_ALL.text = unique_str
+            if len(res) == 1:
+                self.UNIQUE_TO_ALL.background_color = "red"
         else:
-            instance.background_color = EVEN
+            self.UNIQUE_TO_ALL.text = ""
+            self.UNIQUE_TO_ALL.background_color = NO_FOCUS_COLOR
+        return res
 
-    def my_button_press(self, instance):
-        #current = self.solution.text
-        button_text = instance.text
-        ODD = [1, 1, 1, 1]
-        EVEN = [1, 1, 1, 0]
-        if not button_text:
-            instance.text = "even"
-            instance.background_color = EVEN
-            instance.border = ODD
 
-        elif button_text == "even":
-            instance.text = "odd"
-            instance.background_color = ODD
-            instance.border = EVEN
-
+    def populate_remaining_options(self, pot_sols, rownum=None, colnum=None, ok=False):
+        # -----------------------------------------------------------------------
+        def net_out(aa, bb):
+            opts = None
+            if not aa:
+                opts = bb
+            else:
+                opts = [xx for xx in aa if xx in bb]
+            res = ", ".join([str(xx) for xx in opts])
+            return opts, res
+        # -----------------------------------------------------------------------
+        assert rownum is not None or colnum is not None
+        unique_to_all = self.find_unique_to_all(pot_sols, ok=ok)
+        # unique_str = ""
+        # if unique_to_all:
+        #     unique_str = ", ".join([str(xx) for xx in unique_to_all])
+        # self.UNIQUE_TO_ALL.text = unique_str
+        pot_sols = list(set(flatten_list(pot_sols)))
+        if not rownum is None:
+            the_cells = self.POT_SOL_CELLS
+            the_row = the_cells[rownum]
+            odd_evens = self.ODD_EVEN_CELLS[rownum]
+            for col in range(4):
+                sol = self.MY_SOLUTION[rownum][col]
+                if sol and sol in pot_sols:
+                    pot_sols.remove(sol)
+            even_pot_sols = [xx for xx in pot_sols if xx in [2, 4, 6, 8]]
+            odd_pot_sols = [xx for xx in pot_sols if xx not in [2, 4, 6, 8]]
+            for col, cell in enumerate(the_row):
+                if self.MY_SOLUTION[rownum][col] != 0:
+                    # A solved cell has no remaining options
+                    cell.text = ""
+                    continue
+                cur_opts = self.CELL_OPTIONS[rownum][col]  # cell.text
+                if odd_evens[col].MYTEXT == "even":
+                    kk, kkstr = net_out(cur_opts, even_pot_sols)
+                    self.CELL_OPTIONS[rownum][col] = kk
+                    cell.text = kkstr
+                else:
+                    kk, kkstr = net_out(cur_opts, odd_pot_sols)
+                    self.CELL_OPTIONS[rownum][col] = kk
+                    cell.text = kkstr
         else:
-            instance.text = "even"
-            instance.background_color = EVEN
-            instance.border = ODD
-
-        # if button_text == "C":
-        #     # Clear the solution widget
-        #     self.solution.text = ""
-        # else:
-        #     if current and (self.last_was_operator and button_text in self.operators):
-        #         # Don't add two operators right after each other
-        #         return
-        #     elif current == "" and button_text in self.operators:
-        #         # First character cannot be an operator
-        #         return
-        #     else:
-        #         new_text = current + button_text
-        #         self.solution.text = new_text
-        # self.last_button = button_text
-        # self.last_was_operator = self.last_button in self.operators
-        # #
+            for row in range(4):
+                sol = self.MY_SOLUTION[row][colnum]
+                if sol and sol in pot_sols:
+                    pot_sols.remove(sol)
+            even_pot_sols = [xx for xx in pot_sols if xx in [2, 4, 6, 8]]
+            odd_pot_sols = [xx for xx in pot_sols if xx not in [2, 4, 6, 8]]
+            for row in range(4):
+                if self.MY_SOLUTION[row][colnum] != 0:
+                    # A solved cell has no remaining options
+                    self.POT_SOL_CELLS[row][colnum].text = ""
+                    continue
+                cur_opts = self.CELL_OPTIONS[row][colnum]
+                if self.ODD_EVEN_CELLS[row][colnum].MYTEXT == "even":
+                    kk, kkstr = net_out(cur_opts, even_pot_sols)
+                    self.CELL_OPTIONS[row][colnum] = kk
+                    self.POT_SOL_CELLS[row][colnum].text = kkstr
+                else:
+                    kk, kkstr = net_out(cur_opts, odd_pot_sols)
+                    self.CELL_OPTIONS[row][colnum] = kk
+                    self.POT_SOL_CELLS[row][colnum].text = kkstr
         return
 
 
-    def A_BOX_entry(self, instance, value):
-        boxtext = instance.text
+
+    def entry_A_SOLUTION(self, instance, value):
+        # when I enter something into a solution, it then acts as a 'must have' for that row and col
+        sol = int(value)
         row = instance.AROW
         col = instance.ACOL
-        joe = 12
-        # thesum = value
-        # numevens = self.NUM_EVENS_INPUT.text
-        # musthave = self.MUST_HAVE_INPUT.text
-        # self.popuplate_potential_solutions_box(thesum, numevens, musthave)
+        self.MY_SOLUTION[row][col] = sol
+        self.MEGA_POPULATE_OPTIONS(ok=True)
         return
 
 
-    def popuplate_potential_solutions_box(self, thesum:int, numevens:int, must_have=''):
-        if thesum=="" or numevens=="":
+
+    def populate_potential_solutions_box(self, *, thesum, numevens, must_have=''):
+        if thesum == "" or numevens == "" or thesum is None or numevens is None:
             return
         thesum = int(thesum)
+        if thesum < 13:
+            return
         numevens = int(numevens)
         pot_sols = None
+        self.POTENTIAL_SOLUTIONS.text = ""
         if thesum in ALL_POTENTIAL_SOLUTIONS:
             if numevens in ALL_POTENTIAL_SOLUTIONS[thesum]:
                 pot_sols = ALL_POTENTIAL_SOLUTIONS[thesum][numevens]
                 self.potential_solutions = pot_sols
-                self.POTENTIAL_SOLUTIONS.text = ""
+                #self.POTENTIAL_SOLUTIONS.text = ""
                 for xx in pot_sols:
                     if must_have:
                         if isinstance(must_have, str):
-                            must_have = list(map(int, must_have.split()))
+                            must_have = list(map(int, must_have.replace(",", "").split()))
                         res = all([yy in xx for yy in must_have])
                         if res:
                             solstr = ", ".join(map(str, xx))
@@ -493,111 +755,43 @@ class myInputs(GridLayout):
                         self.POTENTIAL_SOLUTIONS.text += f"[{solstr}]\t"
         return pot_sols
 
-    def THE_SUM_entry(self, instance, value):
+    def entry_THE_SUM(self, instance, value):
+        # this is the one at the very top of the GUI
         thesum = value
         numevens = self.NUM_EVENS_INPUT.text
         musthave = self.MUST_HAVE_INPUT.text
-        self.popuplate_potential_solutions_box(thesum, numevens, musthave)
+        self.populate_potential_solutions_box(thesum=thesum, numevens=numevens, must_have=musthave)
         return
 
-    def NUM_EVENS_entry(self, instance, value):
-        thesum = self.THE_SUM_INPUT.text
+    def entry_NUM_EVENS(self, instance, value):
+        thesum = self.SUM20_INPUT.text
         numevens = value
         musthave = self.MUST_HAVE_INPUT.text
-        self.popuplate_potential_solutions_box(thesum, numevens, musthave)
+        self.populate_potential_solutions_box(thesum=thesum, numevens=numevens, must_have=musthave)
+        _joe = 12  # refresh option cells  self.MEGA_POPULATE_OPTIONS()
         return
 
-    def MUST_HAVE_entry(self, instance, value):
-        thesum = self.THE_SUM_INPUT.text
+    def entry_MUST_HAVE(self, instance, value):
+        thesum = self.SUM20_INPUT.text
         numevens = self.NUM_EVENS_INPUT.text
         musthave = value
-        self.popuplate_potential_solutions_box(thesum, numevens, musthave)
+        self.populate_potential_solutions_box(thesum=thesum, numevens=numevens, must_have=musthave)
+        _joe = 12  # refresh option cells  self.MEGA_POPULATE_OPTIONS()
         return
-
 # ----- class LoginScreen - END   -----------------------------------------------------------------------------------
 
-
-# -----------------------------------------------------------------------
 
 # ----- class MainApp - START ---------------------------------------------------------------------------------------
 class MainApp(App):
     def __init__(self):
         super().__init__()
-        self.cols = None
-        self.inside = None
-        self.THE_SUM_INPUT = None
-        self.NUM_EVENS_INPUT = None
-        self.MUST_HAVE_INPUT = None
-        self.POTENTIAL_SOLUTIONS = None
-        # -----------------------------------------------------------------------
-        self.operators = None
-        self.last_was_operator = None
-        self.last_button = None
-        self.solution =  None
-
 
     def build(self):
-        if (2+2)/4 == 1 :       # MY CODE
-            main_layout = myInputs()
-            #return main_layout
-        else:                   # example code
-            self.operators = ["/", "*", "+", "-"]
-            self.last_was_operator = None
-            self.last_button = None
-            main_layout = BoxLayout(orientation="vertical")
-
-            self.solution = TextInput(multiline=False, readonly=True, halign="right", font_size=55)
-            main_layout.add_widget(self.solution)
-            buttons = [
-                ["7", "8", "9", "/"],
-                ["4", "5", "6", "*"],
-                ["1", "2", "3", "-"],
-                [".", "0", "C", "+"],
-            ]
-            for row in buttons:
-                h_layout = BoxLayout()
-                for label in row:
-                    button = Button(text=label, pos_hint={"center_x": 0.5, "center_y": 0.5})
-                    button.bind(on_press=self.on_button_press)
-                    h_layout.add_widget(button)
-                main_layout.add_widget(h_layout)
-            #
-            equals_button = Button(text="=", pos_hint={"center_x": 0.5, "center_y": 0.5})
-            equals_button.bind(on_press=self.on_solution)
-            main_layout.add_widget(equals_button)
-            #
+        main_layout = myInputs()
+        machine = os.environ.get("MACHINE")
+        if machine == "PC":
+            main_layout.send_keystrokes()
         return main_layout
-
-
-
-    def on_button_press(self, instance):
-        current = self.solution.text
-        button_text = instance.text
-
-        if button_text == "C":
-            # Clear the solution widget
-            self.solution.text = ""
-        else:
-            if current and (self.last_was_operator and button_text in self.operators):
-                # Don't add two operators right after each other
-                return
-            elif current == "" and button_text in self.operators:
-                # First character cannot be an operator
-                return
-            else:
-                new_text = current + button_text
-                self.solution.text = new_text
-        self.last_button = button_text
-        self.last_was_operator = self.last_button in self.operators
-        #
-        return
-
-
-    def on_solution(self, instance):
-        text = self.solution.text
-        if text:
-            solution = str(eval(self.solution.text))
-            self.solution.text = solution
 # ----- class MainApp - END   ---------------------------------------------------------------------------------------
 
 

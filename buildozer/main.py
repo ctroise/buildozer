@@ -45,12 +45,12 @@ class myTextInput(TextInput):
             row = instance.ANUM
             self.hightlight_row_col(p_row=row)
             rowsum = self.ROW_SUMS[row]
-            self.THE_SUM_INPUT.text = str(rowsum)
+            self.SET_TEXT(self.THE_SUM_INPUT, str(rowsum))
             numevens = self.NUM_EVENS_BY_ROW[row]
-            self.NUM_EVENS_INPUT.text = str(numevens)
+            self.SET_TEXT(self.NUM_EVENS_INPUT, str(numevens))
             must_have = [xx for xx in self.MY_SOLUTION[row] if xx != 0]
             if must_have:
-                self.MUST_HAVE_INPUT.text = ", ".join(map(str, must_have))
+                self.SET_TEXT(self.MUST_HAVE_INPUT, ", ".join(map(str, must_have)))
             pot_sols = self.populate_potential_solutions_box(thesum=rowsum, numevens=numevens, must_have=must_have)
             if pot_sols:
                 self.find_unique_to_all(pot_sols)
@@ -58,13 +58,13 @@ class myTextInput(TextInput):
             col = instance.ANUM
             self.hightlight_row_col(p_col=col)
             colsum = self.COL_SUMS[col]
-            self.THE_SUM_INPUT.text = str(colsum)
+            self.SET_TEXT(self.THE_SUM_INPUT, str(colsum))
             numevens = self.NUM_EVENS_BY_COL[col]
-            self.NUM_EVENS_INPUT.text = str(numevens)
+            self.SET_TEXT(self.NUM_EVENS_INPUT, str(numevens))
             # must_have = [yy for xx in self.MY_SOLUTION for yy in xx if yy != 0]
             must_have = [xx[col] for xx in self.MY_SOLUTION if xx[col] != 0]
             if must_have:
-                self.MUST_HAVE_INPUT.text = ", ".join(map(str, must_have))
+                self.SET_TEXT(self.MUST_HAVE_INPUT, ", ".join(map(str, must_have)))
             pot_sols = self.populate_potential_solutions_box(thesum=colsum, numevens=numevens, must_have=must_have)
             if pot_sols:
                 self.find_unique_to_all(pot_sols)
@@ -118,7 +118,7 @@ class myNumbersOnlyInput(TextInput):
         TextInput.keyboard_on_key_down(self, window, keycode, text, modifiers)
         if keycode[1] == ".":
             _joe = 12
-            self.text = ""
+            self.SET_TEXT(self, "")
         elif keycode[1] == "tab":
             # to make this smarter: https://kivy.org/doc/stable/api-kivy.uix.behaviors.focus.html
             INC = 1
@@ -163,11 +163,11 @@ class myButton(ToggleButton):
         #self.MYAPP.reset_top_boxes()
         if value == "down":
             #self.source = 'atlas://data/images/defaulttheme/checkbox_on'
-            self.text = "even"
+            self.MYAPP.SET_TEXT(self, "even")
             self.MYTEXT = "even"
         else:
             #self.source = 'atlas://data/images/defaulttheme/checkbox_off'
-            self.text = "odd"
+            self.MYAPP.SET_TEXT(self, "odd")
             self.MYTEXT = "odd"
         self.resum_numevens()
         return
@@ -242,7 +242,7 @@ class myInputs(myVariables, GridLayout):
         #
         self.CREATE_THE_GUI()
         #
-        if HOUR > 14:
+        if HOUR > 20:
             self.cycle_me(self.canvas)
         return
 
@@ -279,7 +279,21 @@ class myInputs(myVariables, GridLayout):
             thecol = instance.ANUM
             self.COL_SUMS[thecol] = int(value)
             self.MEGA_POPULATE_OPTIONS(ok=True)
+        else:
+            _joe = 12  # What am I?
         return
+
+    def SET_TEXT(self, widget:TextInput, text:str):
+        name = None
+        if hasattr(widget, "ANAME"):
+            IGNORES = ["rowsum", "colsum", "Potential Solutions:", "Sum (20):", "# Evens (2):", "Must have:"]
+            name = widget.ANAME
+        if not isinstance(text, str):
+            _joe = 12  # why not?
+            text = str(text)
+        widget.text = text
+        return
+
 
     def cycle_me(self, what):
         if what.children:
@@ -295,22 +309,22 @@ class myInputs(myVariables, GridLayout):
 
     def send_keystrokes(self):
         # The row sums:
-        self.ROW_SUMS_TEXT_INPUTS[0].text = "27"
-        self.ROW_SUMS_TEXT_INPUTS[1].text = "13"
-        self.ROW_SUMS_TEXT_INPUTS[2].text = "13"
-        self.ROW_SUMS_TEXT_INPUTS[3].text = "25"  # unique to all: 6, 8
+        self.SET_TEXT(self.ROW_SUMS_TEXT_INPUTS[0], "27")
+        self.SET_TEXT(self.ROW_SUMS_TEXT_INPUTS[1], "13")
+        self.SET_TEXT(self.ROW_SUMS_TEXT_INPUTS[2], "13")
+        self.SET_TEXT(self.ROW_SUMS_TEXT_INPUTS[3], "25")  # unique to all: 6, 8
         # The column sums:
-        self.COL_SUMS_TEXT_INPUTS[0].text = "16"
-        self.COL_SUMS_TEXT_INPUTS[1].text = "14"
-        self.COL_SUMS_TEXT_INPUTS[2].text = "25"
-        self.COL_SUMS_TEXT_INPUTS[3].text = "23"        #
+        self.SET_TEXT(self.COL_SUMS_TEXT_INPUTS[0], "16")
+        self.SET_TEXT(self.COL_SUMS_TEXT_INPUTS[1], "14")
+        self.SET_TEXT(self.COL_SUMS_TEXT_INPUTS[2], "25")
+        self.SET_TEXT(self.COL_SUMS_TEXT_INPUTS[3], "23")
         # The odd/even buttons:
         for cell in [(0,3), (1,1), (2,3), (3,1), (3,2), (3,3)]:
             row, col = cell
             self.ODD_EVEN_CELLS[row][col].state = "down"
         # The solutions I know already:
         for row, col, num in [(3, 0, 7), (0, 2, 9)]:
-            self.MY_SOLUTION_CELLS[row][col].text = str(num)
+            self.SET_TEXT(self.MY_SOLUTION_CELLS[row][col], str(num))  # setting the num 7 does it
         #self.MEGA_POPULATE_OPTIONS()
         self.INIT_IS_DONE = True
         return
@@ -378,7 +392,7 @@ class myInputs(myVariables, GridLayout):
             AROW = BoxLayout()
 
             # left side ('0'/'1'/'2'/'3')
-            AROW.add_widget(Label(text=str(row), size_hint=(left, 1)))
+            #AROW.add_widget(Label(text=str(row), size_hint=(left, 1)))
 
             # MIDDLE:  (this is the main chunk of this section)
             arow_middle = BoxLayout(size_hint=(middle, 1))
@@ -392,7 +406,7 @@ class myInputs(myVariables, GridLayout):
             # right R SUM:
             arow_right_r_sum = BoxLayout(size_hint=(right, 1))
             #
-            arow_right_r_sum.add_widget(Label(text="r sum:"))
+            #arow_right_r_sum.add_widget(Label(text="r sum:"))
             arow_right1_txt = myNumbersOnlyInput(self, "rowsum", num=row)
             arow_right1_txt.bind(text=self.entry_TEXT)  # entry_R_SUM)                                  # 'r sum'
             arow_right1_txt.bind(focus=self.on_focus)
@@ -406,6 +420,34 @@ class myInputs(myVariables, GridLayout):
         CELLS.add_widget(self.MAKE_C_Sums_Row())
         #
         return CELLS
+
+    def MAKE_C_Sums_Row(self):
+        left = .125
+        middle = .647
+        right = 1 - left - middle
+        BOTTOM_ROW = BoxLayout()
+        #
+        # LEFT SIDE:
+        #bottom_left = Label(text="c sums:", size_hint=(left, 1))
+        #BOTTOM_ROW.add_widget(bottom_left)
+
+        # MIDDLE:
+        bottom_middle = BoxLayout(size_hint=(middle, 1))
+        for col in range(4):
+            txt = myNumbersOnlyInput(self, "colsum", num=col, size_hint=(.8, 1))
+            txt.bind(text=self.entry_TEXT)  # entry_C_SUM)
+            txt.bind(focus=self.on_focus)
+            bottom_middle.add_widget(txt)
+            self.COL_SUMS_TEXT_INPUTS[col] = txt
+        BOTTOM_ROW.add_widget(bottom_middle)
+
+        # RIGHT SIDE (just a blank)
+        bottom_right = Label(text="", size_hint=(right, 1))
+        #hlayout.add_widget(Label(text="", size_hint=(right, 1)))
+        BOTTOM_ROW.add_widget(bottom_right)
+        #
+        return BOTTOM_ROW
+
 
     def reset_sum_colors(self):
         for cell in self.ROW_SUMS_TEXT_INPUTS:
@@ -437,7 +479,7 @@ class myInputs(myVariables, GridLayout):
         self.NUM_EVENS_INPUT = self.labelled_input(GUI_ADD_TO=TOP_SECTION, label="# Evens (2):", textbindfn=self.entry_NUM_EVENS)
         self.MUST_HAVE_INPUT = self.labelled_input(GUI_ADD_TO=TOP_SECTION, label="Must have:", textbindfn=self.entry_MUST_HAVE)
         """
-        self.reset_top_boxes()
+        self.reset_top_boxes(colors_only=True)
         self.reset_sum_colors()
         # if instance in self.THE_TOP_THREE:
         #     # It's one of the top 3 input boxes
@@ -448,12 +490,12 @@ class myInputs(myVariables, GridLayout):
             row = instance.ANUM
             self.hightlight_row_col(p_row=row)
             rowsum = self.ROW_SUMS[row]
-            self.SUM20_INPUT.text = str(rowsum)
+            self.SET_TEXT(self.SUM20_INPUT, str(rowsum))
             numevens = self.NUM_EVENS_BY_ROW[row]
-            self.NUM_EVENS_INPUT.text = str(numevens)
+            self.SET_TEXT(self.NUM_EVENS_INPUT, str(numevens))
             must_have = [xx for xx in self.MY_SOLUTION[row] if xx != 0]
             if must_have:
-                self.MUST_HAVE_INPUT.text = ", ".join(map(str, must_have))
+                self.SET_TEXT(self.MUST_HAVE_INPUT, ", ".join(map(str, must_have)))
             pot_sols = self.populate_potential_solutions_box(thesum=rowsum, numevens=numevens, must_have=must_have)
             if pot_sols:
                 self.find_unique_to_all(pot_sols)
@@ -461,46 +503,18 @@ class myInputs(myVariables, GridLayout):
             col = instance.ANUM
             self.hightlight_row_col(p_col=col)
             colsum = self.COL_SUMS[col]
-            self.SUM20_INPUT.text = str(colsum)
+            self.SET_TEXT(self.SUM20_INPUT, str(colsum))
             numevens = self.NUM_EVENS_BY_COL[col]
-            self.NUM_EVENS_INPUT.text = str(numevens)
+            self.SET_TEXT(self.NUM_EVENS_INPUT, str(numevens))
             #must_have = [yy for xx in self.MY_SOLUTION for yy in xx if yy != 0]
             must_have = [xx[col] for xx in self.MY_SOLUTION if xx[col] != 0]
             if must_have:
-                self.MUST_HAVE_INPUT.text = ", ".join(map(str, must_have))
+                self.SET_TEXT(self.MUST_HAVE_INPUT, ", ".join(map(str, must_have)))
             pot_sols = self.populate_potential_solutions_box(thesum=colsum, numevens=numevens, must_have=must_have)
             if pot_sols:
                 self.find_unique_to_all(pot_sols)
         return
 
-
-
-    def MAKE_C_Sums_Row(self):
-        left = .125
-        middle = .647
-        right = 1 - left - middle
-        BOTTOM_ROW = BoxLayout()
-        #
-        # LEFT SIDE:
-        bottom_left = Label(text="c sums:", size_hint=(left, 1))
-        BOTTOM_ROW.add_widget(bottom_left)
-
-        # MIDDLE:
-        bottom_middle = BoxLayout(size_hint=(middle, 1))
-        for col in range(4):
-            txt = myNumbersOnlyInput(self, "colsum", num=col, size_hint=(.8, 1))
-            txt.bind(text=self.entry_TEXT)  # entry_C_SUM)
-            txt.bind(focus=self.on_focus)
-            bottom_middle.add_widget(txt)
-            self.COL_SUMS_TEXT_INPUTS[col] = txt
-        BOTTOM_ROW.add_widget(bottom_middle)
-
-        # RIGHT SIDE (just a blank)
-        bottom_right = Label(text="", size_hint=(right, 1))
-        #hlayout.add_widget(Label(text="", size_hint=(right, 1)))
-        BOTTOM_ROW.add_widget(bottom_right)
-        #
-        return BOTTOM_ROW
 
 
 
@@ -578,17 +592,18 @@ class myInputs(myVariables, GridLayout):
         return
     """
 
-    def reset_top_boxes(self):
-        self.NUM_EVENS_INPUT.text = ""
-        self.MUST_HAVE_INPUT.text = ""
-        self.SUM20_INPUT.text = ""
-        self.UNIQUE_TO_ALL.text = ""
-        self.UNIQUE_TO_ALL.background_color = NO_FOCUS_COLOR
-        self.POTENTIAL_SOLUTIONS.text = ""
-        #
+    def reset_top_boxes(self, colors_only):
         self.SUM20_INPUT.background_color = NORMAL_COLOR
         self.NUM_EVENS_INPUT.background_color = NORMAL_COLOR
         self.MUST_HAVE_INPUT.background_color = NORMAL_COLOR
+        if colors_only:
+            return
+        self.SET_TEXT(self.NUM_EVENS_INPUT, "")
+        self.SET_TEXT(self.MUST_HAVE_INPUT, "")
+        self.SET_TEXT(self.SUM20_INPUT, "")
+        self.SET_TEXT(self.UNIQUE_TO_ALL, "")
+        self.UNIQUE_TO_ALL.background_color = NO_FOCUS_COLOR
+        self.SET_TEXT(self.POTENTIAL_SOLUTIONS, "")
         #
         return
 
@@ -599,8 +614,13 @@ class myInputs(myVariables, GridLayout):
             rowsum = self.ROW_SUMS[row]
             if not rowsum:
                 continue
+            self.SET_TEXT(self.SUM20_INPUT, str(rowsum))
             numevens = sum([1 for xx in self.ODD_EVEN_CELLS[row] if xx.MYTEXT == 'even'])
+            self.SET_TEXT(self.NUM_EVENS_INPUT, str(numevens))
+            #
             must_have = [xx for xx in self.MY_SOLUTION[row] if xx != 0]
+            self.SET_TEXT(self.MUST_HAVE_INPUT, ", ".join(map(str, must_have)))
+            #
             pot_sols = self.populate_potential_solutions_box(thesum=rowsum, numevens=numevens, must_have=must_have)
             if pot_sols:
                 self.populate_remaining_options(pot_sols, rownum=row, ok=ok)
@@ -610,8 +630,13 @@ class myInputs(myVariables, GridLayout):
             colsum = self.COL_SUMS[col]
             if not colsum:
                 continue
+            self.SET_TEXT(self.SUM20_INPUT, str(colsum))
             numevens = sum([1 for xx in self.ODD_EVEN_CELLS for yy in xx if yy.MYTEXT=='even'])
+            self.SET_TEXT(self.NUM_EVENS_INPUT, str(numevens))
+            #
             must_have = [yy for xx in self.MY_SOLUTION for yy in xx if yy != 0]
+            self.SET_TEXT(self.MUST_HAVE_INPUT, ", ".join(map(str, must_have)))
+            #
             pot_sols = self.populate_potential_solutions_box(thesum=colsum, numevens=numevens, must_have=must_have)
             if pot_sols:
                 self.populate_remaining_options(pot_sols, colnum=col, ok=ok)
@@ -641,11 +666,11 @@ class myInputs(myVariables, GridLayout):
         if res:
             unique_str = ", ".join([str(xx) for xx in res])
             # FIXME: The issue is, why does this update, when 'Sum (20)' and '# Evens (2):' isn't being updated?
-            self.UNIQUE_TO_ALL.text = unique_str
+            self.SET_TEXT(self.UNIQUE_TO_ALL, unique_str)
             if len(res) == 1:
                 self.UNIQUE_TO_ALL.background_color = "red"
         else:
-            self.UNIQUE_TO_ALL.text = ""
+            self.SET_TEXT(self.UNIQUE_TO_ALL, "")
             self.UNIQUE_TO_ALL.background_color = NO_FOCUS_COLOR
         return res
 
@@ -681,17 +706,17 @@ class myInputs(myVariables, GridLayout):
             for col, cell in enumerate(the_row):
                 if self.MY_SOLUTION[rownum][col] != 0:
                     # A solved cell has no remaining options
-                    cell.text = ""
+                    self.SET_TEXT(cell, "")
                     continue
                 cur_opts = self.CELL_OPTIONS[rownum][col]  # cell.text
                 if odd_evens[col].MYTEXT == "even":
                     kk, kkstr = net_out(cur_opts, even_pot_sols)
                     self.CELL_OPTIONS[rownum][col] = kk
-                    cell.text = kkstr
+                    self.SET_TEXT(cell, kkstr)
                 else:
                     kk, kkstr = net_out(cur_opts, odd_pot_sols)
                     self.CELL_OPTIONS[rownum][col] = kk
-                    cell.text = kkstr
+                    self.SET_TEXT(cell, kkstr)
         else:
             for row in range(4):
                 sol = self.MY_SOLUTION[row][colnum]
@@ -702,17 +727,17 @@ class myInputs(myVariables, GridLayout):
             for row in range(4):
                 if self.MY_SOLUTION[row][colnum] != 0:
                     # A solved cell has no remaining options
-                    self.POT_SOL_CELLS[row][colnum].text = ""
+                    self.SET_TEXT(self.POT_SOL_CELLS[row][colnum], "")
                     continue
                 cur_opts = self.CELL_OPTIONS[row][colnum]
                 if self.ODD_EVEN_CELLS[row][colnum].MYTEXT == "even":
                     kk, kkstr = net_out(cur_opts, even_pot_sols)
                     self.CELL_OPTIONS[row][colnum] = kk
-                    self.POT_SOL_CELLS[row][colnum].text = kkstr
+                    self.SET_TEXT(self.POT_SOL_CELLS[row][colnum], kkstr)
                 else:
                     kk, kkstr = net_out(cur_opts, odd_pot_sols)
                     self.CELL_OPTIONS[row][colnum] = kk
-                    self.POT_SOL_CELLS[row][colnum].text = kkstr
+                    self.SET_TEXT(self.POT_SOL_CELLS[row][colnum], kkstr)
         return
 
 
@@ -736,7 +761,7 @@ class myInputs(myVariables, GridLayout):
             return
         numevens = int(numevens)
         pot_sols = None
-        self.POTENTIAL_SOLUTIONS.text = ""
+        self.SET_TEXT(self.POTENTIAL_SOLUTIONS, "")
         if thesum in ALL_POTENTIAL_SOLUTIONS:
             if numevens in ALL_POTENTIAL_SOLUTIONS[thesum]:
                 pot_sols = ALL_POTENTIAL_SOLUTIONS[thesum][numevens]

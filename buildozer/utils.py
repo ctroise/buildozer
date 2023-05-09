@@ -10,7 +10,7 @@ FONT_DIR = "Pycharm/buildozer/venv/Lib/site-packages/kivy/data/fonts"
 NORMAL_COLOR = "white"
 NO_FOCUS_COLOR = "blanchedalmond"
 HIGHLIGHT_COLOR = "lightpink"
-
+MY_RED = [1, 0, 0, 1]
 
 
 ALL_POTENTIAL_SOLUTIONS = {
@@ -86,3 +86,11 @@ def static_vars(**kwargs):
             setattr(func, k, kwargs[k])
         return func
     return decorate
+
+
+def flatten_list(alist):
+    # only works for one level deep
+    res = [item for xx in alist for item in xx]
+    return res
+
+

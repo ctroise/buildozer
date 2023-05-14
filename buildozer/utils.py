@@ -1,16 +1,22 @@
-
+# Working with multiple kivy screens:
+# https://noudedata.com/2023/04/kivy-screen-navigation/
 
 # -------------------------------------------------------------------------------------------------------------------
 # COLORS
+# the fonts can also access system fonts?
 # a collection of 3 or 4 float values between 0-1 (kivy default)
 # https://www.w3.org/TR/SVG11/types.html#ColorKeywords
 
-# the fonts can also access system fonts?
 FONT_DIR = "Pycharm/buildozer/venv/Lib/site-packages/kivy/data/fonts"
-NORMAL_COLOR = "white"
-NO_FOCUS_COLOR = "blanchedalmond"
-HIGHLIGHT_COLOR = "lightpink"
+
 MY_RED = [1, 0, 0, 1]
+MY_WHITE = [1, 1, 1, 1]
+
+NORMAL_COLOR = "white"             #
+NO_FOCUS_COLOR = "blanchedalmond"  #
+HIGHLIGHT_COLOR = "lightpink"      # [1.0, 0.7137254901960784, 0.7568627450980392, 1.0]
+REMAINING_OPTIONS_COLOR = "lightcyan"        # "lightgoldenrodyellow"
+MY_SOLUTION_COLOR = "lightsteelblue"
 
 
 ALL_POTENTIAL_SOLUTIONS = {
@@ -18,7 +24,7 @@ ALL_POTENTIAL_SOLUTIONS = {
 
   11: {1: [[1,2,3,5]]},
 
-  12: {2: [[1,2,3,6], [61,2,4,5]]},
+  12: {2: [[1,2,3,6], [1,2,4,5]]},
 
   13: {1: [[1,2,3,7], [1,3,4,5]],
        3: [[1,2,4,6]]},
@@ -76,7 +82,7 @@ def get_sql_today(withDay=False):
     import datetime
     currentdt = datetime.datetime.now()
     today = currentdt.strftime("%Y-%m-%d")
-    hour = currentdt.strftime("%H")
+    hour = int(currentdt.strftime("%H"))
     return today, hour
 
 

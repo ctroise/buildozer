@@ -1,0 +1,1752 @@
+2023-05-16  07:35:47.000448  [DEBUG]  Base: Create provider from mouse
+2023-05-16  07:35:47.000448  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  07:35:47.000448  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  07:35:47.000448  [INFO]  Base: Start application main loop
+2023-05-16  07:35:47.000450  [INFO]  GL: NPOT texture support is available
+2023-05-16  07:35:53.000047  [WARNING]  stderr: Error while evaluating expression: self.
+2023-05-16  07:35:53.000049  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  07:35:53.000049  [WARNING]  stderr:   File "C:\Program Files\JetBrains\PyCharm 2022.1.3\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_utils.py", line 678, in eval_expression
+2023-05-16  07:35:53.000050  [WARNING]  stderr:     return eval(expression, globals, locals)
+2023-05-16  07:35:53.000050  [WARNING]  stderr:   File "<string>", line 1
+2023-05-16  07:35:53.000050  [WARNING]  stderr:     self.
+2023-05-16  07:35:53.000050  [WARNING]  stderr:         ^
+2023-05-16  07:35:53.000050  [WARNING]  stderr: SyntaxError: unexpected EOF while parsing
+2023-05-16  07:35:58.000489  [WARNING]  Deprecated property "<VariableListProperty name=padding_x>" of object "cls_Label_and_TextInput (Sum)" was accessed, it will be removed in a future version
+2023-05-16  07:35:58.000489  [WARNING]  Deprecated property "<VariableListProperty name=padding_y>" of object "cls_Label_and_TextInput (Sum)" was accessed, it will be removed in a future version
+2023-05-16  07:37:19.000662  [WARNING]  stderr: Error removing breakpoint: Breakpoint id not found: c:\users\ctroi\pycharm\buildozer\main.py id: 1031. Available ids: [96, 99, 309, 313, 1041, 1398, 1072, 930, 1059, 351, 997, 519, 1275, 1245, 1520, 996, 357, 1236, 1565, 345, 1397, 371, 342, 1057, 600, 1523]
+2023-05-16  07:37:19.000663  [WARNING]  stderr: 
+2023-05-16  07:37:33.000923  [INFO]  Base: Leaving application in progress...
+2023-05-16  07:37:33.000936  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  07:37:33.000936  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1639, in <module>
+2023-05-16  07:37:33.000936  [WARNING]  stderr:     app.run()
+2023-05-16  07:37:33.000936  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  07:37:33.000936  [WARNING]  stderr:     runTouchApp()
+2023-05-16  07:37:33.000936  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  07:37:33.000936  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  07:37:33.000936  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 339, in mainloop
+2023-05-16  07:37:33.000937  [WARNING]  stderr:     self.idle()
+2023-05-16  07:37:33.000937  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 383, in idle
+2023-05-16  07:37:33.000937  [WARNING]  stderr:     self.dispatch_input()
+2023-05-16  07:37:33.000937  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 334, in dispatch_input
+2023-05-16  07:37:33.000937  [WARNING]  stderr:     post_dispatch_input(*pop(0))
+2023-05-16  07:37:33.000937  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 263, in post_dispatch_input
+2023-05-16  07:37:33.000937  [WARNING]  stderr:     listener.dispatch('on_motion', etype, me)
+2023-05-16  07:37:33.000937  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  07:37:33.000937  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 1660, in on_motion
+2023-05-16  07:37:33.000937  [WARNING]  stderr:     self.dispatch('on_touch_down', me)
+2023-05-16  07:37:33.000937  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  07:37:33.000937  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 1677, in on_touch_down
+2023-05-16  07:37:33.000937  [WARNING]  stderr:     if w.dispatch('on_touch_down', touch):
+2023-05-16  07:37:33.000937  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  07:37:33.000937  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  07:37:33.000937  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  07:37:33.000937  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  07:37:33.000938  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  07:37:33.000938  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  07:37:33.000938  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  07:37:33.000938  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\behaviors\button.py", line 151, in on_touch_down
+2023-05-16  07:37:33.000938  [WARNING]  stderr:     self.dispatch('on_press')
+2023-05-16  07:37:33.000938  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  07:37:33.000938  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  07:37:33.000938  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  07:37:33.000938  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1455, in btn_LoadSavedPuzzle
+2023-05-16  07:37:33.000938  [WARNING]  stderr:     self.LoadSavedPuzzle(instance)
+2023-05-16  07:37:33.000938  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1464, in LoadSavedPuzzle
+2023-05-16  07:37:33.000938  [WARNING]  stderr:     self.CLEAR()
+2023-05-16  07:37:33.000938  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1003, in CLEAR
+2023-05-16  07:37:33.000938  [WARNING]  stderr:     self.RESET_VARIABLES()
+2023-05-16  07:37:33.000938  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 668, in RESET_VARIABLES
+2023-05-16  07:37:33.000938  [WARNING]  stderr:     self.ELIMINATED_SOLUTIONS.SET_TEXT()
+2023-05-16  07:37:33.000938  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 309, in SET_TEXT
+2023-05-16  07:37:33.000938  [WARNING]  stderr:     self.MYTEXTBOX.text = text
+2023-05-16  07:37:33.000939  [WARNING]  stderr: KeyboardInterrupt
+2023-05-16  07:42:11.000433  [DEBUG]  Base: Create provider from mouse
+2023-05-16  07:42:11.000433  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  07:42:11.000433  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  07:42:11.000433  [INFO]  Base: Start application main loop
+2023-05-16  07:42:11.000436  [INFO]  GL: NPOT texture support is available
+2023-05-16  07:42:30.000635  [INFO]  Base: Leaving application in progress...
+2023-05-16  07:42:30.000636  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  07:42:30.000636  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  07:42:30.000639  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  07:42:30.000640  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 339, in mainloop
+2023-05-16  07:42:30.000642  [WARNING]  stderr:     self.idle()
+2023-05-16  07:42:30.000644  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 383, in idle
+2023-05-16  07:42:30.000646  [WARNING]  stderr:     self.dispatch_input()
+2023-05-16  07:42:30.000646  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 334, in dispatch_input
+2023-05-16  07:42:30.000649  [WARNING]  stderr:     post_dispatch_input(*pop(0))
+2023-05-16  07:42:30.000649  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 263, in post_dispatch_input
+2023-05-16  07:42:30.000652  [WARNING]  stderr:     listener.dispatch('on_motion', etype, me)
+2023-05-16  07:42:30.000652  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  07:42:30.000653  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 1660, in on_motion
+2023-05-16  07:42:30.000658  [WARNING]  stderr:     self.dispatch('on_touch_down', me)
+2023-05-16  07:42:30.000658  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  07:42:30.000659  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 1677, in on_touch_down
+2023-05-16  07:42:30.000662  [WARNING]  stderr:     if w.dispatch('on_touch_down', touch):
+2023-05-16  07:42:30.000662  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  07:42:30.000663  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  07:42:30.000666  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  07:42:30.000666  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  07:42:30.000666  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  07:42:30.000669  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  07:42:30.000669  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  07:42:30.000670  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\behaviors\button.py", line 151, in on_touch_down
+2023-05-16  07:42:30.000672  [WARNING]  stderr:     self.dispatch('on_press')
+2023-05-16  07:42:30.000673  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  07:42:30.000673  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  07:42:30.000673  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  07:42:30.000673  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1476, in btn_LoadSavedPuzzle
+2023-05-16  07:42:30.000676  [WARNING]  stderr:     self.LoadSavedPuzzle(instance)
+2023-05-16  07:42:30.000676  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1502, in LoadSavedPuzzle
+2023-05-16  07:42:30.000677  [WARNING]  stderr:     self.MyTextInput_ROW_SUMS[xx].SET_TEXT(res0)
+2023-05-16  07:42:30.000677  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 220, in SET_TEXT
+2023-05-16  07:42:30.000678  [WARNING]  stderr:     self.text = text
+2023-05-16  07:42:30.000678  [WARNING]  stderr:   File "kivy\properties.pyx", line 520, in kivy.properties.Property.__set__
+2023-05-16  07:42:30.000678  [WARNING]  stderr:   File "kivy\properties.pyx", line 1662, in kivy.properties.AliasProperty.set
+2023-05-16  07:42:30.000679  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\textinput.py", line 3605, in _set_text
+2023-05-16  07:42:30.000681  [WARNING]  stderr:     self._refresh_text(text)
+2023-05-16  07:42:30.000681  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\textinput.py", line 2173, in _refresh_text
+2023-05-16  07:42:30.000683  [WARNING]  stderr:     self._lines[:] = _lines
+2023-05-16  07:42:30.000683  [WARNING]  stderr:   File "kivy\properties.pyx", line 820, in kivy.properties.ObservableList.__setitem__
+2023-05-16  07:42:30.000683  [WARNING]  stderr:   File "kivy\properties.pyx", line 806, in kivy.properties.observable_list_dispatch
+2023-05-16  07:42:30.000684  [WARNING]  stderr:   File "kivy\properties.pyx", line 625, in kivy.properties.Property.dispatch
+2023-05-16  07:42:30.000684  [WARNING]  stderr:   File "kivy\properties.pyx", line 606, in kivy.properties.Property._dispatch
+2023-05-16  07:42:30.000684  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  07:42:30.000685  [WARNING]  stderr:   File "kivy\_event.pyx", line 1213, in kivy._event.EventObservers._dispatch
+2023-05-16  07:42:30.000685  [WARNING]  stderr:   File "kivy\properties.pyx", line 1639, in kivy.properties.AliasProperty.trigger_change
+2023-05-16  07:42:30.000685  [WARNING]  stderr:   File "kivy\properties.pyx", line 1646, in kivy.properties.AliasProperty.trigger_change
+2023-05-16  07:42:30.000685  [WARNING]  stderr:   File "kivy\properties.pyx", line 1672, in kivy.properties.AliasProperty._dispatch
+2023-05-16  07:42:30.000686  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  07:42:30.000686  [WARNING]  stderr:   File "kivy\_event.pyx", line 1213, in kivy._event.EventObservers._dispatch
+2023-05-16  07:42:30.000686  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 912, in entry_TEXT
+2023-05-16  07:42:30.000687  [WARNING]  stderr:     self.ELIMINATED_SOLUTIONS.SET_TEXT(eliminated_sols)
+2023-05-16  07:42:30.000687  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 309, in SET_TEXT
+2023-05-16  07:42:30.000688  [WARNING]  stderr:     xx = len(value.split())
+2023-05-16  07:42:30.000688  [WARNING]  stderr: AttributeError: 'list' object has no attribute 'split'
+2023-05-16  07:42:59.000347  [WARNING]  stderr: Error removing breakpoint: Breakpoint id not found: c:\users\ctroi\pycharm\buildozer\main.py id: 1051. Available ids: [96, 99, 315, 390, 1076, 1584, 619, 1264, 1542, 1539, 1294, 538, 319, 344, 323, 1418, 1061, 1052, 1017, 1092, 950, 362, 377, 1016, 1543, 371, 620, 365, 1079, 391]
+2023-05-16  07:42:59.000347  [WARNING]  stderr: 
+2023-05-16  07:43:07.000630  [DEBUG]  Base: Create provider from mouse
+2023-05-16  07:43:07.000631  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  07:43:07.000631  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  07:43:07.000631  [INFO]  Base: Start application main loop
+2023-05-16  07:43:07.000633  [INFO]  GL: NPOT texture support is available
+2023-05-16  07:43:59.000241  [WARNING]  stderr: Error removing breakpoint: Breakpoint id not found: c:\users\ctroi\pycharm\buildozer\main.py id: 1053. Available ids: [99, 96, 1054, 1094, 1081, 1018, 1019, 1587, 622, 1079, 1297, 1421, 1267, 1064, 318, 1542, 323, 1545, 541, 379, 373, 367, 393, 952, 364, 347, 321]
+2023-05-16  07:43:59.000241  [WARNING]  stderr: 
+2023-05-16  07:44:37.000945  [WARNING]  stderr: Error removing breakpoint: Breakpoint id not found: c:\users\ctroi\pycharm\buildozer\main.py id: 1054. Available ids: [99, 96, 1587, 622, 1020, 1095, 953, 365, 394, 1082, 374, 368, 542, 1298, 1268, 1543, 1546, 1065, 348, 380, 1019, 324, 319, 322, 1422, 1056]
+2023-05-16  07:44:37.000945  [WARNING]  stderr: 
+2023-05-16  07:44:39.000446  [WARNING]  stderr: Error removing breakpoint: Breakpoint id not found: c:\users\ctroi\pycharm\buildozer\main.py id: 1055. Available ids: [99, 96, 1543, 1546, 1420, 1080, 1259, 1588, 623, 1021, 1020, 1096, 1299, 543, 381, 375, 369, 1057, 1083, 395, 954, 1423, 323, 366, 325, 349, 320, 1066, 1056]
+2023-05-16  07:44:39.000446  [WARNING]  stderr: 
+2023-05-16  07:44:45.000019  [INFO]  Base: Leaving application in progress...
+2023-05-16  07:44:45.000033  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  07:44:45.000033  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1662, in <module>
+2023-05-16  07:44:45.000033  [WARNING]  stderr:     app.run()
+2023-05-16  07:44:45.000033  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  07:44:45.000033  [WARNING]  stderr:     runTouchApp()
+2023-05-16  07:44:45.000033  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  07:44:45.000033  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  07:44:45.000033  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 339, in mainloop
+2023-05-16  07:44:45.000033  [WARNING]  stderr:     self.idle()
+2023-05-16  07:44:45.000033  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 383, in idle
+2023-05-16  07:44:45.000033  [WARNING]  stderr:     self.dispatch_input()
+2023-05-16  07:44:45.000034  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 334, in dispatch_input
+2023-05-16  07:44:45.000034  [WARNING]  stderr:     post_dispatch_input(*pop(0))
+2023-05-16  07:44:45.000034  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 263, in post_dispatch_input
+2023-05-16  07:44:45.000034  [WARNING]  stderr:     listener.dispatch('on_motion', etype, me)
+2023-05-16  07:44:45.000034  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  07:44:45.000034  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 1660, in on_motion
+2023-05-16  07:44:45.000034  [WARNING]  stderr:     self.dispatch('on_touch_down', me)
+2023-05-16  07:44:45.000034  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  07:44:45.000034  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 1677, in on_touch_down
+2023-05-16  07:44:45.000034  [WARNING]  stderr:     if w.dispatch('on_touch_down', touch):
+2023-05-16  07:44:45.000034  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  07:44:45.000034  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  07:44:45.000034  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  07:44:45.000034  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  07:44:45.000034  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  07:44:45.000034  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  07:44:45.000034  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  07:44:45.000034  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\behaviors\button.py", line 151, in on_touch_down
+2023-05-16  07:44:45.000034  [WARNING]  stderr:     self.dispatch('on_press')
+2023-05-16  07:44:45.000034  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  07:44:45.000034  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  07:44:45.000034  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  07:44:45.000034  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1478, in btn_LoadSavedPuzzle
+2023-05-16  07:44:45.000034  [WARNING]  stderr:     self.LoadSavedPuzzle(instance)
+2023-05-16  07:44:45.000034  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1533, in LoadSavedPuzzle
+2023-05-16  07:44:45.000034  [WARNING]  stderr:     self.RipItGood()
+2023-05-16  07:44:45.000035  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1595, in RipItGood
+2023-05-16  07:44:45.000035  [WARNING]  stderr:     self.MyTextInput_ROW_SUMS[row].focus = True
+2023-05-16  07:44:45.000035  [WARNING]  stderr:   File "kivy\properties.pyx", line 520, in kivy.properties.Property.__set__
+2023-05-16  07:44:45.000035  [WARNING]  stderr:   File "kivy\properties.pyx", line 567, in kivy.properties.Property.set
+2023-05-16  07:44:45.000035  [WARNING]  stderr:   File "kivy\properties.pyx", line 606, in kivy.properties.Property._dispatch
+2023-05-16  07:44:45.000035  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  07:44:45.000035  [WARNING]  stderr:   File "kivy\_event.pyx", line 1213, in kivy._event.EventObservers._dispatch
+2023-05-16  07:44:45.000035  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 429, in on_focus
+2023-05-16  07:44:45.000035  [WARNING]  stderr:     self.MYAPP.NUM_EVENS_INPUT.SET_TEXT(numevens)
+2023-05-16  07:44:45.000035  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 321, in SET_TEXT
+2023-05-16  07:44:45.000035  [WARNING]  stderr:     if ll != 1:
+2023-05-16  07:44:45.000035  [WARNING]  stderr: KeyboardInterrupt
+2023-05-16  07:45:17.000210  [DEBUG]  Base: Create provider from mouse
+2023-05-16  07:45:17.000210  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  07:45:17.000210  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  07:45:17.000210  [INFO]  Base: Start application main loop
+2023-05-16  07:45:17.000213  [INFO]  GL: NPOT texture support is available
+2023-05-16  07:47:08.000836  [INFO]  Base: Leaving application in progress...
+2023-05-16  07:47:08.000846  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  07:47:08.000846  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1665, in <module>
+2023-05-16  07:47:08.000846  [WARNING]  stderr:     app.run()
+2023-05-16  07:47:08.000847  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  07:47:08.000847  [WARNING]  stderr:     runTouchApp()
+2023-05-16  07:47:08.000847  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  07:47:08.000847  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  07:47:08.000847  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 339, in mainloop
+2023-05-16  07:47:08.000847  [WARNING]  stderr:     self.idle()
+2023-05-16  07:47:08.000847  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 379, in idle
+2023-05-16  07:47:08.000847  [WARNING]  stderr:     Clock.tick()
+2023-05-16  07:47:08.000848  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\clock.py", line 733, in tick
+2023-05-16  07:47:08.000848  [WARNING]  stderr:     self.post_idle(ts, self.idle())
+2023-05-16  07:47:08.000848  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\clock.py", line 689, in idle
+2023-05-16  07:47:08.000848  [WARNING]  stderr:     usleep(1000000 * sleeptime)
+2023-05-16  07:47:08.000848  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\clock.py", line 965, in usleep
+2023-05-16  07:47:08.000848  [WARNING]  stderr:     _usleep(microseconds, self._sleep_obj)
+2023-05-16  07:47:08.000848  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\clock.py", line 504, in _usleep
+2023-05-16  07:47:08.000848  [WARNING]  stderr:     _kernel32.WaitForSingleObject(obj, 0xffffffff)
+2023-05-16  07:47:08.000848  [WARNING]  stderr: KeyboardInterrupt
+2023-05-16  07:47:37.000587  [DEBUG]  Base: Create provider from mouse
+2023-05-16  07:47:37.000587  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  07:47:37.000587  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  07:47:37.000588  [INFO]  Base: Start application main loop
+2023-05-16  07:47:37.000589  [INFO]  GL: NPOT texture support is available
+2023-05-16  07:47:41.000195  [INFO]  Base: Leaving application in progress...
+2023-05-16  07:47:41.000197  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  07:47:41.000197  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1662, in <module>
+2023-05-16  07:47:41.000199  [WARNING]  stderr:     app.run()
+2023-05-16  07:47:41.000200  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  07:47:41.000202  [WARNING]  stderr:     runTouchApp()
+2023-05-16  07:47:41.000203  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  07:47:41.000207  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  07:47:41.000207  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 339, in mainloop
+2023-05-16  07:47:41.000208  [WARNING]  stderr:     self.idle()
+2023-05-16  07:47:41.000208  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 383, in idle
+2023-05-16  07:47:41.000210  [WARNING]  stderr:     self.dispatch_input()
+2023-05-16  07:47:41.000210  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 334, in dispatch_input
+2023-05-16  07:47:41.000211  [WARNING]  stderr:     post_dispatch_input(*pop(0))
+2023-05-16  07:47:41.000211  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 263, in post_dispatch_input
+2023-05-16  07:47:41.000214  [WARNING]  stderr:     listener.dispatch('on_motion', etype, me)
+2023-05-16  07:47:41.000214  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  07:47:41.000214  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 1660, in on_motion
+2023-05-16  07:47:41.000216  [WARNING]  stderr:     self.dispatch('on_touch_down', me)
+2023-05-16  07:47:41.000216  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  07:47:41.000216  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 1677, in on_touch_down
+2023-05-16  07:47:41.000222  [WARNING]  stderr:     if w.dispatch('on_touch_down', touch):
+2023-05-16  07:47:41.000222  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  07:47:41.000223  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  07:47:41.000225  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  07:47:41.000225  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  07:47:41.000225  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  07:47:41.000226  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  07:47:41.000226  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  07:47:41.000227  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  07:47:41.000228  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  07:47:41.000228  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  07:47:41.000228  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  07:47:41.000229  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  07:47:41.000230  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  07:47:41.000230  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\textinput.py", line 1541, in on_touch_down
+2023-05-16  07:47:41.000231  [WARNING]  stderr:     if super().on_touch_down(touch):
+2023-05-16  07:47:41.000231  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\behaviors\focus.py", line 462, in on_touch_down
+2023-05-16  07:47:41.000232  [WARNING]  stderr:     self.focus = True
+2023-05-16  07:47:41.000232  [WARNING]  stderr:   File "kivy\properties.pyx", line 520, in kivy.properties.Property.__set__
+2023-05-16  07:47:41.000232  [WARNING]  stderr:   File "kivy\properties.pyx", line 567, in kivy.properties.Property.set
+2023-05-16  07:47:41.000233  [WARNING]  stderr:   File "kivy\properties.pyx", line 606, in kivy.properties.Property._dispatch
+2023-05-16  07:47:41.000233  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  07:47:41.000233  [WARNING]  stderr:   File "kivy\_event.pyx", line 1213, in kivy._event.EventObservers._dispatch
+2023-05-16  07:47:41.000233  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 262, in on_focus
+2023-05-16  07:47:41.000234  [WARNING]  stderr:     self.MYAPP.MyTextInput_MY_SOLUTION_CELLS[row][col].SET_TEXT(arr[0])
+2023-05-16  07:47:41.000234  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 220, in SET_TEXT
+2023-05-16  07:47:41.000235  [WARNING]  stderr:     self.text = text
+2023-05-16  07:47:41.000235  [WARNING]  stderr:   File "kivy\properties.pyx", line 520, in kivy.properties.Property.__set__
+2023-05-16  07:47:41.000235  [WARNING]  stderr:   File "kivy\properties.pyx", line 1662, in kivy.properties.AliasProperty.set
+2023-05-16  07:47:41.000235  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\textinput.py", line 3605, in _set_text
+2023-05-16  07:47:41.000236  [WARNING]  stderr:     self._refresh_text(text)
+2023-05-16  07:47:41.000236  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\textinput.py", line 2173, in _refresh_text
+2023-05-16  07:47:41.000237  [WARNING]  stderr:     self._lines[:] = _lines
+2023-05-16  07:47:41.000237  [WARNING]  stderr:   File "kivy\properties.pyx", line 820, in kivy.properties.ObservableList.__setitem__
+2023-05-16  07:47:41.000238  [WARNING]  stderr:   File "kivy\properties.pyx", line 806, in kivy.properties.observable_list_dispatch
+2023-05-16  07:47:41.000238  [WARNING]  stderr:   File "kivy\properties.pyx", line 625, in kivy.properties.Property.dispatch
+2023-05-16  07:47:41.000238  [WARNING]  stderr:   File "kivy\properties.pyx", line 606, in kivy.properties.Property._dispatch
+2023-05-16  07:47:41.000239  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  07:47:41.000239  [WARNING]  stderr:   File "kivy\_event.pyx", line 1213, in kivy._event.EventObservers._dispatch
+2023-05-16  07:47:41.000239  [WARNING]  stderr:   File "kivy\properties.pyx", line 1639, in kivy.properties.AliasProperty.trigger_change
+2023-05-16  07:47:41.000239  [WARNING]  stderr:   File "kivy\properties.pyx", line 1646, in kivy.properties.AliasProperty.trigger_change
+2023-05-16  07:47:41.000239  [WARNING]  stderr:   File "kivy\properties.pyx", line 1672, in kivy.properties.AliasProperty._dispatch
+2023-05-16  07:47:41.000240  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  07:47:41.000240  [WARNING]  stderr:   File "kivy\_event.pyx", line 1213, in kivy._event.EventObservers._dispatch
+2023-05-16  07:47:41.000240  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1337, in entry_A_SOLUTION
+2023-05-16  07:47:41.000242  [WARNING]  stderr:     self.MEGA_POPULATE_OPTIONS(ok=True)
+2023-05-16  07:47:41.000242  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1146, in MEGA_POPULATE_OPTIONS
+2023-05-16  07:47:41.000243  [WARNING]  stderr:     self.ELIMINATED_SOLUTIONS.SET_TEXT(eliminated_sols)
+2023-05-16  07:47:41.000243  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 319, in SET_TEXT
+2023-05-16  07:47:41.000246  [WARNING]  stderr:     xx = len(value.split())
+2023-05-16  07:47:41.000246  [WARNING]  stderr: AttributeError: 'list' object has no attribute 'split'
+2023-05-16  07:47:55.000735  [DEBUG]  Base: Create provider from mouse
+2023-05-16  07:47:55.000735  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  07:47:55.000735  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  07:47:55.000735  [INFO]  Base: Start application main loop
+2023-05-16  07:47:55.000737  [INFO]  GL: NPOT texture support is available
+2023-05-16  07:48:49.000697  [INFO]  Base: Leaving application in progress...
+2023-05-16  07:49:42.000565  [DEBUG]  Base: Create provider from mouse
+2023-05-16  07:49:42.000566  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  07:49:42.000566  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  07:49:42.000566  [INFO]  Base: Start application main loop
+2023-05-16  07:49:42.000567  [INFO]  GL: NPOT texture support is available
+2023-05-16  07:49:46.000313  [INFO]  Base: Leaving application in progress...
+2023-05-16  07:49:46.000313  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  07:49:46.000314  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1661, in <module>
+2023-05-16  07:49:46.000315  [WARNING]  stderr:     app.run()
+2023-05-16  07:49:46.000315  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  07:49:46.000318  [WARNING]  stderr:     runTouchApp()
+2023-05-16  07:49:46.000318  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  07:49:46.000320  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  07:49:46.000321  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 339, in mainloop
+2023-05-16  07:49:46.000323  [WARNING]  stderr:     self.idle()
+2023-05-16  07:49:46.000323  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 379, in idle
+2023-05-16  07:49:46.000325  [WARNING]  stderr:     Clock.tick()
+2023-05-16  07:49:46.000325  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\clock.py", line 733, in tick
+2023-05-16  07:49:46.000327  [WARNING]  stderr:     self.post_idle(ts, self.idle())
+2023-05-16  07:49:46.000327  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\clock.py", line 689, in idle
+2023-05-16  07:49:46.000330  [WARNING]  stderr:     usleep(1000000 * sleeptime)
+2023-05-16  07:49:46.000330  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\clock.py", line 965, in usleep
+2023-05-16  07:49:46.000333  [WARNING]  stderr:     _usleep(microseconds, self._sleep_obj)
+2023-05-16  07:49:46.000333  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\clock.py", line 504, in _usleep
+2023-05-16  07:49:46.000336  [WARNING]  stderr:     _kernel32.WaitForSingleObject(obj, 0xffffffff)
+2023-05-16  07:49:46.000336  [WARNING]  stderr: KeyboardInterrupt
+2023-05-16  07:50:44.000738  [DEBUG]  Base: Create provider from mouse
+2023-05-16  07:50:44.000738  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  07:50:44.000739  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  07:50:44.000739  [INFO]  Base: Start application main loop
+2023-05-16  07:50:44.000741  [INFO]  GL: NPOT texture support is available
+2023-05-16  07:51:05.000793  [INFO]  Base: Leaving application in progress...
+2023-05-16  07:55:47.000061  [DEBUG]  Base: Create provider from mouse
+2023-05-16  07:55:47.000061  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  07:55:47.000061  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  07:55:47.000062  [INFO]  Base: Start application main loop
+2023-05-16  07:55:47.000063  [INFO]  GL: NPOT texture support is available
+2023-05-16  07:56:36.000315  [INFO]  Base: Leaving application in progress...
+2023-05-16  07:56:36.000341  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  07:56:36.000341  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1660, in <module>
+2023-05-16  07:56:36.000341  [WARNING]  stderr:     app.run()
+2023-05-16  07:56:36.000341  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  07:56:36.000341  [WARNING]  stderr:     runTouchApp()
+2023-05-16  07:56:36.000341  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  07:56:36.000341  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  07:56:36.000341  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 339, in mainloop
+2023-05-16  07:56:36.000341  [WARNING]  stderr:     self.idle()
+2023-05-16  07:56:36.000341  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 383, in idle
+2023-05-16  07:56:36.000341  [WARNING]  stderr:     self.dispatch_input()
+2023-05-16  07:56:36.000342  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 334, in dispatch_input
+2023-05-16  07:56:36.000342  [WARNING]  stderr:     post_dispatch_input(*pop(0))
+2023-05-16  07:56:36.000342  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 263, in post_dispatch_input
+2023-05-16  07:56:36.000342  [WARNING]  stderr:     listener.dispatch('on_motion', etype, me)
+2023-05-16  07:56:36.000342  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  07:56:36.000342  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 1660, in on_motion
+2023-05-16  07:56:36.000342  [WARNING]  stderr:     self.dispatch('on_touch_down', me)
+2023-05-16  07:56:36.000342  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  07:56:36.000342  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 1677, in on_touch_down
+2023-05-16  07:56:36.000342  [WARNING]  stderr:     if w.dispatch('on_touch_down', touch):
+2023-05-16  07:56:36.000342  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  07:56:36.000342  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  07:56:36.000342  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  07:56:36.000343  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  07:56:36.000343  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  07:56:36.000343  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  07:56:36.000343  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  07:56:36.000343  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\behaviors\button.py", line 151, in on_touch_down
+2023-05-16  07:56:36.000343  [WARNING]  stderr:     self.dispatch('on_press')
+2023-05-16  07:56:36.000343  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  07:56:36.000343  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  07:56:36.000343  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  07:56:36.000343  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1476, in btn_LoadSavedPuzzle
+2023-05-16  07:56:36.000343  [WARNING]  stderr:     self.LoadSavedPuzzle(instance)
+2023-05-16  07:56:36.000343  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1531, in LoadSavedPuzzle
+2023-05-16  07:56:36.000343  [WARNING]  stderr:     self.RipItGood()
+2023-05-16  07:56:36.000343  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1596, in RipItGood
+2023-05-16  07:56:36.000344  [WARNING]  stderr:     self.MyTextInput_COL_SUMS[col].focus = True
+2023-05-16  07:56:36.000344  [WARNING]  stderr:   File "kivy\properties.pyx", line 520, in kivy.properties.Property.__set__
+2023-05-16  07:56:36.000344  [WARNING]  stderr:   File "kivy\properties.pyx", line 567, in kivy.properties.Property.set
+2023-05-16  07:56:36.000344  [WARNING]  stderr:   File "kivy\properties.pyx", line 606, in kivy.properties.Property._dispatch
+2023-05-16  07:56:36.000344  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  07:56:36.000344  [WARNING]  stderr:   File "kivy\_event.pyx", line 1213, in kivy._event.EventObservers._dispatch
+2023-05-16  07:56:36.000344  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 499, in on_focus
+2023-05-16  07:56:36.000344  [WARNING]  stderr:     self.MYAPP.find_unique_to_all(pot_sols)
+2023-05-16  07:56:36.000344  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1203, in find_unique_to_all
+2023-05-16  07:56:36.000344  [WARNING]  stderr:     self.UNIQUE_TO_ALL.SET_TEXT(unique_str)
+2023-05-16  07:56:36.000344  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 320, in SET_TEXT
+2023-05-16  07:56:36.000344  [WARNING]  stderr:     self.MYLABEL.text = f"{self.NAME} ({xx})"
+2023-05-16  07:56:36.000344  [WARNING]  stderr: KeyboardInterrupt
+2023-05-16  07:56:39.000286  [DEBUG]  Base: Create provider from mouse
+2023-05-16  07:56:39.000287  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  07:56:39.000287  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  07:56:39.000287  [INFO]  Base: Start application main loop
+2023-05-16  07:56:39.000288  [INFO]  GL: NPOT texture support is available
+2023-05-16  07:57:18.000681  [INFO]  Base: Leaving application in progress...
+2023-05-16  07:57:31.000872  [DEBUG]  Base: Create provider from mouse
+2023-05-16  07:57:31.000872  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  07:57:31.000873  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  07:57:31.000873  [INFO]  Base: Start application main loop
+2023-05-16  07:57:31.000875  [INFO]  GL: NPOT texture support is available
+2023-05-16  08:08:31.000816  [WARNING]  stderr: Error removing breakpoint: Breakpoint id not found: c:\users\ctroi\pycharm\buildozer\main.py id: 1052. Available ids: [96, 99, 104, 1417, 1419, 322, 1053, 1018, 1093, 363, 392, 951, 366, 540, 1296, 621, 1080, 1078, 1257, 1586, 1266, 378, 1541, 1544, 1017, 372]
+2023-05-16  08:08:31.000816  [WARNING]  stderr: 
+2023-05-16  08:08:36.000514  [WARNING]  stderr: Error removing breakpoint: Breakpoint id not found: c:\users\ctroi\pycharm\buildozer\main.py id: 1053. Available ids: [96, 99, 104, 363, 366, 1296, 621, 1080, 1078, 1257, 1586, 1541, 1544, 1017, 372, 323, 1420, 1063, 1054, 1418, 1019, 364, 379, 541, 1542, 622, 1258, 367, 1055, 373]
+2023-05-16  08:08:36.000515  [WARNING]  stderr: 
+2023-05-16  08:08:44.000505  [WARNING]  stderr: Error removing breakpoint: Breakpoint id not found: c:\users\ctroi\pycharm\buildozer\main.py id: 1054. Available ids: [96, 99, 104, 364, 379, 1258, 367, 1055, 373, 952, 1081, 1094, 1064, 324, 1421, 1419, 1079, 1587, 1545, 1297, 1018, 1095, 1020, 623, 1268, 1543, 1056, 1546]
+2023-05-16  08:08:44.000506  [WARNING]  stderr: 
+2023-05-16  08:08:52.000010  [WARNING]  stderr: Error removing breakpoint: Breakpoint id not found: c:\users\ctroi\pycharm\buildozer\main.py id: 1055. Available ids: [96, 99, 104, 623, 1543, 1056, 542, 1422, 1019, 325, 1065, 1259, 1021, 395, 1096, 954, 366, 1020, 375, 381, 1544, 369, 1083, 1081]
+2023-05-16  08:08:52.000011  [WARNING]  stderr: 
+2023-05-16  08:08:54.000582  [WARNING]  stderr: Error removing breakpoint: Breakpoint id not found: c:\users\ctroi\pycharm\buildozer\main.py id: 1056. Available ids: [96, 99, 104, 1020, 375, 381, 1544, 369, 1081, 1260, 1589, 624, 1269, 1547, 543, 1057, 1084, 376, 370, 367, 1270, 1590, 1082, 396, 955, 1424, 1022, 1097, 327, 1067]
+2023-05-16  08:08:54.000582  [WARNING]  stderr: 
+2023-05-16  08:09:04.000050  [WARNING]  stderr: Error removing breakpoint: Breakpoint id not found: c:\users\ctroi\pycharm\buildozer\main.py id: 1057. Available ids: [96, 99, 104, 1424, 327, 1067, 1019, 1094, 364, 952, 393, 1081, 367, 373, 379, 1018, 541, 1297, 1542, 1267, 622, 1587, 1258, 1079, 1419, 1055]
+2023-05-16  08:09:04.000050  [WARNING]  stderr: 
+2023-05-16  08:09:05.000826  [INFO]  Base: Leaving application in progress...
+2023-05-16  08:09:07.000127  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  08:09:07.000127  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1661, in <module>
+2023-05-16  08:09:07.000127  [WARNING]  stderr:     app.run()
+2023-05-16  08:09:07.000127  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  08:09:07.000127  [WARNING]  stderr:     runTouchApp()
+2023-05-16  08:09:07.000127  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  08:09:07.000128  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  08:09:07.000128  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 339, in mainloop
+2023-05-16  08:09:07.000128  [WARNING]  stderr:     self.idle()
+2023-05-16  08:09:07.000128  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 379, in idle
+2023-05-16  08:09:07.000128  [WARNING]  stderr:     Clock.tick()
+2023-05-16  08:09:07.000128  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\clock.py", line 733, in tick
+2023-05-16  08:09:07.000128  [WARNING]  stderr:     self.post_idle(ts, self.idle())
+2023-05-16  08:09:07.000128  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\clock.py", line 689, in idle
+2023-05-16  08:09:07.000128  [WARNING]  stderr:     usleep(1000000 * sleeptime)
+2023-05-16  08:09:07.000128  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\clock.py", line 965, in usleep
+2023-05-16  08:09:07.000128  [WARNING]  stderr:     _usleep(microseconds, self._sleep_obj)
+2023-05-16  08:09:07.000128  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\clock.py", line 504, in _usleep
+2023-05-16  08:09:07.000128  [WARNING]  stderr:     _kernel32.WaitForSingleObject(obj, 0xffffffff)
+2023-05-16  08:09:07.000129  [WARNING]  stderr: KeyboardInterrupt
+2023-05-16  08:09:10.000045  [DEBUG]  Base: Create provider from mouse
+2023-05-16  08:09:10.000045  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  08:09:10.000046  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  08:09:10.000046  [INFO]  Base: Start application main loop
+2023-05-16  08:09:10.000048  [INFO]  GL: NPOT texture support is available
+2023-05-16  08:11:24.000135  [WARNING]  stderr: Error removing breakpoint: Breakpoint id not found: c:\users\ctroi\pycharm\buildozer\main.py id: 1055. Available ids: [96, 324, 99, 1588, 1056, 1080, 1268, 366, 1021, 954, 1096, 395, 369, 375, 1083, 381, 543, 624, 1589, 1547, 1057, 1020, 1299, 1423, 1066]
+2023-05-16  08:11:24.000135  [WARNING]  stderr: 
+2023-05-16  08:11:26.000510  [WARNING]  stderr: Error removing breakpoint: Breakpoint id not found: c:\users\ctroi\pycharm\buildozer\main.py id: 1056. Available ids: [96, 324, 99, 624, 1589, 1547, 1057, 1299, 1423, 1066, 1081, 1260, 1269, 1097, 1022, 955, 1084, 367, 370, 1021, 1270, 1590, 376, 396, 1422, 1082, 1261]
+2023-05-16  08:11:26.000510  [WARNING]  stderr: 
+2023-05-16  08:11:29.000832  [INFO]  Base: Leaving application in progress...
+2023-05-16  08:11:33.000641  [DEBUG]  Base: Create provider from mouse
+2023-05-16  08:11:33.000641  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  08:11:33.000641  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  08:11:33.000642  [INFO]  Base: Start application main loop
+2023-05-16  08:11:33.000643  [INFO]  GL: NPOT texture support is available
+2023-05-16  08:57:32.000608  [WARNING]  stderr: Error removing breakpoint: Breakpoint id not found: c:\users\ctroi\pycharm\buildozer\main.py id: 1059. Available ids: [1084, 1060, 1263, 1100, 1025, 370, 373, 399, 958, 1551, 1273, 628, 1085, 1548, 1303, 1321, 547, 1024, 385, 102, 379, 99, 1087, 1323, 1180, 1427, 1070]
+2023-05-16  08:57:32.000608  [WARNING]  stderr: 
+2023-05-16  08:57:38.000720  [WARNING]  stderr: Error removing breakpoint: Breakpoint id not found: c:\users\ctroi\pycharm\buildozer\main.py id: 1060. Available ids: [373, 1551, 1273, 628, 1085, 1548, 1303, 1321, 1024, 102, 379, 99, 1323, 1180, 1427, 1070, 1061, 1425, 1264, 1593, 1026, 103, 1304, 1552, 1594, 1265, 371, 1101, 1426]
+2023-05-16  08:57:38.000720  [WARNING]  stderr: 
+2023-05-16  08:58:06.000920  [WARNING]  stderr: Error removing breakpoint: Breakpoint id not found: c:\users\ctroi\pycharm\buildozer\main.py id: 1061. Available ids: [103, 1594, 1265, 1086, 1181, 629, 1324, 548, 100, 386, 1322, 1428, 1071, 1062, 1027, 372, 1102, 387, 1026, 1089, 401, 960, 1550, 1553, 1305, 549, 1063]
+2023-05-16  08:58:06.000921  [WARNING]  stderr: 
+2023-05-16  08:58:09.000687  [WARNING]  stderr: Error removing breakpoint: Breakpoint id not found: c:\users\ctroi\pycharm\buildozer\main.py id: 1062. Available ids: [1182, 1325, 1323, 1429, 1072, 1028, 1103, 373, 961, 402, 1090, 376, 382, 388, 102, 105, 1027, 550, 1306, 1554, 1551, 631, 1276, 1267, 1088, 1428, 1596]
+2023-05-16  08:58:09.000687  [WARNING]  stderr: 
+2023-05-16  09:00:08.000232  [WARNING]  stderr: Error removing breakpoint: Breakpoint id not found: c:\users\ctroi\pycharm\buildozer\main.py id: 1333. Available ids: [103, 106, 99, 1105, 963, 384, 1030, 390, 378, 1092, 404, 633, 1090, 375, 1075, 1066, 552, 1029, 1065, 1280, 1271, 1313, 1435, 1437, 1564, 1606, 1561, 1440, 1334, 1438]
+2023-05-16  09:00:08.000232  [WARNING]  stderr: 
+2023-05-16  09:00:29.000781  [INFO]  Base: Leaving application in progress...
+2023-05-16  09:00:34.000865  [DEBUG]  Base: Create provider from mouse
+2023-05-16  09:00:34.000865  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  09:00:34.000865  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  09:00:34.000865  [INFO]  Base: Start application main loop
+2023-05-16  09:00:34.000867  [INFO]  GL: NPOT texture support is available
+2023-05-16  09:00:43.000759  [INFO]  Base: Leaving application in progress...
+2023-05-16  09:01:21.000906  [DEBUG]  Base: Create provider from mouse
+2023-05-16  09:01:21.000907  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  09:01:21.000907  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  09:01:21.000907  [INFO]  Base: Start application main loop
+2023-05-16  09:01:21.000909  [INFO]  GL: NPOT texture support is available
+2023-05-16  09:02:16.000724  [INFO]  Base: Leaving application in progress...
+2023-05-16  09:02:16.000760  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  09:02:16.000760  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1685, in <module>
+2023-05-16  09:02:16.000760  [WARNING]  stderr:     app.run()
+2023-05-16  09:02:16.000760  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  09:02:16.000760  [WARNING]  stderr:     runTouchApp()
+2023-05-16  09:02:16.000760  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  09:02:16.000760  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  09:02:16.000760  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 339, in mainloop
+2023-05-16  09:02:16.000760  [WARNING]  stderr:     self.idle()
+2023-05-16  09:02:16.000760  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 383, in idle
+2023-05-16  09:02:16.000760  [WARNING]  stderr:     self.dispatch_input()
+2023-05-16  09:02:16.000761  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 334, in dispatch_input
+2023-05-16  09:02:16.000761  [WARNING]  stderr:     post_dispatch_input(*pop(0))
+2023-05-16  09:02:16.000761  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 263, in post_dispatch_input
+2023-05-16  09:02:16.000761  [WARNING]  stderr:     listener.dispatch('on_motion', etype, me)
+2023-05-16  09:02:16.000761  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:02:16.000761  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 1660, in on_motion
+2023-05-16  09:02:16.000761  [WARNING]  stderr:     self.dispatch('on_touch_down', me)
+2023-05-16  09:02:16.000761  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:02:16.000761  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 1677, in on_touch_down
+2023-05-16  09:02:16.000761  [WARNING]  stderr:     if w.dispatch('on_touch_down', touch):
+2023-05-16  09:02:16.000761  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:02:16.000761  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  09:02:16.000761  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  09:02:16.000761  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:02:16.000761  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  09:02:16.000761  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  09:02:16.000761  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:02:16.000762  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  09:02:16.000762  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  09:02:16.000762  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:02:16.000762  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  09:02:16.000762  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  09:02:16.000762  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:02:16.000762  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\textinput.py", line 1541, in on_touch_down
+2023-05-16  09:02:16.000762  [WARNING]  stderr:     if super().on_touch_down(touch):
+2023-05-16  09:02:16.000762  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\behaviors\focus.py", line 462, in on_touch_down
+2023-05-16  09:02:16.000762  [WARNING]  stderr:     self.focus = True
+2023-05-16  09:02:16.000762  [WARNING]  stderr:   File "kivy\properties.pyx", line 520, in kivy.properties.Property.__set__
+2023-05-16  09:02:16.000762  [WARNING]  stderr:   File "kivy\properties.pyx", line 567, in kivy.properties.Property.set
+2023-05-16  09:02:16.000762  [WARNING]  stderr:   File "kivy\properties.pyx", line 606, in kivy.properties.Property._dispatch
+2023-05-16  09:02:16.000762  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:02:16.000762  [WARNING]  stderr:   File "kivy\_event.pyx", line 1213, in kivy._event.EventObservers._dispatch
+2023-05-16  09:02:16.000762  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 462, in on_focus
+2023-05-16  09:02:16.000762  [WARNING]  stderr:     self.MYAPP.find_unique_to_all(pot_sols)
+2023-05-16  09:02:16.000763  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1224, in find_unique_to_all
+2023-05-16  09:02:16.000763  [WARNING]  stderr:     SET_RED(self.UNIQUE_TO_ALL)
+2023-05-16  09:02:16.000763  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 87, in SET_RED
+2023-05-16  09:02:16.000763  [WARNING]  stderr:     SET_COLOR(widget, MY_RED)
+2023-05-16  09:02:16.000763  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 101, in SET_COLOR
+2023-05-16  09:02:16.000763  [WARNING]  stderr:     _joe = 12  # use new function SET_RED
+2023-05-16  09:02:16.000763  [WARNING]  stderr: KeyboardInterrupt
+2023-05-16  09:02:33.000909  [DEBUG]  Base: Create provider from mouse
+2023-05-16  09:02:33.000909  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  09:02:33.000910  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  09:02:33.000910  [INFO]  Base: Start application main loop
+2023-05-16  09:02:33.000912  [INFO]  GL: NPOT texture support is available
+2023-05-16  09:04:46.000949  [INFO]  Base: Leaving application in progress...
+2023-05-16  09:04:46.000969  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  09:04:46.000969  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1685, in <module>
+2023-05-16  09:04:46.000969  [WARNING]  stderr:     app.run()
+2023-05-16  09:04:46.000970  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  09:04:46.000970  [WARNING]  stderr:     runTouchApp()
+2023-05-16  09:04:46.000970  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  09:04:46.000970  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  09:04:46.000970  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 339, in mainloop
+2023-05-16  09:04:46.000970  [WARNING]  stderr:     self.idle()
+2023-05-16  09:04:46.000970  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 383, in idle
+2023-05-16  09:04:46.000970  [WARNING]  stderr:     self.dispatch_input()
+2023-05-16  09:04:46.000970  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 334, in dispatch_input
+2023-05-16  09:04:46.000970  [WARNING]  stderr:     post_dispatch_input(*pop(0))
+2023-05-16  09:04:46.000970  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 263, in post_dispatch_input
+2023-05-16  09:04:46.000970  [WARNING]  stderr:     listener.dispatch('on_motion', etype, me)
+2023-05-16  09:04:46.000970  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:04:46.000970  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 1660, in on_motion
+2023-05-16  09:04:46.000970  [WARNING]  stderr:     self.dispatch('on_touch_down', me)
+2023-05-16  09:04:46.000970  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:04:46.000971  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 1677, in on_touch_down
+2023-05-16  09:04:46.000971  [WARNING]  stderr:     if w.dispatch('on_touch_down', touch):
+2023-05-16  09:04:46.000971  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:04:46.000971  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  09:04:46.000971  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  09:04:46.000971  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:04:46.000971  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  09:04:46.000971  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  09:04:46.000971  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:04:46.000971  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  09:04:46.000971  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  09:04:46.000971  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:04:46.000971  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  09:04:46.000971  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  09:04:46.000971  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:04:46.000972  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\textinput.py", line 1541, in on_touch_down
+2023-05-16  09:04:46.000972  [WARNING]  stderr:     if super().on_touch_down(touch):
+2023-05-16  09:04:46.000972  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\behaviors\focus.py", line 462, in on_touch_down
+2023-05-16  09:04:46.000972  [WARNING]  stderr:     self.focus = True
+2023-05-16  09:04:46.000972  [WARNING]  stderr:   File "kivy\properties.pyx", line 520, in kivy.properties.Property.__set__
+2023-05-16  09:04:46.000972  [WARNING]  stderr:   File "kivy\properties.pyx", line 567, in kivy.properties.Property.set
+2023-05-16  09:04:46.000972  [WARNING]  stderr:   File "kivy\properties.pyx", line 606, in kivy.properties.Property._dispatch
+2023-05-16  09:04:46.000972  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:04:46.000972  [WARNING]  stderr:   File "kivy\_event.pyx", line 1213, in kivy._event.EventObservers._dispatch
+2023-05-16  09:04:46.000972  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 463, in on_focus
+2023-05-16  09:04:46.000972  [WARNING]  stderr:     self.MYAPP.populate_remaining_options(pot_sols, rownum=row)
+2023-05-16  09:04:46.000972  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1296, in populate_remaining_options
+2023-05-16  09:04:46.000972  [WARNING]  stderr:     SET_RED(cell)
+2023-05-16  09:04:46.000972  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 86, in SET_RED
+2023-05-16  09:04:46.000972  [WARNING]  stderr:     _joe = 12  # check why doubling is occurring
+2023-05-16  09:04:46.000972  [WARNING]  stderr: KeyboardInterrupt
+2023-05-16  09:07:43.000739  [DEBUG]  Base: Create provider from mouse
+2023-05-16  09:07:43.000740  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  09:07:43.000740  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  09:07:43.000740  [INFO]  Base: Start application main loop
+2023-05-16  09:07:43.000741  [INFO]  GL: NPOT texture support is available
+2023-05-16  09:08:21.000339  [INFO]  Base: Leaving application in progress...
+2023-05-16  09:08:21.000339  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  09:08:21.000339  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1689, in <module>
+2023-05-16  09:08:21.000341  [WARNING]  stderr:     app.run()
+2023-05-16  09:08:21.000342  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  09:08:21.000346  [WARNING]  stderr:     runTouchApp()
+2023-05-16  09:08:21.000346  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  09:08:21.000351  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  09:08:21.000351  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 339, in mainloop
+2023-05-16  09:08:21.000356  [WARNING]  stderr:     self.idle()
+2023-05-16  09:08:21.000356  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 379, in idle
+2023-05-16  09:08:21.000358  [WARNING]  stderr:     Clock.tick()
+2023-05-16  09:08:21.000358  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\clock.py", line 733, in tick
+2023-05-16  09:08:21.000364  [WARNING]  stderr:     self.post_idle(ts, self.idle())
+2023-05-16  09:08:21.000364  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\clock.py", line 689, in idle
+2023-05-16  09:08:21.000367  [WARNING]  stderr:     usleep(1000000 * sleeptime)
+2023-05-16  09:08:21.000367  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\clock.py", line 965, in usleep
+2023-05-16  09:08:21.000373  [WARNING]  stderr:     _usleep(microseconds, self._sleep_obj)
+2023-05-16  09:08:21.000373  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\clock.py", line 504, in _usleep
+2023-05-16  09:08:21.000378  [WARNING]  stderr:     _kernel32.WaitForSingleObject(obj, 0xffffffff)
+2023-05-16  09:08:21.000378  [WARNING]  stderr: KeyboardInterrupt
+2023-05-16  09:08:23.000487  [DEBUG]  Base: Create provider from mouse
+2023-05-16  09:08:23.000488  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  09:08:23.000488  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  09:08:23.000488  [INFO]  Base: Start application main loop
+2023-05-16  09:08:23.000489  [INFO]  GL: NPOT texture support is available
+2023-05-16  09:08:44.000666  [INFO]  Base: Leaving application in progress...
+2023-05-16  09:08:44.000666  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  09:08:44.000666  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1689, in <module>
+2023-05-16  09:08:44.000668  [WARNING]  stderr:     app.run()
+2023-05-16  09:08:44.000668  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  09:08:44.000670  [WARNING]  stderr:     runTouchApp()
+2023-05-16  09:08:44.000670  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  09:08:44.000672  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  09:08:44.000672  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 339, in mainloop
+2023-05-16  09:08:44.000673  [WARNING]  stderr:     self.idle()
+2023-05-16  09:08:44.000673  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 379, in idle
+2023-05-16  09:08:44.000675  [WARNING]  stderr:     Clock.tick()
+2023-05-16  09:08:44.000675  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\clock.py", line 733, in tick
+2023-05-16  09:08:44.000678  [WARNING]  stderr:     self.post_idle(ts, self.idle())
+2023-05-16  09:08:44.000678  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\clock.py", line 689, in idle
+2023-05-16  09:08:44.000680  [WARNING]  stderr:     usleep(1000000 * sleeptime)
+2023-05-16  09:08:44.000680  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\clock.py", line 965, in usleep
+2023-05-16  09:08:44.000682  [WARNING]  stderr:     _usleep(microseconds, self._sleep_obj)
+2023-05-16  09:08:44.000682  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\clock.py", line 504, in _usleep
+2023-05-16  09:08:44.000684  [WARNING]  stderr:     _kernel32.WaitForSingleObject(obj, 0xffffffff)
+2023-05-16  09:08:44.000684  [WARNING]  stderr: KeyboardInterrupt
+2023-05-16  09:08:47.000039  [DEBUG]  Base: Create provider from mouse
+2023-05-16  09:08:47.000039  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  09:08:47.000039  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  09:08:47.000039  [INFO]  Base: Start application main loop
+2023-05-16  09:08:47.000042  [INFO]  GL: NPOT texture support is available
+2023-05-16  09:10:16.000061  [WARNING]  Deprecated property "<VariableListProperty name=padding_x>" of object "RemainingOptions (0, 3)" was accessed, it will be removed in a future version
+2023-05-16  09:10:16.000062  [WARNING]  Deprecated property "<VariableListProperty name=padding_y>" of object "RemainingOptions (0, 3)" was accessed, it will be removed in a future version
+2023-05-16  09:11:10.000100  [INFO]  Base: Leaving application in progress...
+2023-05-16  09:11:45.000373  [DEBUG]  Base: Create provider from mouse
+2023-05-16  09:11:45.000373  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  09:11:45.000374  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  09:11:45.000374  [INFO]  Base: Start application main loop
+2023-05-16  09:11:45.000376  [INFO]  GL: NPOT texture support is available
+2023-05-16  09:12:39.000875  [INFO]  Base: Leaving application in progress...
+2023-05-16  09:12:39.000897  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  09:12:39.000897  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1679, in <module>
+2023-05-16  09:12:39.000897  [WARNING]  stderr:     app.run()
+2023-05-16  09:12:39.000898  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  09:12:39.000898  [WARNING]  stderr:     runTouchApp()
+2023-05-16  09:12:39.000898  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  09:12:39.000898  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  09:12:39.000898  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 339, in mainloop
+2023-05-16  09:12:39.000898  [WARNING]  stderr:     self.idle()
+2023-05-16  09:12:39.000898  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 383, in idle
+2023-05-16  09:12:39.000898  [WARNING]  stderr:     self.dispatch_input()
+2023-05-16  09:12:39.000899  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 334, in dispatch_input
+2023-05-16  09:12:39.000899  [WARNING]  stderr:     post_dispatch_input(*pop(0))
+2023-05-16  09:12:39.000899  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 263, in post_dispatch_input
+2023-05-16  09:12:39.000899  [WARNING]  stderr:     listener.dispatch('on_motion', etype, me)
+2023-05-16  09:12:39.000899  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:12:39.000899  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 1660, in on_motion
+2023-05-16  09:12:39.000899  [WARNING]  stderr:     self.dispatch('on_touch_down', me)
+2023-05-16  09:12:39.000900  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:12:39.000900  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 1677, in on_touch_down
+2023-05-16  09:12:39.000900  [WARNING]  stderr:     if w.dispatch('on_touch_down', touch):
+2023-05-16  09:12:39.000900  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:12:39.000900  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  09:12:39.000900  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  09:12:39.000900  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:12:39.000900  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  09:12:39.000901  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  09:12:39.000901  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:12:39.000901  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  09:12:39.000901  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  09:12:39.000901  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:12:39.000901  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  09:12:39.000901  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  09:12:39.000902  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:12:39.000902  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\textinput.py", line 1541, in on_touch_down
+2023-05-16  09:12:39.000902  [WARNING]  stderr:     if super().on_touch_down(touch):
+2023-05-16  09:12:39.000902  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\behaviors\focus.py", line 462, in on_touch_down
+2023-05-16  09:12:39.000903  [WARNING]  stderr:     self.focus = True
+2023-05-16  09:12:39.000903  [WARNING]  stderr:   File "kivy\properties.pyx", line 520, in kivy.properties.Property.__set__
+2023-05-16  09:12:39.000903  [WARNING]  stderr:   File "kivy\properties.pyx", line 567, in kivy.properties.Property.set
+2023-05-16  09:12:39.000903  [WARNING]  stderr:   File "kivy\properties.pyx", line 606, in kivy.properties.Property._dispatch
+2023-05-16  09:12:39.000903  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:12:39.000903  [WARNING]  stderr:   File "kivy\_event.pyx", line 1213, in kivy._event.EventObservers._dispatch
+2023-05-16  09:12:39.000903  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 458, in on_focus
+2023-05-16  09:12:39.000904  [WARNING]  stderr:     self.MYAPP.hightlight_Remaining_Options(p_row=row)
+2023-05-16  09:12:39.000904  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 985, in hightlight_Remaining_Options
+2023-05-16  09:12:39.000904  [WARNING]  stderr:     SET_COLOR(self.MyTextInput_REMAINING_OPTIONS[row][col], REMAINING_OPTIONS_COLOR)
+2023-05-16  09:12:39.000904  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 101, in SET_COLOR
+2023-05-16  09:12:39.000904  [WARNING]  stderr:     if color in [MY_RED, [1, 0, 0, 1], "red"] and not ok:
+2023-05-16  09:12:39.000905  [WARNING]  stderr: KeyboardInterrupt
+2023-05-16  09:12:42.000301  [DEBUG]  Base: Create provider from mouse
+2023-05-16  09:12:42.000301  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  09:12:42.000302  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  09:12:42.000302  [INFO]  Base: Start application main loop
+2023-05-16  09:12:42.000303  [INFO]  GL: NPOT texture support is available
+2023-05-16  09:14:08.000771  [INFO]  Base: Leaving application in progress...
+2023-05-16  09:14:08.000793  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  09:14:08.000793  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1679, in <module>
+2023-05-16  09:14:08.000793  [WARNING]  stderr:     app.run()
+2023-05-16  09:14:08.000794  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  09:14:08.000794  [WARNING]  stderr:     runTouchApp()
+2023-05-16  09:14:08.000794  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  09:14:08.000794  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  09:14:08.000794  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 339, in mainloop
+2023-05-16  09:14:08.000794  [WARNING]  stderr:     self.idle()
+2023-05-16  09:14:08.000794  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 383, in idle
+2023-05-16  09:14:08.000794  [WARNING]  stderr:     self.dispatch_input()
+2023-05-16  09:14:08.000794  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 334, in dispatch_input
+2023-05-16  09:14:08.000794  [WARNING]  stderr:     post_dispatch_input(*pop(0))
+2023-05-16  09:14:08.000794  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 263, in post_dispatch_input
+2023-05-16  09:14:08.000794  [WARNING]  stderr:     listener.dispatch('on_motion', etype, me)
+2023-05-16  09:14:08.000794  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:14:08.000794  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 1660, in on_motion
+2023-05-16  09:14:08.000794  [WARNING]  stderr:     self.dispatch('on_touch_down', me)
+2023-05-16  09:14:08.000794  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:14:08.000794  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 1677, in on_touch_down
+2023-05-16  09:14:08.000794  [WARNING]  stderr:     if w.dispatch('on_touch_down', touch):
+2023-05-16  09:14:08.000794  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:14:08.000794  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  09:14:08.000794  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  09:14:08.000794  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:14:08.000794  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  09:14:08.000794  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  09:14:08.000794  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:14:08.000794  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  09:14:08.000794  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  09:14:08.000794  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:14:08.000795  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  09:14:08.000795  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  09:14:08.000795  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:14:08.000795  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\textinput.py", line 1541, in on_touch_down
+2023-05-16  09:14:08.000795  [WARNING]  stderr:     if super().on_touch_down(touch):
+2023-05-16  09:14:08.000795  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\behaviors\focus.py", line 462, in on_touch_down
+2023-05-16  09:14:08.000795  [WARNING]  stderr:     self.focus = True
+2023-05-16  09:14:08.000795  [WARNING]  stderr:   File "kivy\properties.pyx", line 520, in kivy.properties.Property.__set__
+2023-05-16  09:14:08.000795  [WARNING]  stderr:   File "kivy\properties.pyx", line 567, in kivy.properties.Property.set
+2023-05-16  09:14:08.000795  [WARNING]  stderr:   File "kivy\properties.pyx", line 606, in kivy.properties.Property._dispatch
+2023-05-16  09:14:08.000795  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:14:08.000795  [WARNING]  stderr:   File "kivy\_event.pyx", line 1213, in kivy._event.EventObservers._dispatch
+2023-05-16  09:14:08.000795  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 458, in on_focus
+2023-05-16  09:14:08.000795  [WARNING]  stderr:     self.MYAPP.hightlight_Remaining_Options(p_row=row)
+2023-05-16  09:14:08.000795  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 979, in hightlight_Remaining_Options
+2023-05-16  09:14:08.000795  [WARNING]  stderr:     _joe = 12
+2023-05-16  09:14:08.000796  [WARNING]  stderr: KeyboardInterrupt
+2023-05-16  09:14:12.000079  [DEBUG]  Base: Create provider from mouse
+2023-05-16  09:14:12.000079  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  09:14:12.000079  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  09:14:12.000079  [INFO]  Base: Start application main loop
+2023-05-16  09:14:12.000081  [INFO]  GL: NPOT texture support is available
+2023-05-16  09:14:52.000385  [INFO]  Base: Leaving application in progress...
+2023-05-16  09:14:55.000246  [DEBUG]  Base: Create provider from mouse
+2023-05-16  09:14:55.000246  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  09:14:55.000246  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  09:14:55.000248  [INFO]  Base: Start application main loop
+2023-05-16  09:14:55.000249  [INFO]  GL: NPOT texture support is available
+2023-05-16  09:17:39.000194  [INFO]  Base: Leaving application in progress...
+2023-05-16  09:17:39.000214  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  09:17:39.000214  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1679, in <module>
+2023-05-16  09:17:39.000214  [WARNING]  stderr:     app.run()
+2023-05-16  09:17:39.000214  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  09:17:39.000214  [WARNING]  stderr:     runTouchApp()
+2023-05-16  09:17:39.000214  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  09:17:39.000215  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  09:17:39.000215  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 341, in mainloop
+2023-05-16  09:17:39.000215  [WARNING]  stderr:     self.window.mainloop()
+2023-05-16  09:17:39.000215  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\window_sdl2.py", line 753, in mainloop
+2023-05-16  09:17:39.000215  [WARNING]  stderr:     self.dispatch('on_key_up', key, scancode)
+2023-05-16  09:17:39.000215  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:17:39.000215  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:17:39.000215  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  09:17:39.000215  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 167, in _on_window_key_up
+2023-05-16  09:17:39.000215  [WARNING]  stderr:     return self.dispatch('on_key_up', keycode)
+2023-05-16  09:17:39.000215  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:17:39.000215  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:17:39.000215  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  09:17:39.000215  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 213, in keyboard_on_key_up
+2023-05-16  09:17:39.000215  [WARNING]  stderr:     self.TAB_ORDER[self.TAB_NEXT].focus = True
+2023-05-16  09:17:39.000215  [WARNING]  stderr:   File "kivy\properties.pyx", line 520, in kivy.properties.Property.__set__
+2023-05-16  09:17:39.000215  [WARNING]  stderr:   File "kivy\properties.pyx", line 567, in kivy.properties.Property.set
+2023-05-16  09:17:39.000216  [WARNING]  stderr:   File "kivy\properties.pyx", line 606, in kivy.properties.Property._dispatch
+2023-05-16  09:17:39.000216  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:17:39.000216  [WARNING]  stderr:   File "kivy\_event.pyx", line 1213, in kivy._event.EventObservers._dispatch
+2023-05-16  09:17:39.000216  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\behaviors\focus.py", line 402, in _on_focus
+2023-05-16  09:17:39.000216  [WARNING]  stderr:     self._bind_keyboard()
+2023-05-16  09:17:39.000216  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\textinput.py", line 3010, in _bind_keyboard
+2023-05-16  09:17:39.000216  [WARNING]  stderr:     super()._bind_keyboard()
+2023-05-16  09:17:39.000216  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\behaviors\focus.py", line 420, in _bind_keyboard
+2023-05-16  09:17:39.000216  [WARNING]  stderr:     self._ensure_keyboard()
+2023-05-16  09:17:39.000216  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\behaviors\focus.py", line 409, in _ensure_keyboard
+2023-05-16  09:17:39.000216  [WARNING]  stderr:     keyboard = self._keyboard = EventLoop.window.request_keyboard(
+2023-05-16  09:17:39.000216  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\window_sdl2.py", line 877, in request_keyboard
+2023-05-16  09:17:39.000216  [WARNING]  stderr:     self._sdl_keyboard = super(WindowSDL, self).\
+2023-05-16  09:17:39.000216  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 2341, in request_keyboard
+2023-05-16  09:17:39.000216  [WARNING]  stderr:     self.release_keyboard(target)
+2023-05-16  09:17:39.000216  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\window_sdl2.py", line 891, in release_keyboard
+2023-05-16  09:17:39.000216  [WARNING]  stderr:     super(WindowSDL, self).release_keyboard(*largs)
+2023-05-16  09:17:39.000217  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 2425, in release_keyboard
+2023-05-16  09:17:39.000217  [WARNING]  stderr:     callback()
+2023-05-16  09:17:39.000217  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\behaviors\focus.py", line 454, in _keyboard_released
+2023-05-16  09:17:39.000217  [WARNING]  stderr:     self.focus = False
+2023-05-16  09:17:39.000217  [WARNING]  stderr:   File "kivy\properties.pyx", line 520, in kivy.properties.Property.__set__
+2023-05-16  09:17:39.000217  [WARNING]  stderr:   File "kivy\properties.pyx", line 567, in kivy.properties.Property.set
+2023-05-16  09:17:39.000217  [WARNING]  stderr:   File "kivy\properties.pyx", line 606, in kivy.properties.Property._dispatch
+2023-05-16  09:17:39.000217  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:17:39.000217  [WARNING]  stderr:   File "kivy\_event.pyx", line 1213, in kivy._event.EventObservers._dispatch
+2023-05-16  09:17:39.000217  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 472, in on_focus
+2023-05-16  09:17:39.000217  [WARNING]  stderr:     if value is False:
+2023-05-16  09:17:39.000217  [WARNING]  stderr: KeyboardInterrupt
+2023-05-16  09:17:54.000863  [DEBUG]  Base: Create provider from mouse
+2023-05-16  09:17:54.000865  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  09:17:54.000865  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  09:17:54.000865  [INFO]  Base: Start application main loop
+2023-05-16  09:17:54.000866  [INFO]  GL: NPOT texture support is available
+2023-05-16  09:19:03.000819  [INFO]  Base: Leaving application in progress...
+2023-05-16  09:19:03.000849  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  09:19:03.000850  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1681, in <module>
+2023-05-16  09:19:03.000850  [WARNING]  stderr:     app.run()
+2023-05-16  09:19:03.000850  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  09:19:03.000850  [WARNING]  stderr:     runTouchApp()
+2023-05-16  09:19:03.000850  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  09:19:03.000851  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  09:19:03.000851  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 341, in mainloop
+2023-05-16  09:19:03.000851  [WARNING]  stderr:     self.window.mainloop()
+2023-05-16  09:19:03.000851  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\window_sdl2.py", line 753, in mainloop
+2023-05-16  09:19:03.000851  [WARNING]  stderr:     self.dispatch('on_key_up', key, scancode)
+2023-05-16  09:19:03.000852  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:19:03.000852  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:19:03.000852  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  09:19:03.000852  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 167, in _on_window_key_up
+2023-05-16  09:19:03.000852  [WARNING]  stderr:     return self.dispatch('on_key_up', keycode)
+2023-05-16  09:19:03.000852  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:19:03.000853  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:19:03.000853  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  09:19:03.000853  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 213, in keyboard_on_key_up
+2023-05-16  09:19:03.000853  [WARNING]  stderr:     self.TAB_ORDER[self.TAB_NEXT].focus = True
+2023-05-16  09:19:03.000853  [WARNING]  stderr: KeyboardInterrupt
+2023-05-16  09:19:21.000499  [DEBUG]  Base: Create provider from mouse
+2023-05-16  09:19:21.000499  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  09:19:21.000500  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  09:19:21.000500  [INFO]  Base: Start application main loop
+2023-05-16  09:19:21.000501  [INFO]  GL: NPOT texture support is available
+2023-05-16  09:20:56.000921  [INFO]  Base: Leaving application in progress...
+2023-05-16  09:20:56.000937  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  09:20:56.000938  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1682, in <module>
+2023-05-16  09:20:56.000938  [WARNING]  stderr:     app.run()
+2023-05-16  09:20:56.000938  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  09:20:56.000938  [WARNING]  stderr:     runTouchApp()
+2023-05-16  09:20:56.000938  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  09:20:56.000938  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  09:20:56.000938  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 341, in mainloop
+2023-05-16  09:20:56.000938  [WARNING]  stderr:     self.window.mainloop()
+2023-05-16  09:20:56.000938  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\window_sdl2.py", line 753, in mainloop
+2023-05-16  09:20:56.000938  [WARNING]  stderr:     self.dispatch('on_key_up', key, scancode)
+2023-05-16  09:20:56.000938  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:20:56.000938  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:20:56.000938  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  09:20:56.000938  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 167, in _on_window_key_up
+2023-05-16  09:20:56.000938  [WARNING]  stderr:     return self.dispatch('on_key_up', keycode)
+2023-05-16  09:20:56.000938  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:20:56.000938  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:20:56.000938  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  09:20:56.000939  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 214, in keyboard_on_key_up
+2023-05-16  09:20:56.000939  [WARNING]  stderr:     next_widget.focus = True
+2023-05-16  09:20:56.000939  [WARNING]  stderr:   File "kivy\properties.pyx", line 520, in kivy.properties.Property.__set__
+2023-05-16  09:20:56.000939  [WARNING]  stderr:   File "kivy\properties.pyx", line 567, in kivy.properties.Property.set
+2023-05-16  09:20:56.000939  [WARNING]  stderr:   File "kivy\properties.pyx", line 606, in kivy.properties.Property._dispatch
+2023-05-16  09:20:56.000939  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:20:56.000939  [WARNING]  stderr:   File "kivy\_event.pyx", line 1213, in kivy._event.EventObservers._dispatch
+2023-05-16  09:20:56.000939  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\behaviors\focus.py", line 402, in _on_focus
+2023-05-16  09:20:56.000939  [WARNING]  stderr:     self._bind_keyboard()
+2023-05-16  09:20:56.000939  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\textinput.py", line 3010, in _bind_keyboard
+2023-05-16  09:20:56.000939  [WARNING]  stderr:     super()._bind_keyboard()
+2023-05-16  09:20:56.000939  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\behaviors\focus.py", line 420, in _bind_keyboard
+2023-05-16  09:20:56.000939  [WARNING]  stderr:     self._ensure_keyboard()
+2023-05-16  09:20:56.000939  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\behaviors\focus.py", line 409, in _ensure_keyboard
+2023-05-16  09:20:56.000939  [WARNING]  stderr:     keyboard = self._keyboard = EventLoop.window.request_keyboard(
+2023-05-16  09:20:56.000939  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\window_sdl2.py", line 877, in request_keyboard
+2023-05-16  09:20:56.000939  [WARNING]  stderr:     self._sdl_keyboard = super(WindowSDL, self).\
+2023-05-16  09:20:56.000940  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 2341, in request_keyboard
+2023-05-16  09:20:56.000940  [WARNING]  stderr:     self.release_keyboard(target)
+2023-05-16  09:20:56.000940  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\window_sdl2.py", line 891, in release_keyboard
+2023-05-16  09:20:56.000940  [WARNING]  stderr:     super(WindowSDL, self).release_keyboard(*largs)
+2023-05-16  09:20:56.000940  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 2425, in release_keyboard
+2023-05-16  09:20:56.000940  [WARNING]  stderr:     callback()
+2023-05-16  09:20:56.000940  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\behaviors\focus.py", line 454, in _keyboard_released
+2023-05-16  09:20:56.000940  [WARNING]  stderr:     self.focus = False
+2023-05-16  09:20:56.000940  [WARNING]  stderr:   File "kivy\properties.pyx", line 520, in kivy.properties.Property.__set__
+2023-05-16  09:20:56.000940  [WARNING]  stderr:   File "kivy\properties.pyx", line 567, in kivy.properties.Property.set
+2023-05-16  09:20:56.000940  [WARNING]  stderr:   File "kivy\properties.pyx", line 606, in kivy.properties.Property._dispatch
+2023-05-16  09:20:56.000940  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:20:56.000940  [WARNING]  stderr:   File "kivy\_event.pyx", line 1213, in kivy._event.EventObservers._dispatch
+2023-05-16  09:20:56.000940  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 475, in on_focus
+2023-05-16  09:20:56.000940  [WARNING]  stderr:     if value is False:
+2023-05-16  09:20:56.000940  [WARNING]  stderr: KeyboardInterrupt
+2023-05-16  09:29:13.000578  [DEBUG]  Base: Create provider from mouse
+2023-05-16  09:29:13.000578  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  09:29:13.000578  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  09:29:13.000580  [INFO]  Base: Start application main loop
+2023-05-16  09:29:13.000581  [INFO]  GL: NPOT texture support is available
+2023-05-16  09:31:30.000372  [WARNING]  stderr: Error removing breakpoint: Breakpoint id not found: c:\users\ctroi\pycharm\buildozer\main.py id: 477. Available ids: [102, 1018, 1093, 372, 1080, 375, 401, 1597, 963, 1259, 1063, 1053, 479, 984, 1054, 1078, 633, 1268, 1552, 1555, 1304, 552, 1017, 381, 387]
+2023-05-16  09:31:30.000372  [WARNING]  stderr: 
+2023-05-16  09:31:39.000646  [WARNING]  stderr: Error removing breakpoint: Breakpoint id not found: c:\users\ctroi\pycharm\buildozer\main.py id: 1052. Available ids: [102, 1016, 1554, 1596, 1258, 1053, 1551, 1303, 551, 1304, 381, 375, 1078, 1080, 1063, 401, 419, 963, 480, 372, 1093, 1018, 984, 478, 217, 1431]
+2023-05-16  09:31:39.000646  [WARNING]  stderr: 
+2023-05-16  09:31:45.000262  [WARNING]  stderr: Error removing breakpoint: Breakpoint id not found: c:\users\ctroi\pycharm\buildozer\main.py id: 1053. Available ids: [102, 1078, 478, 1597, 633, 1094, 1081, 373, 553, 1305, 1556, 1553, 1019, 1269, 1018, 382, 388, 1079, 376, 1430, 1054, 1064, 420, 402, 985, 964, 481, 218, 1432, 1055]
+2023-05-16  09:31:45.000262  [WARNING]  stderr: 
+2023-05-16  09:31:49.000026  [INFO]  Base: Leaving application in progress...
+2023-05-16  09:31:49.000039  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  09:31:49.000039  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1671, in <module>
+2023-05-16  09:31:49.000039  [WARNING]  stderr:     app.run()
+2023-05-16  09:31:49.000039  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  09:31:49.000039  [WARNING]  stderr:     runTouchApp()
+2023-05-16  09:31:49.000039  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  09:31:49.000039  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  09:31:49.000039  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 341, in mainloop
+2023-05-16  09:31:49.000039  [WARNING]  stderr:     self.window.mainloop()
+2023-05-16  09:31:49.000039  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\window_sdl2.py", line 753, in mainloop
+2023-05-16  09:31:49.000039  [WARNING]  stderr:     self.dispatch('on_key_up', key, scancode)
+2023-05-16  09:31:49.000039  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:31:49.000039  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:31:49.000039  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  09:31:49.000039  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 167, in _on_window_key_up
+2023-05-16  09:31:49.000039  [WARNING]  stderr:     return self.dispatch('on_key_up', keycode)
+2023-05-16  09:31:49.000040  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:31:49.000040  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:31:49.000040  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  09:31:49.000040  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 214, in keyboard_on_key_up
+2023-05-16  09:31:49.000040  [WARNING]  stderr:     next_widget.focus = True
+2023-05-16  09:31:49.000040  [WARNING]  stderr:   File "kivy\properties.pyx", line 520, in kivy.properties.Property.__set__
+2023-05-16  09:31:49.000040  [WARNING]  stderr:   File "kivy\properties.pyx", line 567, in kivy.properties.Property.set
+2023-05-16  09:31:49.000040  [WARNING]  stderr:   File "kivy\properties.pyx", line 606, in kivy.properties.Property._dispatch
+2023-05-16  09:31:49.000040  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:31:49.000040  [WARNING]  stderr:   File "kivy\_event.pyx", line 1213, in kivy._event.EventObservers._dispatch
+2023-05-16  09:31:49.000040  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 516, in on_focus
+2023-05-16  09:31:49.000040  [WARNING]  stderr:     self.MYAPP.hightlight_Remaining_Options(p_col=col)
+2023-05-16  09:31:49.000040  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 984, in hightlight_Remaining_Options
+2023-05-16  09:31:49.000040  [WARNING]  stderr:     if cur_color != MY_RED:
+2023-05-16  09:31:49.000040  [WARNING]  stderr: KeyboardInterrupt
+2023-05-16  09:31:53.000046  [DEBUG]  Base: Create provider from mouse
+2023-05-16  09:31:53.000047  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  09:31:53.000047  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  09:31:53.000047  [INFO]  Base: Start application main loop
+2023-05-16  09:31:53.000049  [INFO]  GL: NPOT texture support is available
+2023-05-16  09:32:25.000243  [INFO]  Base: Leaving application in progress...
+2023-05-16  09:32:25.000278  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  09:32:25.000278  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1675, in <module>
+2023-05-16  09:32:25.000279  [WARNING]  stderr:     app.run()
+2023-05-16  09:32:25.000279  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  09:32:25.000279  [WARNING]  stderr:     runTouchApp()
+2023-05-16  09:32:25.000279  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  09:32:25.000279  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  09:32:25.000279  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 339, in mainloop
+2023-05-16  09:32:25.000279  [WARNING]  stderr:     self.idle()
+2023-05-16  09:32:25.000280  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 383, in idle
+2023-05-16  09:32:25.000280  [WARNING]  stderr:     self.dispatch_input()
+2023-05-16  09:32:25.000280  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 334, in dispatch_input
+2023-05-16  09:32:25.000280  [WARNING]  stderr:     post_dispatch_input(*pop(0))
+2023-05-16  09:32:25.000280  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 263, in post_dispatch_input
+2023-05-16  09:32:25.000280  [WARNING]  stderr:     listener.dispatch('on_motion', etype, me)
+2023-05-16  09:32:25.000280  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:32:25.000280  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 1660, in on_motion
+2023-05-16  09:32:25.000281  [WARNING]  stderr:     self.dispatch('on_touch_down', me)
+2023-05-16  09:32:25.000281  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:32:25.000281  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 1677, in on_touch_down
+2023-05-16  09:32:25.000281  [WARNING]  stderr:     if w.dispatch('on_touch_down', touch):
+2023-05-16  09:32:25.000281  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:32:25.000281  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  09:32:25.000281  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  09:32:25.000281  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:32:25.000282  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  09:32:25.000282  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  09:32:25.000282  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:32:25.000282  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\behaviors\button.py", line 151, in on_touch_down
+2023-05-16  09:32:25.000282  [WARNING]  stderr:     self.dispatch('on_press')
+2023-05-16  09:32:25.000282  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:32:25.000282  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:32:25.000282  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  09:32:25.000283  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1491, in btn_LoadSavedPuzzle
+2023-05-16  09:32:25.000283  [WARNING]  stderr:     self.LoadSavedPuzzle(instance)
+2023-05-16  09:32:25.000283  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1500, in LoadSavedPuzzle
+2023-05-16  09:32:25.000283  [WARNING]  stderr:     self.CLEAR()
+2023-05-16  09:32:25.000283  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1038, in CLEAR
+2023-05-16  09:32:25.000283  [WARNING]  stderr:     SET_COLOR(self.MyTextInput_REMAINING_OPTIONS[row][col].background_color, REMAINING_OPTIONS_COLOR)
+2023-05-16  09:32:25.000283  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 110, in SET_COLOR
+2023-05-16  09:32:25.000283  [WARNING]  stderr:     _joe = 12  #
+2023-05-16  09:32:25.000283  [WARNING]  stderr: KeyboardInterrupt
+2023-05-16  09:32:27.000862  [DEBUG]  Base: Create provider from mouse
+2023-05-16  09:32:27.000862  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  09:32:27.000862  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  09:32:27.000864  [INFO]  Base: Start application main loop
+2023-05-16  09:32:27.000865  [INFO]  GL: NPOT texture support is available
+2023-05-16  09:32:52.000088  [INFO]  Base: Leaving application in progress...
+2023-05-16  09:32:52.000107  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  09:32:52.000107  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1675, in <module>
+2023-05-16  09:32:52.000107  [WARNING]  stderr:     app.run()
+2023-05-16  09:32:52.000107  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  09:32:52.000107  [WARNING]  stderr:     runTouchApp()
+2023-05-16  09:32:52.000108  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  09:32:52.000108  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  09:32:52.000108  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 339, in mainloop
+2023-05-16  09:32:52.000108  [WARNING]  stderr:     self.idle()
+2023-05-16  09:32:52.000108  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 383, in idle
+2023-05-16  09:32:52.000108  [WARNING]  stderr:     self.dispatch_input()
+2023-05-16  09:32:52.000108  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 334, in dispatch_input
+2023-05-16  09:32:52.000108  [WARNING]  stderr:     post_dispatch_input(*pop(0))
+2023-05-16  09:32:52.000108  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 263, in post_dispatch_input
+2023-05-16  09:32:52.000109  [WARNING]  stderr:     listener.dispatch('on_motion', etype, me)
+2023-05-16  09:32:52.000109  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:32:52.000109  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 1660, in on_motion
+2023-05-16  09:32:52.000109  [WARNING]  stderr:     self.dispatch('on_touch_down', me)
+2023-05-16  09:32:52.000109  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:32:52.000109  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 1677, in on_touch_down
+2023-05-16  09:32:52.000109  [WARNING]  stderr:     if w.dispatch('on_touch_down', touch):
+2023-05-16  09:32:52.000109  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:32:52.000110  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  09:32:52.000110  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  09:32:52.000110  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:32:52.000110  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  09:32:52.000110  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  09:32:52.000110  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:32:52.000110  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\behaviors\button.py", line 151, in on_touch_down
+2023-05-16  09:32:52.000111  [WARNING]  stderr:     self.dispatch('on_press')
+2023-05-16  09:32:52.000111  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:32:52.000111  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:32:52.000111  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  09:32:52.000111  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1491, in btn_LoadSavedPuzzle
+2023-05-16  09:32:52.000111  [WARNING]  stderr:     self.LoadSavedPuzzle(instance)
+2023-05-16  09:32:52.000111  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1500, in LoadSavedPuzzle
+2023-05-16  09:32:52.000111  [WARNING]  stderr:     self.CLEAR()
+2023-05-16  09:32:52.000111  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1038, in CLEAR
+2023-05-16  09:32:52.000111  [WARNING]  stderr:     SET_COLOR(self.MyTextInput_REMAINING_OPTIONS[row][col].background_color, REMAINING_OPTIONS_COLOR)
+2023-05-16  09:32:52.000112  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 110, in SET_COLOR
+2023-05-16  09:32:52.000112  [WARNING]  stderr:     _joe = 12  #
+2023-05-16  09:32:52.000112  [WARNING]  stderr: KeyboardInterrupt
+2023-05-16  09:33:00.000043  [DEBUG]  Base: Create provider from mouse
+2023-05-16  09:33:00.000044  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  09:33:00.000044  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  09:33:00.000044  [INFO]  Base: Start application main loop
+2023-05-16  09:33:00.000046  [INFO]  GL: NPOT texture support is available
+2023-05-16  09:33:42.000835  [INFO]  Base: Leaving application in progress...
+2023-05-16  09:33:42.000864  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  09:33:42.000864  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1671, in <module>
+2023-05-16  09:33:42.000864  [WARNING]  stderr:     app.run()
+2023-05-16  09:33:42.000864  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  09:33:42.000864  [WARNING]  stderr:     runTouchApp()
+2023-05-16  09:33:42.000864  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  09:33:42.000864  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  09:33:42.000865  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 339, in mainloop
+2023-05-16  09:33:42.000865  [WARNING]  stderr:     self.idle()
+2023-05-16  09:33:42.000865  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 379, in idle
+2023-05-16  09:33:42.000865  [WARNING]  stderr:     Clock.tick()
+2023-05-16  09:33:42.000865  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\clock.py", line 733, in tick
+2023-05-16  09:33:42.000865  [WARNING]  stderr:     self.post_idle(ts, self.idle())
+2023-05-16  09:33:42.000865  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\clock.py", line 689, in idle
+2023-05-16  09:33:42.000865  [WARNING]  stderr:     usleep(1000000 * sleeptime)
+2023-05-16  09:33:42.000865  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\clock.py", line 965, in usleep
+2023-05-16  09:33:42.000865  [WARNING]  stderr:     _usleep(microseconds, self._sleep_obj)
+2023-05-16  09:33:42.000865  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\clock.py", line 504, in _usleep
+2023-05-16  09:33:42.000865  [WARNING]  stderr:     _kernel32.WaitForSingleObject(obj, 0xffffffff)
+2023-05-16  09:33:42.000865  [WARNING]  stderr: KeyboardInterrupt
+2023-05-16  09:33:44.000826  [DEBUG]  Base: Create provider from mouse
+2023-05-16  09:33:44.000826  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  09:33:44.000826  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  09:33:44.000826  [INFO]  Base: Start application main loop
+2023-05-16  09:33:44.000829  [INFO]  GL: NPOT texture support is available
+2023-05-16  09:34:05.000926  [INFO]  Base: Leaving application in progress...
+2023-05-16  09:34:08.000528  [DEBUG]  Base: Create provider from mouse
+2023-05-16  09:34:08.000528  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  09:34:08.000528  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  09:34:08.000529  [INFO]  Base: Start application main loop
+2023-05-16  09:34:08.000530  [INFO]  GL: NPOT texture support is available
+2023-05-16  09:34:38.000285  [INFO]  Base: Leaving application in progress...
+2023-05-16  09:34:38.000324  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  09:34:38.000325  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1671, in <module>
+2023-05-16  09:34:38.000326  [WARNING]  stderr:     app.run()
+2023-05-16  09:34:38.000326  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  09:34:38.000326  [WARNING]  stderr:     runTouchApp()
+2023-05-16  09:34:38.000326  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  09:34:38.000327  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  09:34:38.000327  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 341, in mainloop
+2023-05-16  09:34:38.000327  [WARNING]  stderr:     self.window.mainloop()
+2023-05-16  09:34:38.000327  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\window_sdl2.py", line 753, in mainloop
+2023-05-16  09:34:38.000328  [WARNING]  stderr:     self.dispatch('on_key_up', key, scancode)
+2023-05-16  09:34:38.000328  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:34:38.000328  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:34:38.000328  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  09:34:38.000328  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 167, in _on_window_key_up
+2023-05-16  09:34:38.000329  [WARNING]  stderr:     return self.dispatch('on_key_up', keycode)
+2023-05-16  09:34:38.000329  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:34:38.000329  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:34:38.000329  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  09:34:38.000329  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 214, in keyboard_on_key_up
+2023-05-16  09:34:38.000329  [WARNING]  stderr:     next_widget.focus = True
+2023-05-16  09:34:38.000329  [WARNING]  stderr: KeyboardInterrupt
+2023-05-16  09:34:40.000829  [DEBUG]  Base: Create provider from mouse
+2023-05-16  09:34:40.000829  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  09:34:40.000830  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  09:34:40.000830  [INFO]  Base: Start application main loop
+2023-05-16  09:34:40.000831  [INFO]  GL: NPOT texture support is available
+2023-05-16  09:36:19.000136  [INFO]  Base: Leaving application in progress...
+2023-05-16  09:36:19.000162  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  09:36:19.000162  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1671, in <module>
+2023-05-16  09:36:19.000163  [WARNING]  stderr:     app.run()
+2023-05-16  09:36:19.000163  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  09:36:19.000163  [WARNING]  stderr:     runTouchApp()
+2023-05-16  09:36:19.000163  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  09:36:19.000163  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  09:36:19.000163  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 341, in mainloop
+2023-05-16  09:36:19.000163  [WARNING]  stderr:     self.window.mainloop()
+2023-05-16  09:36:19.000163  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\window_sdl2.py", line 757, in mainloop
+2023-05-16  09:36:19.000163  [WARNING]  stderr:     if self.dispatch('on_key_down', key,
+2023-05-16  09:36:19.000163  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:36:19.000163  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:36:19.000163  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  09:36:19.000163  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 163, in _on_window_key_down
+2023-05-16  09:36:19.000163  [WARNING]  stderr:     return self.dispatch('on_key_down', keycode, text, modifiers)
+2023-05-16  09:36:19.000163  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:36:19.000164  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:36:19.000164  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  09:36:19.000164  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 188, in keyboard_on_key_down
+2023-05-16  09:36:19.000164  [WARNING]  stderr:     self.TAB_NEXT = next
+2023-05-16  09:36:19.000164  [WARNING]  stderr: KeyboardInterrupt
+2023-05-16  09:36:36.000686  [DEBUG]  Base: Create provider from mouse
+2023-05-16  09:36:36.000687  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  09:36:36.000687  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  09:36:36.000687  [INFO]  Base: Start application main loop
+2023-05-16  09:36:36.000689  [INFO]  GL: NPOT texture support is available
+2023-05-16  09:39:00.000620  [INFO]  Base: Leaving application in progress...
+2023-05-16  09:39:00.000655  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  09:39:00.000655  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1671, in <module>
+2023-05-16  09:39:00.000655  [WARNING]  stderr:     app.run()
+2023-05-16  09:39:00.000656  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  09:39:00.000656  [WARNING]  stderr:     runTouchApp()
+2023-05-16  09:39:00.000656  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  09:39:00.000656  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  09:39:00.000656  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 341, in mainloop
+2023-05-16  09:39:00.000657  [WARNING]  stderr:     self.window.mainloop()
+2023-05-16  09:39:00.000657  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\window_sdl2.py", line 753, in mainloop
+2023-05-16  09:39:00.000657  [WARNING]  stderr:     self.dispatch('on_key_up', key, scancode)
+2023-05-16  09:39:00.000657  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:39:00.000657  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:39:00.000657  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  09:39:00.000657  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 167, in _on_window_key_up
+2023-05-16  09:39:00.000657  [WARNING]  stderr:     return self.dispatch('on_key_up', keycode)
+2023-05-16  09:39:00.000657  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:39:00.000657  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:39:00.000657  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  09:39:00.000658  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 214, in keyboard_on_key_up
+2023-05-16  09:39:00.000658  [WARNING]  stderr:     next_widget.focus = True
+2023-05-16  09:39:00.000658  [WARNING]  stderr:   File "kivy\properties.pyx", line 520, in kivy.properties.Property.__set__
+2023-05-16  09:39:00.000658  [WARNING]  stderr:   File "kivy\properties.pyx", line 567, in kivy.properties.Property.set
+2023-05-16  09:39:00.000658  [WARNING]  stderr:   File "kivy\properties.pyx", line 606, in kivy.properties.Property._dispatch
+2023-05-16  09:39:00.000658  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:39:00.000658  [WARNING]  stderr:   File "kivy\_event.pyx", line 1213, in kivy._event.EventObservers._dispatch
+2023-05-16  09:39:00.000658  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\behaviors\focus.py", line 402, in _on_focus
+2023-05-16  09:39:00.000658  [WARNING]  stderr:     self._bind_keyboard()
+2023-05-16  09:39:00.000658  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\textinput.py", line 3010, in _bind_keyboard
+2023-05-16  09:39:00.000659  [WARNING]  stderr:     super()._bind_keyboard()
+2023-05-16  09:39:00.000659  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\behaviors\focus.py", line 420, in _bind_keyboard
+2023-05-16  09:39:00.000659  [WARNING]  stderr:     self._ensure_keyboard()
+2023-05-16  09:39:00.000659  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\behaviors\focus.py", line 409, in _ensure_keyboard
+2023-05-16  09:39:00.000659  [WARNING]  stderr:     keyboard = self._keyboard = EventLoop.window.request_keyboard(
+2023-05-16  09:39:00.000659  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\window_sdl2.py", line 877, in request_keyboard
+2023-05-16  09:39:00.000659  [WARNING]  stderr:     self._sdl_keyboard = super(WindowSDL, self).\
+2023-05-16  09:39:00.000659  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 2341, in request_keyboard
+2023-05-16  09:39:00.000659  [WARNING]  stderr:     self.release_keyboard(target)
+2023-05-16  09:39:00.000659  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\window_sdl2.py", line 891, in release_keyboard
+2023-05-16  09:39:00.000659  [WARNING]  stderr:     super(WindowSDL, self).release_keyboard(*largs)
+2023-05-16  09:39:00.000659  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 2425, in release_keyboard
+2023-05-16  09:39:00.000659  [WARNING]  stderr:     callback()
+2023-05-16  09:39:00.000659  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\behaviors\focus.py", line 454, in _keyboard_released
+2023-05-16  09:39:00.000659  [WARNING]  stderr:     self.focus = False
+2023-05-16  09:39:00.000659  [WARNING]  stderr:   File "kivy\properties.pyx", line 520, in kivy.properties.Property.__set__
+2023-05-16  09:39:00.000659  [WARNING]  stderr:   File "kivy\properties.pyx", line 567, in kivy.properties.Property.set
+2023-05-16  09:39:00.000659  [WARNING]  stderr:   File "kivy\properties.pyx", line 606, in kivy.properties.Property._dispatch
+2023-05-16  09:39:00.000660  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:39:00.000660  [WARNING]  stderr:   File "kivy\_event.pyx", line 1213, in kivy._event.EventObservers._dispatch
+2023-05-16  09:39:00.000660  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 475, in on_focus
+2023-05-16  09:39:00.000660  [WARNING]  stderr:     if value is False:
+2023-05-16  09:39:00.000660  [WARNING]  stderr: KeyboardInterrupt
+2023-05-16  09:39:42.000685  [DEBUG]  Base: Create provider from mouse
+2023-05-16  09:39:42.000685  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  09:39:42.000685  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  09:39:42.000686  [INFO]  Base: Start application main loop
+2023-05-16  09:39:42.000687  [INFO]  GL: NPOT texture support is available
+2023-05-16  09:42:40.000571  [INFO]  Base: Leaving application in progress...
+2023-05-16  09:42:40.000600  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  09:42:40.000600  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1671, in <module>
+2023-05-16  09:42:40.000600  [WARNING]  stderr:     app.run()
+2023-05-16  09:42:40.000600  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  09:42:40.000600  [WARNING]  stderr:     runTouchApp()
+2023-05-16  09:42:40.000600  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  09:42:40.000600  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  09:42:40.000600  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 339, in mainloop
+2023-05-16  09:42:40.000600  [WARNING]  stderr:     self.idle()
+2023-05-16  09:42:40.000600  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 383, in idle
+2023-05-16  09:42:40.000600  [WARNING]  stderr:     self.dispatch_input()
+2023-05-16  09:42:40.000601  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 334, in dispatch_input
+2023-05-16  09:42:40.000601  [WARNING]  stderr:     post_dispatch_input(*pop(0))
+2023-05-16  09:42:40.000601  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 263, in post_dispatch_input
+2023-05-16  09:42:40.000601  [WARNING]  stderr:     listener.dispatch('on_motion', etype, me)
+2023-05-16  09:42:40.000601  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:42:40.000601  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 1660, in on_motion
+2023-05-16  09:42:40.000601  [WARNING]  stderr:     self.dispatch('on_touch_down', me)
+2023-05-16  09:42:40.000601  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:42:40.000601  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 1677, in on_touch_down
+2023-05-16  09:42:40.000601  [WARNING]  stderr:     if w.dispatch('on_touch_down', touch):
+2023-05-16  09:42:40.000601  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:42:40.000601  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  09:42:40.000601  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  09:42:40.000602  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:42:40.000602  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  09:42:40.000602  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  09:42:40.000602  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:42:40.000602  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  09:42:40.000602  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  09:42:40.000602  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:42:40.000602  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  09:42:40.000602  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  09:42:40.000602  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:42:40.000602  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\textinput.py", line 1541, in on_touch_down
+2023-05-16  09:42:40.000602  [WARNING]  stderr:     if super().on_touch_down(touch):
+2023-05-16  09:42:40.000602  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\behaviors\focus.py", line 462, in on_touch_down
+2023-05-16  09:42:40.000602  [WARNING]  stderr:     self.focus = True
+2023-05-16  09:42:40.000602  [WARNING]  stderr:   File "kivy\properties.pyx", line 520, in kivy.properties.Property.__set__
+2023-05-16  09:42:40.000602  [WARNING]  stderr:   File "kivy\properties.pyx", line 567, in kivy.properties.Property.set
+2023-05-16  09:42:40.000602  [WARNING]  stderr:   File "kivy\properties.pyx", line 606, in kivy.properties.Property._dispatch
+2023-05-16  09:42:40.000603  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:42:40.000603  [WARNING]  stderr:   File "kivy\_event.pyx", line 1213, in kivy._event.EventObservers._dispatch
+2023-05-16  09:42:40.000603  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 516, in on_focus
+2023-05-16  09:42:40.000603  [WARNING]  stderr:     self.MYAPP.hightlight_Remaining_Options(p_col=col)
+2023-05-16  09:42:40.000604  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 981, in hightlight_Remaining_Options
+2023-05-16  09:42:40.000604  [WARNING]  stderr:     for row in range(4):
+2023-05-16  09:42:40.000604  [WARNING]  stderr: KeyboardInterrupt
+2023-05-16  09:42:54.000786  [DEBUG]  Base: Create provider from mouse
+2023-05-16  09:42:54.000787  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  09:42:54.000787  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  09:42:54.000787  [INFO]  Base: Start application main loop
+2023-05-16  09:42:54.000789  [INFO]  GL: NPOT texture support is available
+2023-05-16  09:44:51.000445  [INFO]  Base: Leaving application in progress...
+2023-05-16  09:44:51.000471  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  09:44:51.000471  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1672, in <module>
+2023-05-16  09:44:51.000471  [WARNING]  stderr:     app.run()
+2023-05-16  09:44:51.000472  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  09:44:51.000472  [WARNING]  stderr:     runTouchApp()
+2023-05-16  09:44:51.000472  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  09:44:51.000472  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  09:44:51.000472  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 339, in mainloop
+2023-05-16  09:44:51.000472  [WARNING]  stderr:     self.idle()
+2023-05-16  09:44:51.000472  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 379, in idle
+2023-05-16  09:44:51.000472  [WARNING]  stderr:     Clock.tick()
+2023-05-16  09:44:51.000472  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\clock.py", line 733, in tick
+2023-05-16  09:44:51.000472  [WARNING]  stderr:     self.post_idle(ts, self.idle())
+2023-05-16  09:44:51.000472  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\clock.py", line 689, in idle
+2023-05-16  09:44:51.000472  [WARNING]  stderr:     usleep(1000000 * sleeptime)
+2023-05-16  09:44:51.000472  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\clock.py", line 965, in usleep
+2023-05-16  09:44:51.000472  [WARNING]  stderr:     _usleep(microseconds, self._sleep_obj)
+2023-05-16  09:44:51.000472  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\clock.py", line 504, in _usleep
+2023-05-16  09:44:51.000472  [WARNING]  stderr:     _kernel32.WaitForSingleObject(obj, 0xffffffff)
+2023-05-16  09:44:51.000473  [WARNING]  stderr: KeyboardInterrupt
+2023-05-16  09:44:53.000873  [DEBUG]  Base: Create provider from mouse
+2023-05-16  09:44:53.000873  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  09:44:53.000873  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  09:44:53.000874  [INFO]  Base: Start application main loop
+2023-05-16  09:44:53.000875  [INFO]  GL: NPOT texture support is available
+2023-05-16  09:48:34.000707  [INFO]  Base: Leaving application in progress...
+2023-05-16  09:48:34.000724  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  09:48:34.000724  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1672, in <module>
+2023-05-16  09:48:34.000724  [WARNING]  stderr:     app.run()
+2023-05-16  09:48:34.000724  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  09:48:34.000724  [WARNING]  stderr:     runTouchApp()
+2023-05-16  09:48:34.000724  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  09:48:34.000724  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  09:48:34.000724  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 341, in mainloop
+2023-05-16  09:48:34.000724  [WARNING]  stderr:     self.window.mainloop()
+2023-05-16  09:48:34.000725  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\window_sdl2.py", line 753, in mainloop
+2023-05-16  09:48:34.000725  [WARNING]  stderr:     self.dispatch('on_key_up', key, scancode)
+2023-05-16  09:48:34.000725  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:48:34.000725  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:48:34.000725  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  09:48:34.000725  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 167, in _on_window_key_up
+2023-05-16  09:48:34.000725  [WARNING]  stderr:     return self.dispatch('on_key_up', keycode)
+2023-05-16  09:48:34.000725  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:48:34.000725  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:48:34.000725  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  09:48:34.000725  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 214, in keyboard_on_key_up
+2023-05-16  09:48:34.000725  [WARNING]  stderr:     next_widget.focus = True
+2023-05-16  09:48:34.000725  [WARNING]  stderr: KeyboardInterrupt
+2023-05-16  09:48:38.000485  [DEBUG]  Base: Create provider from mouse
+2023-05-16  09:48:38.000486  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  09:48:38.000486  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  09:48:38.000486  [INFO]  Base: Start application main loop
+2023-05-16  09:48:38.000488  [INFO]  GL: NPOT texture support is available
+2023-05-16  09:51:11.000210  [INFO]  Base: Leaving application in progress...
+2023-05-16  09:51:11.000253  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  09:51:11.000254  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1672, in <module>
+2023-05-16  09:51:11.000254  [WARNING]  stderr:     app.run()
+2023-05-16  09:51:11.000254  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  09:51:11.000254  [WARNING]  stderr:     runTouchApp()
+2023-05-16  09:51:11.000254  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  09:51:11.000254  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  09:51:11.000254  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 341, in mainloop
+2023-05-16  09:51:11.000254  [WARNING]  stderr:     self.window.mainloop()
+2023-05-16  09:51:11.000254  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\window_sdl2.py", line 757, in mainloop
+2023-05-16  09:51:11.000254  [WARNING]  stderr:     if self.dispatch('on_key_down', key,
+2023-05-16  09:51:11.000254  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:51:11.000254  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:51:11.000254  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  09:51:11.000254  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 163, in _on_window_key_down
+2023-05-16  09:51:11.000254  [WARNING]  stderr:     return self.dispatch('on_key_down', keycode, text, modifiers)
+2023-05-16  09:51:11.000254  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:51:11.000254  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:51:11.000254  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  09:51:11.000254  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 186, in keyboard_on_key_down
+2023-05-16  09:51:11.000254  [WARNING]  stderr:     which = self.NUMBER_OF_TABBERS
+2023-05-16  09:51:11.000254  [WARNING]  stderr: KeyboardInterrupt
+2023-05-16  09:51:23.000928  [DEBUG]  Base: Create provider from mouse
+2023-05-16  09:51:23.000929  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  09:51:23.000929  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  09:51:23.000929  [INFO]  Base: Start application main loop
+2023-05-16  09:51:23.000931  [INFO]  GL: NPOT texture support is available
+2023-05-16  09:52:42.000722  [INFO]  Base: Leaving application in progress...
+2023-05-16  09:52:42.000739  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  09:52:42.000739  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1672, in <module>
+2023-05-16  09:52:42.000740  [WARNING]  stderr:     app.run()
+2023-05-16  09:52:42.000740  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  09:52:42.000740  [WARNING]  stderr:     runTouchApp()
+2023-05-16  09:52:42.000740  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  09:52:42.000740  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  09:52:42.000740  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 341, in mainloop
+2023-05-16  09:52:42.000740  [WARNING]  stderr:     self.window.mainloop()
+2023-05-16  09:52:42.000740  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\window_sdl2.py", line 757, in mainloop
+2023-05-16  09:52:42.000741  [WARNING]  stderr:     if self.dispatch('on_key_down', key,
+2023-05-16  09:52:42.000741  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:52:42.000741  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:52:42.000741  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  09:52:42.000741  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 163, in _on_window_key_down
+2023-05-16  09:52:42.000741  [WARNING]  stderr:     return self.dispatch('on_key_down', keycode, text, modifiers)
+2023-05-16  09:52:42.000741  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:52:42.000741  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:52:42.000742  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  09:52:42.000742  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 188, in keyboard_on_key_down
+2023-05-16  09:52:42.000742  [WARNING]  stderr:     self.TAB_NEXT = next
+2023-05-16  09:52:42.000742  [WARNING]  stderr: KeyboardInterrupt
+2023-05-16  09:55:14.000309  [DEBUG]  Base: Create provider from mouse
+2023-05-16  09:55:14.000310  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  09:55:14.000310  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  09:55:14.000310  [INFO]  Base: Start application main loop
+2023-05-16  09:55:14.000312  [INFO]  GL: NPOT texture support is available
+2023-05-16  09:56:05.000787  [INFO]  Base: Leaving application in progress...
+2023-05-16  09:56:05.000797  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  09:56:05.000797  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1672, in <module>
+2023-05-16  09:56:05.000797  [WARNING]  stderr:     app.run()
+2023-05-16  09:56:05.000797  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  09:56:05.000797  [WARNING]  stderr:     runTouchApp()
+2023-05-16  09:56:05.000797  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  09:56:05.000797  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  09:56:05.000797  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 341, in mainloop
+2023-05-16  09:56:05.000797  [WARNING]  stderr:     self.window.mainloop()
+2023-05-16  09:56:05.000797  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\window_sdl2.py", line 757, in mainloop
+2023-05-16  09:56:05.000797  [WARNING]  stderr:     if self.dispatch('on_key_down', key,
+2023-05-16  09:56:05.000799  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:56:05.000799  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:56:05.000799  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  09:56:05.000799  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 163, in _on_window_key_down
+2023-05-16  09:56:05.000799  [WARNING]  stderr:     return self.dispatch('on_key_down', keycode, text, modifiers)
+2023-05-16  09:56:05.000799  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:56:05.000800  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:56:05.000800  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  09:56:05.000800  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 187, in keyboard_on_key_down
+2023-05-16  09:56:05.000800  [WARNING]  stderr:     next_tabber = (current_tabber + INC) % (myTextInput.MY_TAB_NUMBER + 1)
+2023-05-16  09:56:05.000800  [WARNING]  stderr: KeyboardInterrupt
+2023-05-16  09:57:20.000982  [DEBUG]  Base: Create provider from mouse
+2023-05-16  09:57:20.000983  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  09:57:20.000983  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  09:57:20.000983  [INFO]  Base: Start application main loop
+2023-05-16  09:57:20.000985  [INFO]  GL: NPOT texture support is available
+2023-05-16  09:57:59.000019  [WARNING]  stderr: Error removing breakpoint: Breakpoint id not found: c:\users\ctroi\pycharm\buildozer\main.py id: 1052. Available ids: [102, 186, 1267, 1428, 1554, 476, 1077, 1258, 631, 1018, 1080, 374, 400, 962, 1552, 1597, 551, 1054, 1017, 386, 1063, 380, 371, 1093, 518, 983, 190, 418, 479, 216, 1431, 1078]
+2023-05-16  09:57:59.000019  [WARNING]  stderr: 
+2023-05-16  09:58:05.000047  [WARNING]  stderr: Error removing breakpoint: Breakpoint id not found: c:\users\ctroi\pycharm\buildozer\main.py id: 1053. Available ids: [102, 186, 476, 1054, 1063, 983, 1429, 372, 1094, 401, 1081, 1019, 381, 1305, 552, 963, 1260, 1079, 1598, 1055, 1269, 217, 480, 1553, 519, 191, 984, 1556, 387, 1018, 375]
+2023-05-16  09:58:05.000047  [WARNING]  stderr: 
+2023-05-16  09:58:13.000387  [WARNING]  stderr: Error removing breakpoint: Breakpoint id not found: c:\users\ctroi\pycharm\buildozer\main.py id: 1054. Available ids: [102, 186, 476, 372, 1305, 552, 1260, 1079, 1598, 1269, 1556, 375, 1430, 633, 379, 1551, 550, 1053, 1052, 215, 417, 370, 189, 982, 517, 399, 961, 477, 478, 1062]
+2023-05-16  09:58:13.000387  [WARNING]  stderr: 
+2023-05-16  09:58:14.000559  [WARNING]  stderr: Error removing breakpoint: Breakpoint id not found: c:\users\ctroi\pycharm\buildozer\main.py id: 1430. Available ids: [102, 186, 1428, 1267, 1077, 1258, 1596, 631, 1554, 1303, 1091, 398, 960, 369, 1302, 1553, 1550, 384, 378, 630, 1257, 214, 372, 516, 1078, 981, 188, 416, 477, 475, 1429]
+2023-05-16  09:58:14.000560  [WARNING]  stderr: 
+2023-05-16  09:58:16.000266  [WARNING]  stderr: Error removing breakpoint: Breakpoint id not found: c:\users\ctroi\pycharm\buildozer\main.py id: 476. Available ids: [102, 186, 477, 475, 1019, 1081, 375, 1094, 1018, 387, 1553, 1269, 381, 963, 1260, 401, 1055, 1432, 1064, 480, 478, 1054, 1430, 1079, 1598, 633, 1556, 1305, 552, 519, 984, 191, 479]
+2023-05-16  09:58:16.000266  [WARNING]  stderr: 
+2023-05-16  09:58:19.000269  [WARNING]  stderr: Error removing breakpoint: Breakpoint id not found: c:\users\ctroi\pycharm\buildozer\main.py id: 477. Available ids: [102, 186, 1054, 417, 189, 982, 517, 1091, 369, 960, 1078, 372, 398, 378, 1015, 384, 549, 1302, 1553, 1266, 630, 1550, 1595, 1257, 1076, 1427, 1051, 1052, 1061, 1429, 475]
+2023-05-16  09:58:19.000269  [WARNING]  stderr: 
+2023-05-16  09:58:24.000237  [INFO]  Base: Leaving application in progress...
+2023-05-16  09:58:24.000249  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  09:58:24.000249  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1672, in <module>
+2023-05-16  09:58:24.000249  [WARNING]  stderr:     app.run()
+2023-05-16  09:58:24.000249  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  09:58:24.000249  [WARNING]  stderr:     runTouchApp()
+2023-05-16  09:58:24.000249  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  09:58:24.000249  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  09:58:24.000250  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 341, in mainloop
+2023-05-16  09:58:24.000250  [WARNING]  stderr:     self.window.mainloop()
+2023-05-16  09:58:24.000250  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\window_sdl2.py", line 757, in mainloop
+2023-05-16  09:58:24.000250  [WARNING]  stderr:     if self.dispatch('on_key_down', key,
+2023-05-16  09:58:24.000250  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:58:24.000250  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:58:24.000250  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  09:58:24.000250  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 163, in _on_window_key_down
+2023-05-16  09:58:24.000250  [WARNING]  stderr:     return self.dispatch('on_key_down', keycode, text, modifiers)
+2023-05-16  09:58:24.000250  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  09:58:24.000250  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  09:58:24.000250  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  09:58:24.000250  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 187, in keyboard_on_key_down
+2023-05-16  09:58:24.000250  [WARNING]  stderr:     next_tabber = (current_tabber + INC) % (myTextInput.TOTAL_NUMBER_OF_TABS + 1)
+2023-05-16  09:58:24.000250  [WARNING]  stderr: KeyboardInterrupt
+2023-05-16  09:59:56.000560  [DEBUG]  Base: Create provider from mouse
+2023-05-16  09:59:56.000560  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  09:59:56.000561  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  09:59:56.000561  [INFO]  Base: Start application main loop
+2023-05-16  09:59:56.000562  [INFO]  GL: NPOT texture support is available
+2023-05-16  10:00:29.000997  [WARNING]  stderr: Error removing breakpoint: Breakpoint id not found: c:\users\ctroi\pycharm\buildozer\main.py id: 478. Available ids: [186, 102, 1429, 1431, 632, 1078, 1259, 1597, 518, 983, 190, 1063, 372, 1305, 1556, 1094, 1019, 1553, 633, 1018, 387, 1079, 381, 375, 1432, 1081, 480, 401, 479, 963, 191]
+2023-05-16  10:00:29.000997  [WARNING]  stderr: 
+2023-05-16  10:00:29.000997  [WARNING]  stderr: Error removing breakpoint: Breakpoint id not found: c:\users\ctroi\pycharm\buildozer\main.py id: 189. Available ids: [186, 102, 1429, 1431, 632, 1078, 1259, 1597, 983, 1063, 372, 1305, 1556, 1094, 1019, 1553, 633, 1018, 387, 1079, 381, 375, 1432, 1081, 480, 401, 479, 963, 191, 519]
+2023-05-16  10:00:29.000997  [WARNING]  stderr: 
+2023-05-16  10:00:40.000091  [INFO]  Base: Leaving application in progress...
+2023-05-16  10:00:40.000105  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  10:00:40.000105  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1673, in <module>
+2023-05-16  10:00:40.000106  [WARNING]  stderr:     app.run()
+2023-05-16  10:00:40.000106  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  10:00:40.000106  [WARNING]  stderr:     runTouchApp()
+2023-05-16  10:00:40.000106  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  10:00:40.000106  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  10:00:40.000106  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 341, in mainloop
+2023-05-16  10:00:40.000106  [WARNING]  stderr:     self.window.mainloop()
+2023-05-16  10:00:40.000106  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\window_sdl2.py", line 757, in mainloop
+2023-05-16  10:00:40.000106  [WARNING]  stderr:     if self.dispatch('on_key_down', key,
+2023-05-16  10:00:40.000106  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  10:00:40.000106  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  10:00:40.000106  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  10:00:40.000106  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 163, in _on_window_key_down
+2023-05-16  10:00:40.000106  [WARNING]  stderr:     return self.dispatch('on_key_down', keycode, text, modifiers)
+2023-05-16  10:00:40.000106  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  10:00:40.000106  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  10:00:40.000107  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  10:00:40.000107  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 188, in keyboard_on_key_down
+2023-05-16  10:00:40.000107  [WARNING]  stderr:     next_tab = (current_tab + INCREMENT) % (myTextInput.TOTAL_NUMBER_OF_TABS + 1)
+2023-05-16  10:00:40.000107  [WARNING]  stderr: KeyboardInterrupt
+2023-05-16  10:00:43.000047  [DEBUG]  Base: Create provider from mouse
+2023-05-16  10:00:43.000048  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  10:00:43.000048  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  10:00:43.000048  [INFO]  Base: Start application main loop
+2023-05-16  10:00:43.000050  [INFO]  GL: NPOT texture support is available
+2023-05-16  10:01:12.000740  [INFO]  Base: Leaving application in progress...
+2023-05-16  10:01:12.000759  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  10:01:12.000759  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1675, in <module>
+2023-05-16  10:01:12.000759  [WARNING]  stderr:     app.run()
+2023-05-16  10:01:12.000759  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  10:01:12.000759  [WARNING]  stderr:     runTouchApp()
+2023-05-16  10:01:12.000759  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  10:01:12.000759  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  10:01:12.000759  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 341, in mainloop
+2023-05-16  10:01:12.000759  [WARNING]  stderr:     self.window.mainloop()
+2023-05-16  10:01:12.000760  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\window_sdl2.py", line 753, in mainloop
+2023-05-16  10:01:12.000760  [WARNING]  stderr:     self.dispatch('on_key_up', key, scancode)
+2023-05-16  10:01:12.000760  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  10:01:12.000760  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  10:01:12.000760  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  10:01:12.000760  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 167, in _on_window_key_up
+2023-05-16  10:01:12.000760  [WARNING]  stderr:     return self.dispatch('on_key_up', keycode)
+2023-05-16  10:01:12.000760  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  10:01:12.000760  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  10:01:12.000760  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  10:01:12.000760  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 217, in keyboard_on_key_up
+2023-05-16  10:01:12.000760  [WARNING]  stderr:     next_widget.focus = True
+2023-05-16  10:01:12.000760  [WARNING]  stderr:   File "kivy\properties.pyx", line 520, in kivy.properties.Property.__set__
+2023-05-16  10:01:12.000760  [WARNING]  stderr:   File "kivy\properties.pyx", line 567, in kivy.properties.Property.set
+2023-05-16  10:01:12.000760  [WARNING]  stderr:   File "kivy\properties.pyx", line 606, in kivy.properties.Property._dispatch
+2023-05-16  10:01:12.000760  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  10:01:12.000760  [WARNING]  stderr:   File "kivy\_event.pyx", line 1213, in kivy._event.EventObservers._dispatch
+2023-05-16  10:01:12.000760  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\behaviors\focus.py", line 402, in _on_focus
+2023-05-16  10:01:12.000761  [WARNING]  stderr:     self._bind_keyboard()
+2023-05-16  10:01:12.000761  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\textinput.py", line 3010, in _bind_keyboard
+2023-05-16  10:01:12.000761  [WARNING]  stderr:     super()._bind_keyboard()
+2023-05-16  10:01:12.000761  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\behaviors\focus.py", line 420, in _bind_keyboard
+2023-05-16  10:01:12.000761  [WARNING]  stderr:     self._ensure_keyboard()
+2023-05-16  10:01:12.000761  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\behaviors\focus.py", line 409, in _ensure_keyboard
+2023-05-16  10:01:12.000761  [WARNING]  stderr:     keyboard = self._keyboard = EventLoop.window.request_keyboard(
+2023-05-16  10:01:12.000761  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\window_sdl2.py", line 877, in request_keyboard
+2023-05-16  10:01:12.000761  [WARNING]  stderr:     self._sdl_keyboard = super(WindowSDL, self).\
+2023-05-16  10:01:12.000761  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 2341, in request_keyboard
+2023-05-16  10:01:12.000761  [WARNING]  stderr:     self.release_keyboard(target)
+2023-05-16  10:01:12.000761  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\window_sdl2.py", line 891, in release_keyboard
+2023-05-16  10:01:12.000761  [WARNING]  stderr:     super(WindowSDL, self).release_keyboard(*largs)
+2023-05-16  10:01:12.000761  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 2425, in release_keyboard
+2023-05-16  10:01:12.000761  [WARNING]  stderr:     callback()
+2023-05-16  10:01:12.000761  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\behaviors\focus.py", line 454, in _keyboard_released
+2023-05-16  10:01:12.000761  [WARNING]  stderr:     self.focus = False
+2023-05-16  10:01:12.000761  [WARNING]  stderr:   File "kivy\properties.pyx", line 520, in kivy.properties.Property.__set__
+2023-05-16  10:01:12.000762  [WARNING]  stderr:   File "kivy\properties.pyx", line 567, in kivy.properties.Property.set
+2023-05-16  10:01:12.000762  [WARNING]  stderr:   File "kivy\properties.pyx", line 606, in kivy.properties.Property._dispatch
+2023-05-16  10:01:12.000762  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  10:01:12.000762  [WARNING]  stderr:   File "kivy\_event.pyx", line 1213, in kivy._event.EventObservers._dispatch
+2023-05-16  10:01:12.000762  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 478, in on_focus
+2023-05-16  10:01:12.000762  [WARNING]  stderr:     if value is False:
+2023-05-16  10:01:12.000762  [WARNING]  stderr: KeyboardInterrupt
+2023-05-16  10:01:15.000088  [DEBUG]  Base: Create provider from mouse
+2023-05-16  10:01:15.000089  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  10:01:15.000089  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  10:01:15.000089  [INFO]  Base: Start application main loop
+2023-05-16  10:01:15.000091  [INFO]  GL: NPOT texture support is available
+2023-05-16  10:02:00.000476  [INFO]  Base: Leaving application in progress...
+2023-05-16  10:02:00.000511  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  10:02:00.000511  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1675, in <module>
+2023-05-16  10:02:00.000511  [WARNING]  stderr:     app.run()
+2023-05-16  10:02:00.000511  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  10:02:00.000511  [WARNING]  stderr:     runTouchApp()
+2023-05-16  10:02:00.000511  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  10:02:00.000511  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  10:02:00.000511  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 341, in mainloop
+2023-05-16  10:02:00.000511  [WARNING]  stderr:     self.window.mainloop()
+2023-05-16  10:02:00.000511  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\window_sdl2.py", line 753, in mainloop
+2023-05-16  10:02:00.000513  [WARNING]  stderr:     self.dispatch('on_key_up', key, scancode)
+2023-05-16  10:02:00.000513  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  10:02:00.000513  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  10:02:00.000513  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  10:02:00.000513  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 167, in _on_window_key_up
+2023-05-16  10:02:00.000513  [WARNING]  stderr:     return self.dispatch('on_key_up', keycode)
+2023-05-16  10:02:00.000513  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  10:02:00.000513  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  10:02:00.000514  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  10:02:00.000514  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 217, in keyboard_on_key_up
+2023-05-16  10:02:00.000514  [WARNING]  stderr:     next_widget.focus = True
+2023-05-16  10:02:00.000514  [WARNING]  stderr: KeyboardInterrupt
+2023-05-16  10:02:02.000896  [DEBUG]  Base: Create provider from mouse
+2023-05-16  10:02:02.000897  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  10:02:02.000897  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  10:02:02.000897  [INFO]  Base: Start application main loop
+2023-05-16  10:02:02.000899  [INFO]  GL: NPOT texture support is available
+2023-05-16  10:03:24.000893  [INFO]  Base: Leaving application in progress...
+2023-05-16  10:03:28.000908  [DEBUG]  Base: Create provider from mouse
+2023-05-16  10:03:28.000908  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  10:03:28.000909  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  10:03:28.000909  [INFO]  Base: Start application main loop
+2023-05-16  10:03:28.000910  [INFO]  GL: NPOT texture support is available
+2023-05-16  10:03:41.000803  [INFO]  Base: Leaving application in progress...
+2023-05-16  10:03:41.000829  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  10:03:41.000830  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1675, in <module>
+2023-05-16  10:03:41.000830  [WARNING]  stderr:     app.run()
+2023-05-16  10:03:41.000830  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  10:03:41.000830  [WARNING]  stderr:     runTouchApp()
+2023-05-16  10:03:41.000830  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  10:03:41.000830  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  10:03:41.000830  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 339, in mainloop
+2023-05-16  10:03:41.000830  [WARNING]  stderr:     self.idle()
+2023-05-16  10:03:41.000830  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 383, in idle
+2023-05-16  10:03:41.000830  [WARNING]  stderr:     self.dispatch_input()
+2023-05-16  10:03:41.000830  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 334, in dispatch_input
+2023-05-16  10:03:41.000830  [WARNING]  stderr:     post_dispatch_input(*pop(0))
+2023-05-16  10:03:41.000830  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 263, in post_dispatch_input
+2023-05-16  10:03:41.000830  [WARNING]  stderr:     listener.dispatch('on_motion', etype, me)
+2023-05-16  10:03:41.000830  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  10:03:41.000830  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 1660, in on_motion
+2023-05-16  10:03:41.000830  [WARNING]  stderr:     self.dispatch('on_touch_down', me)
+2023-05-16  10:03:41.000830  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  10:03:41.000831  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 1677, in on_touch_down
+2023-05-16  10:03:41.000831  [WARNING]  stderr:     if w.dispatch('on_touch_down', touch):
+2023-05-16  10:03:41.000831  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  10:03:41.000831  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  10:03:41.000831  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  10:03:41.000831  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  10:03:41.000831  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  10:03:41.000831  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  10:03:41.000831  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  10:03:41.000831  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  10:03:41.000831  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  10:03:41.000831  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  10:03:41.000831  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\widget.py", line 589, in on_touch_down
+2023-05-16  10:03:41.000831  [WARNING]  stderr:     if child.dispatch('on_touch_down', touch):
+2023-05-16  10:03:41.000831  [WARNING]  stderr:   File "kivy\_event.pyx", line 731, in kivy._event.EventDispatcher.dispatch
+2023-05-16  10:03:41.000831  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\textinput.py", line 1541, in on_touch_down
+2023-05-16  10:03:41.000831  [WARNING]  stderr:     if super().on_touch_down(touch):
+2023-05-16  10:03:41.000831  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\behaviors\focus.py", line 462, in on_touch_down
+2023-05-16  10:03:41.000831  [WARNING]  stderr:     self.focus = True
+2023-05-16  10:03:41.000831  [WARNING]  stderr:   File "kivy\properties.pyx", line 520, in kivy.properties.Property.__set__
+2023-05-16  10:03:41.000831  [WARNING]  stderr:   File "kivy\properties.pyx", line 567, in kivy.properties.Property.set
+2023-05-16  10:03:41.000831  [WARNING]  stderr:   File "kivy\properties.pyx", line 606, in kivy.properties.Property._dispatch
+2023-05-16  10:03:41.000831  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  10:03:41.000831  [WARNING]  stderr:   File "kivy\_event.pyx", line 1213, in kivy._event.EventObservers._dispatch
+2023-05-16  10:03:41.000831  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 478, in on_focus
+2023-05-16  10:03:41.000831  [WARNING]  stderr:     if value is False:
+2023-05-16  10:03:41.000832  [WARNING]  stderr: KeyboardInterrupt
+2023-05-16  10:03:43.000668  [DEBUG]  Base: Create provider from mouse
+2023-05-16  10:03:43.000668  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  10:03:43.000668  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  10:03:43.000669  [INFO]  Base: Start application main loop
+2023-05-16  10:03:43.000670  [INFO]  GL: NPOT texture support is available
+2023-05-16  10:04:06.000836  [INFO]  Base: Leaving application in progress...
+2023-05-16  10:04:47.000194  [DEBUG]  Base: Create provider from mouse
+2023-05-16  10:04:47.000194  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  10:04:47.000195  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  10:04:47.000195  [INFO]  Base: Start application main loop
+2023-05-16  10:04:47.000197  [INFO]  GL: NPOT texture support is available
+2023-05-16  10:05:22.000302  [INFO]  Base: Leaving application in progress...
+2023-05-16  10:05:22.000318  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  10:05:22.000318  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1675, in <module>
+2023-05-16  10:05:22.000318  [WARNING]  stderr:     app.run()
+2023-05-16  10:05:22.000318  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  10:05:22.000318  [WARNING]  stderr:     runTouchApp()
+2023-05-16  10:05:22.000319  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  10:05:22.000319  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  10:05:22.000319  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 341, in mainloop
+2023-05-16  10:05:22.000319  [WARNING]  stderr:     self.window.mainloop()
+2023-05-16  10:05:22.000319  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\window_sdl2.py", line 753, in mainloop
+2023-05-16  10:05:22.000319  [WARNING]  stderr:     self.dispatch('on_key_up', key, scancode)
+2023-05-16  10:05:22.000319  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  10:05:22.000319  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  10:05:22.000320  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  10:05:22.000320  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 167, in _on_window_key_up
+2023-05-16  10:05:22.000320  [WARNING]  stderr:     return self.dispatch('on_key_up', keycode)
+2023-05-16  10:05:22.000320  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  10:05:22.000320  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  10:05:22.000320  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  10:05:22.000320  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 217, in keyboard_on_key_up
+2023-05-16  10:05:22.000320  [WARNING]  stderr:     next_widget.focus = True
+2023-05-16  10:05:22.000320  [WARNING]  stderr:   File "kivy\properties.pyx", line 520, in kivy.properties.Property.__set__
+2023-05-16  10:05:22.000321  [WARNING]  stderr:   File "kivy\properties.pyx", line 567, in kivy.properties.Property.set
+2023-05-16  10:05:22.000321  [WARNING]  stderr:   File "kivy\properties.pyx", line 606, in kivy.properties.Property._dispatch
+2023-05-16  10:05:22.000321  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  10:05:22.000321  [WARNING]  stderr:   File "kivy\_event.pyx", line 1213, in kivy._event.EventObservers._dispatch
+2023-05-16  10:05:22.000321  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 422, in on_focus
+2023-05-16  10:05:22.000321  [WARNING]  stderr:     self.MYAPP.reset_sum_colors()
+2023-05-16  10:05:22.000321  [WARNING]  stderr: KeyboardInterrupt
+2023-05-16  10:05:24.000258  [DEBUG]  Base: Create provider from mouse
+2023-05-16  10:05:24.000259  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  10:05:24.000259  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  10:05:24.000259  [INFO]  Base: Start application main loop
+2023-05-16  10:05:24.000261  [INFO]  GL: NPOT texture support is available
+2023-05-16  10:05:39.000945  [INFO]  Base: Leaving application in progress...
+2023-05-16  10:06:14.000649  [DEBUG]  Base: Create provider from mouse
+2023-05-16  10:06:14.000650  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  10:06:14.000650  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  10:06:14.000650  [INFO]  Base: Start application main loop
+2023-05-16  10:06:14.000652  [INFO]  GL: NPOT texture support is available
+2023-05-16  10:06:51.000124  [INFO]  Base: Leaving application in progress...
+2023-05-16  10:06:51.000168  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  10:06:51.000168  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1675, in <module>
+2023-05-16  10:06:51.000169  [WARNING]  stderr:     app.run()
+2023-05-16  10:06:51.000169  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  10:06:51.000169  [WARNING]  stderr:     runTouchApp()
+2023-05-16  10:06:51.000169  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  10:06:51.000169  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  10:06:51.000169  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 341, in mainloop
+2023-05-16  10:06:51.000170  [WARNING]  stderr:     self.window.mainloop()
+2023-05-16  10:06:51.000170  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\window_sdl2.py", line 753, in mainloop
+2023-05-16  10:06:51.000170  [WARNING]  stderr:     self.dispatch('on_key_up', key, scancode)
+2023-05-16  10:06:51.000171  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  10:06:51.000171  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  10:06:51.000171  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  10:06:51.000171  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 167, in _on_window_key_up
+2023-05-16  10:06:51.000171  [WARNING]  stderr:     return self.dispatch('on_key_up', keycode)
+2023-05-16  10:06:51.000171  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
+2023-05-16  10:06:51.000171  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  10:06:51.000171  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
+2023-05-16  10:06:51.000172  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 217, in keyboard_on_key_up
+2023-05-16  10:06:51.000173  [WARNING]  stderr:     next_widget.focus = True
+2023-05-16  10:06:51.000173  [WARNING]  stderr:   File "kivy\properties.pyx", line 520, in kivy.properties.Property.__set__
+2023-05-16  10:06:51.000173  [WARNING]  stderr:   File "kivy\properties.pyx", line 567, in kivy.properties.Property.set
+2023-05-16  10:06:51.000173  [WARNING]  stderr:   File "kivy\properties.pyx", line 606, in kivy.properties.Property._dispatch
+2023-05-16  10:06:51.000173  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  10:06:51.000173  [WARNING]  stderr:   File "kivy\_event.pyx", line 1213, in kivy._event.EventObservers._dispatch
+2023-05-16  10:06:51.000173  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\behaviors\focus.py", line 402, in _on_focus
+2023-05-16  10:06:51.000173  [WARNING]  stderr:     self._bind_keyboard()
+2023-05-16  10:06:51.000173  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\textinput.py", line 3010, in _bind_keyboard
+2023-05-16  10:06:51.000173  [WARNING]  stderr:     super()._bind_keyboard()
+2023-05-16  10:06:51.000173  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\behaviors\focus.py", line 420, in _bind_keyboard
+2023-05-16  10:06:51.000173  [WARNING]  stderr:     self._ensure_keyboard()
+2023-05-16  10:06:51.000173  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\behaviors\focus.py", line 409, in _ensure_keyboard
+2023-05-16  10:06:51.000174  [WARNING]  stderr:     keyboard = self._keyboard = EventLoop.window.request_keyboard(
+2023-05-16  10:06:51.000174  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\window_sdl2.py", line 877, in request_keyboard
+2023-05-16  10:06:51.000174  [WARNING]  stderr:     self._sdl_keyboard = super(WindowSDL, self).\
+2023-05-16  10:06:51.000174  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 2341, in request_keyboard
+2023-05-16  10:06:51.000174  [WARNING]  stderr:     self.release_keyboard(target)
+2023-05-16  10:06:51.000174  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\window_sdl2.py", line 891, in release_keyboard
+2023-05-16  10:06:51.000174  [WARNING]  stderr:     super(WindowSDL, self).release_keyboard(*largs)
+2023-05-16  10:06:51.000174  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\core\window\__init__.py", line 2425, in release_keyboard
+2023-05-16  10:06:51.000174  [WARNING]  stderr:     callback()
+2023-05-16  10:06:51.000174  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\uix\behaviors\focus.py", line 454, in _keyboard_released
+2023-05-16  10:06:51.000174  [WARNING]  stderr:     self.focus = False
+2023-05-16  10:06:51.000174  [WARNING]  stderr:   File "kivy\properties.pyx", line 520, in kivy.properties.Property.__set__
+2023-05-16  10:06:51.000174  [WARNING]  stderr:   File "kivy\properties.pyx", line 567, in kivy.properties.Property.set
+2023-05-16  10:06:51.000175  [WARNING]  stderr:   File "kivy\properties.pyx", line 606, in kivy.properties.Property._dispatch
+2023-05-16  10:06:51.000175  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
+2023-05-16  10:06:51.000175  [WARNING]  stderr:   File "kivy\_event.pyx", line 1213, in kivy._event.EventObservers._dispatch
+2023-05-16  10:06:51.000175  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 478, in on_focus
+2023-05-16  10:06:51.000175  [WARNING]  stderr:     if value is False:
+2023-05-16  10:06:51.000175  [WARNING]  stderr: KeyboardInterrupt
+2023-05-16  10:06:53.000169  [DEBUG]  Base: Create provider from mouse
+2023-05-16  10:06:53.000169  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  10:06:53.000169  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  10:06:53.000169  [INFO]  Base: Start application main loop
+2023-05-16  10:06:53.000170  [INFO]  GL: NPOT texture support is available
+2023-05-16  10:07:04.000249  [INFO]  Base: Leaving application in progress...
+2023-05-16  10:07:07.000074  [DEBUG]  Base: Create provider from mouse
+2023-05-16  10:07:07.000075  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  10:07:07.000075  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  10:07:07.000075  [INFO]  Base: Start application main loop
+2023-05-16  10:07:07.000076  [INFO]  GL: NPOT texture support is available
+2023-05-16  10:08:22.000341  [INFO]  Base: Leaving application in progress...
+2023-05-16  10:08:22.000351  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  10:08:22.000352  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1675, in <module>
+2023-05-16  10:08:22.000352  [WARNING]  stderr:     app.run()
+2023-05-16  10:08:22.000352  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  10:08:22.000352  [WARNING]  stderr:     runTouchApp()
+2023-05-16  10:08:22.000352  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  10:08:22.000352  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  10:08:22.000352  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 339, in mainloop
+2023-05-16  10:08:22.000352  [WARNING]  stderr:     self.idle()
+2023-05-16  10:08:22.000352  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 379, in idle
+2023-05-16  10:08:22.000352  [WARNING]  stderr:     Clock.tick()
+2023-05-16  10:08:22.000352  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\clock.py", line 733, in tick
+2023-05-16  10:08:22.000352  [WARNING]  stderr:     self.post_idle(ts, self.idle())
+2023-05-16  10:08:22.000352  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\clock.py", line 689, in idle
+2023-05-16  10:08:22.000352  [WARNING]  stderr:     usleep(1000000 * sleeptime)
+2023-05-16  10:08:22.000352  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\clock.py", line 965, in usleep
+2023-05-16  10:08:22.000352  [WARNING]  stderr:     _usleep(microseconds, self._sleep_obj)
+2023-05-16  10:08:22.000352  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\clock.py", line 504, in _usleep
+2023-05-16  10:08:22.000352  [WARNING]  stderr:     _kernel32.WaitForSingleObject(obj, 0xffffffff)
+2023-05-16  10:08:22.000352  [WARNING]  stderr: KeyboardInterrupt
+2023-05-16  10:08:24.000875  [DEBUG]  Base: Create provider from mouse
+2023-05-16  10:08:24.000876  [DEBUG]  Base: Create provider from wm_touch
+2023-05-16  10:08:24.000876  [DEBUG]  Base: Create provider from wm_pen
+2023-05-16  10:08:24.000876  [INFO]  Base: Start application main loop
+2023-05-16  10:08:24.000879  [INFO]  GL: NPOT texture support is available
+2023-05-16  10:10:29.000765  [INFO]  Base: Leaving application in progress...
+2023-05-16  10:10:29.000787  [WARNING]  stderr: Traceback (most recent call last):
+2023-05-16  10:10:29.000787  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1675, in <module>
+2023-05-16  10:10:29.000787  [WARNING]  stderr:     app.run()
+2023-05-16  10:10:29.000787  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\app.py", line 955, in run
+2023-05-16  10:10:29.000787  [WARNING]  stderr:     runTouchApp()
+2023-05-16  10:10:29.000787  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 574, in runTouchApp
+2023-05-16  10:10:29.000787  [WARNING]  stderr:     EventLoop.mainloop()
+2023-05-16  10:10:29.000787  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 339, in mainloop
+2023-05-16  10:10:29.000787  [WARNING]  stderr:     self.idle()
+2023-05-16  10:10:29.000787  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\base.py", line 379, in idle
+2023-05-16  10:10:29.000787  [WARNING]  stderr:     Clock.tick()
+2023-05-16  10:10:29.000787  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\clock.py", line 733, in tick
+2023-05-16  10:10:29.000788  [WARNING]  stderr:     self.post_idle(ts, self.idle())
+2023-05-16  10:10:29.000788  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\clock.py", line 689, in idle
+2023-05-16  10:10:29.000788  [WARNING]  stderr:     usleep(1000000 * sleeptime)
+2023-05-16  10:10:29.000788  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\clock.py", line 965, in usleep
+2023-05-16  10:10:29.000788  [WARNING]  stderr:     _usleep(microseconds, self._sleep_obj)
+2023-05-16  10:10:29.000788  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\venv\lib\site-packages\kivy\clock.py", line 504, in _usleep
+2023-05-16  10:10:29.000788  [WARNING]  stderr:     _kernel32.WaitForSingleObject(obj, 0xffffffff)
+2023-05-16  10:10:29.000788  [WARNING]  stderr: KeyboardInterrupt

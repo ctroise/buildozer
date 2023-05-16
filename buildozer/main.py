@@ -1,8 +1,10 @@
 import logging
+import shutil
+import pickle
 import sys
 import os
 import re
-from typing import Callable
+#from typing import Callable
 #
 from kivy.app import App
 #from kivy.uix.image import Image
@@ -14,7 +16,7 @@ from kivy.uix.button import Button
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
-from kivy.graphics.instructions import Canvas, CanvasBase
+#from kivy.graphics.instructions import Canvas, CanvasBase
 from utils import *
 
 
@@ -32,7 +34,7 @@ def create_loggers():
     # Snag what IB/TWS is logging
     # ---------------------------
     KIVY_logger = logging.getLogger()  # <--- the 'root' logger
-    #KIVY_logger.propagate = False
+    KIVY_logger.propagate = False
     KIVY_logger.setLevel(logging.INFO)
     KIVY_handler = logging.FileHandler(f"Logs/kivy_log_{TODAY}.txt")
     KIVY_handler.setFormatter(fmtkivy)
@@ -79,7 +81,16 @@ def scrub_text(value, margin=50):
     return ll, text
 
 
-def SET_COLOR(kivy_widget, color):
+def SET_RED(widget):
+    if isinstance(widget, RemainingOptions):
+        _joe = 12
+    SET_COLOR(widget, MY_RED, ok=True)
+    return
+
+
+def SET_COLOR(widget, color, ok=False):
+    # https://www.w3.org/TR/SVG11/types.html#ColorKeywords
+    global INIT_IS_DONE
     """ NORMAL_COLOR    = "white"
         NO_FOCUS_COLOR  = "blanchedalmond"
         HIGHLIGHT_COLOR = "lightpink"
@@ -87,21 +98,18 @@ def SET_COLOR(kivy_widget, color):
         MY_RED          = [1, 0, 0, 1]
         MY_WHITE        = [1, 1, 1, 1]
     """
-    global INIT_IS_DONE
-    #if INIT_IS_DONE:
-    if isinstance(kivy_widget, cls_Label_and_TextInput):
-        joe = kivy_widget.NAME
-        kivy_widget.MYTEXTBOX.background_color = color
-        if kivy_widget.NAME == "Unique to all":
-            _joe = 12
+    if color in [MY_RED, [1, 0, 0, 1], "red"] and not ok:
+        _joe = 12  # use new function SET_RED
+    if isinstance(widget, cls_Label_and_TextInput):
+        widget.MYTEXTBOX.background_color = color
     else:
-            kivy_widget.background_color = color
+        widget.background_color = color
     return
 
 
 # ----- class myTextInput - START ----------------------------------------------------------------------------
 class myTextInput(TextInput):
-    TAB_NUM = -1
+    TOTAL_NUMBER_OF_TABS = -1
     TAB_ORDER = {}
     TAB_NEXT = None
     TABSTOP = None
@@ -147,12 +155,12 @@ class myTextInput(TextInput):
         size = kwargs.get("size", None)
 
         if not readonly:  # tabstop:
-            num = myTextInput.TAB_NUM
-            myTextInput.TAB_NUM = num + 1
-            self.TAB_NUM = myTextInput.TAB_NUM
-            myTextInput.TAB_ORDER[self.TAB_NUM] = self
+            num = myTextInput.TOTAL_NUMBER_OF_TABS
+            myTextInput.TOTAL_NUMBER_OF_TABS = num + 1
+            self.MY_TAB_NUMBER = myTextInput.TOTAL_NUMBER_OF_TABS
+            myTextInput.TAB_ORDER[self.MY_TAB_NUMBER] = self
         else:
-            self.TAB_NUM = None
+            self.MY_TAB_NUMBER = None
             if not self.MYCOLOR:
                 SET_COLOR(self, NO_FOCUS_COLOR)
             else:
@@ -160,15 +168,9 @@ class myTextInput(TextInput):
         #
         return
 
-    def insert_text(self, substring, from_undo=False):  # myTextInput(TextInput):
-        if '.' in self.text:
-            s = re.sub(self.PATTERN, '', substring)
-        else:
-            # To allow a period as well:  s = '.'.join(...same as below)
-            s = ''.join(re.sub(self.PATTERN, '', s) for s in substring.split('.', 1))
-        return super().insert_text(s, from_undo=from_undo)
-
+    # -------------------------------------------------------------------------------------------------------------------
     def keyboard_on_key_down(self, window, keycode, text, modifiers):  # myTextInput
+        # 1) which # is this?
         TextInput.keyboard_on_key_down(self, window, keycode, text, modifiers)
         if not keycode[1] in [".", "tab"]:
             return
@@ -178,36 +180,65 @@ class myTextInput(TextInput):
             if not self.TABSTOP:
                 return
             # to make this smarter: https://kivy.org/doc/stable/api-kivy.uix.behaviors.focus.html
-            INC = 1
+            INCREMENT = 1
             if "shift" in modifiers:
-                INC = -1
-            which = self.TAB_NUM
-            next = (which + INC) % (myTextInput.TAB_NUM + 1)
-            self.TAB_NEXT = next
+                INCREMENT = -1  # "back tab"
+            current_tab = self.MY_TAB_NUMBER
+            next_tab = (current_tab + INCREMENT)
+            if next_tab > myTextInput.TOTAL_NUMBER_OF_TABS:
+                next_tab = 0
+            #next_tab = (current_tab + INCREMENT) % (myTextInput.TOTAL_NUMBER_OF_TABS + 1)
+            self.TAB_NEXT = next_tab
         return
 
+    def keyboard_on_textinput(self, window, text):  # myTextInput
+        # 2) This gets hit with every key hit in the/a box
+        TextInput.keyboard_on_textinput(self, window, text)
+        return
+
+    def insert_text(self, substring, from_undo=False):  # myTextInput(TextInput):
+        # 3) After 'keyboard_on_textinput()'
+        if '.' in self.text:
+            s = re.sub(self.PATTERN, '', substring)
+        else:
+            # To allow a period as well:  s = '.'.join(...same as below)
+            s = ''.join(re.sub(self.PATTERN, '', s) for s in substring.split('.', 1))
+        res = super().insert_text(s, from_undo=from_undo)
+        return res
+
     def keyboard_on_key_up(self, window, keycode):  # myTextInput
-        # Note: After key_up, for tab-shifting, 'on_focus' gets triggered
+        # 4) Note: After key_up, for tab-shifting, 'on_focus' gets triggered
         if not keycode[1] in ["tab"]:
             return
         if keycode[1] == "tab":
             if not self.TABSTOP:
                 return
-            self.TAB_ORDER[self.TAB_NEXT].focus = True
+            next_widget = self.TAB_ORDER[self.TAB_NEXT]
+            next_widget.focus = True
         return
-
-    def keyboard_on_textinput(self, window, text):  # myTextInput
-        # This gets hit with every key hit in the/a box
-        TextInput.keyboard_on_textinput(self, window, text)
-        return
+    # -------------------------------------------------------------------------------------------------------------------
 
     def SET_TEXT(self, value=""):  # myTextInput
+        global INIT_IS_DONE  # Clear().SET_TEXT()  on_focus().SET_TEXT()
         ll, text = scrub_text(value)
         self.text = text
         if isinstance(self, MySolution):
             if text == "":
                 text = 0
             self.MYAPP.Int_MY_SOLUTION[self.AROW][self.ACOL] = int(text)
+            self.MYAPP.Int_CELL_OPTIONS[self.AROW][self.ACOL] = []
+            if all([yy!=0 for xx in self.MYAPP.Int_MY_SOLUTION for yy in xx]):
+                self.MYAPP.SUM20_INPUT.MYLABEL.text = "I AM DONE!"
+                self.MYAPP.NUM_EVENS_INPUT.MYLABEL.text = "I AM DONE!"
+                self.MYAPP.MUST_HAVE_INPUT.MYLABEL.text = "I AM DONE!"
+                self.MYAPP.UNIQUE_TO_ALL.MYLABEL.text = "I AM DONE!"
+                self.MYAPP.POTENTIAL_SOLUTIONS.MYLABEL.text = "I AM DONE!"
+                self.MYAPP.ELIMINATED_SOLUTIONS.MYLABEL.text = "I AM DONE!"
+                for row in range(4):
+                    for col in range(4):
+                        #SET_COLOR(self.MYAPP.MyTextInput_MY_SOLUTION_CELLS[row][col], MY_RED)
+                        SET_RED(self.MYAPP.MyTextInput_MY_SOLUTION_CELLS[row][col])
+                self.MYAPP.SUM20_INPUT.focus = True
         return
 # ----- class myTextInput - END   ----------------------------------------------------------------------------
 
@@ -222,6 +253,22 @@ class RemainingOptions(myTextInput):
         kwargs["tabstop"] = False
         super().__init__(*args, **kwargs)
         #SET_COLOR(self, )
+
+    def on_focus(self, instance, value, *largs):  # RemainingOptions
+        if value is False:  # works
+            return
+        row = instance.AROW
+        col = instance.ACOL
+        arr = self.MYAPP.Int_CELL_OPTIONS[row][col]
+        if len(arr) == 1:
+            joe = [[self.MYAPP.MyTextInput_REMAINING_OPTIONS[2][0].text], [self.MYAPP.MyTextInput_REMAINING_OPTIONS[2][1].text],
+                   [self.MYAPP.MyTextInput_REMAINING_OPTIONS[2][2].text], [self.MYAPP.MyTextInput_REMAINING_OPTIONS[2][3].text]]
+            self.MYAPP.MyTextInput_MY_SOLUTION_CELLS[row][col].focus = True
+            self.MYAPP.MyTextInput_MY_SOLUTION_CELLS[row][col].SET_TEXT(arr[0])
+            instance.SET_TEXT()
+            SET_COLOR(instance, REMAINING_OPTIONS_COLOR)
+        instance.focus = True
+        return
 # ----- class RemainingOptions - END   ------------------------------------------------------------------------------
 
 
@@ -243,14 +290,17 @@ class cls_Label_and_TextInput(TextInput):  # cls_Label_and_TextInput
         super().__init__(**kwargs)
 
         this_layout = BoxLayout()
+        #
+        # The label:
         self.MYLABEL = Label(text=name)
         this_layout.add_widget(self.MYLABEL)
         #
+        # The textbox next to it:
         self.MYTEXTBOX = myTextInput(self, f"{name}", readonly=readonly)
         if callable(textbindfn):
             assert not readonly
             self.MYTEXTBOX.bind(text=textbindfn)
-        self.MYTEXTBOX.bind(focus=self.on_focus)
+        #self.MYTEXTBOX.bind(focus=self.on_focus)
         #
         this_layout.add_widget(self.MYTEXTBOX)
         #
@@ -264,19 +314,44 @@ class cls_Label_and_TextInput(TextInput):  # cls_Label_and_TextInput
 
     def SET_TEXT(self, value=""):  # cls_Label_and_TextInput
         ll, text = scrub_text(value)
+        # xx = len(value.split())
         self.MYTEXTBOX.text = text
-        if text and ll != 1:
-            if self.NAME == "Unique to all":
-                xx = len(value.split())
-                self.MYLABEL.text = f"{self.NAME} ({xx})"
-            else:
-                if ll != 1:
-                    if self.NAME == "Potential Solutions":
-                        self.MYLABEL.text = f"{self.NAME} ({ll})"
-                    else:
-                        self.MYLABEL.text = f"{self.NAME} ({ll})"
-        else:
+        if not self.NAME in ["Number in all", "Remaining Solutions", "Eliminated Solutions"]:
+            # I don't change these labels
+            return
+        if not text:
             self.MYLABEL.text = self.NAME
+            return
+        #
+        if self.NAME == "Number in all":
+            xx = len(value.split())
+            #if xx != len(text.split()):
+            if xx == 1:
+                self.MYLABEL.text = f"Number in all ({xx})"
+            else:
+                self.MYLABEL.text = f"Numbers in all ({xx})"
+        elif self.NAME == "Remaining Solutions":
+            self.MYLABEL.text = f"{self.NAME} ({ll})"
+        else:  # "Eliminated Solutions":
+            #xx = len(value.split())
+            # I always want this to give the # of elims
+            self.MYLABEL.text = f"{self.NAME} ({ll})"
+        #
+        # OLD:
+        # if text and ll != 1:
+        #     if self.NAME == "Number in all":
+        #         xx = len(value.split())
+        #         self.MYLABEL.text = f"{self.NAME} ({xx})"
+        #     else:
+        #         if self.NAME == "Eliminated Solutions":
+        #             self.MYLABEL.text = f"{self.NAME} ({xx})"
+        #         elif ll != 1:
+        #             if self.NAME == "Remaining Solutions":
+        #                 self.MYLABEL.text = f"{self.NAME} ({ll})"
+        #             else:
+        #                 self.MYLABEL.text = f"{self.NAME} ({ll})"
+        # else:
+        #     self.MYLABEL.text = self.NAME
         return
 
 
@@ -288,7 +363,7 @@ class cls_Label_and_TextInput(TextInput):  # cls_Label_and_TextInput
         self.MYAPP.reset_top_boxes(colors_only=True)
         self.MYAPP.reset_sum_colors()
         SET_COLOR(instance, HIGHLIGHT_COLOR)
-        row = instance.ANUM
+        #   row = instance.ANUM
         self.MYAPP.hightlight_Remaining_Options()
         return
 
@@ -297,10 +372,29 @@ class cls_Label_and_TextInput(TextInput):  # cls_Label_and_TextInput
         if not keycode[1] in ["tab"]:
             return
         if keycode[1] == "tab":
-            if not self.TABSTOP:
+            if not self.MYTEXTBOX.TABSTOP:
                 return
-            self.TAB_ORDER[self.TAB_NEXT].focus = True
+            self.MYTEXTBOX.TAB_ORDER[self.MYTEXTBOX.TAB_NEXT].focus = True
         return
+
+    def keyboard_on_key_down(self, window, keycode, text, modifiers):  # myTextInput
+        TextInput.keyboard_on_key_down(self, window, keycode, text, modifiers)
+        if not keycode[1] in [".", "tab"]:
+            return
+        if keycode[1] == ".":
+            self.SET_TEXT()
+        elif keycode[1] == "tab":
+            if not self.MYTEXTBOX.TABSTOP:
+                return
+            # to make this smarter: https://kivy.org/doc/stable/api-kivy.uix.behaviors.focus.html
+            INC = 1
+            if "shift" in modifiers:
+                INC = -1
+            which = self.MYTEXTBOX.MY_TAB_NUMBER
+            next_tabber = (which + INC) % (myTextInput.TOTAL_NUMBER_OF_TABS + 1)
+            self.MYTEXTBOX.TAB_NEXT = next_tabber
+        return
+
 
     def keyboard_on_textinput(self, window, text):  # cls_Label_and_TextInput
         # This gets hit with every key hit in the/a box
@@ -321,12 +415,13 @@ class SumRow(myTextInput):
         super().__init__(*args, **kwargs)
 
     def on_focus(self, instance, value, *largs):  # SumRow
-        if value is False:
+        global INIT_IS_DONE
+        row = instance.ANUM
+        if value is False:  # works
             return
-            self.MYAPP.reset_top_boxes(colors_only=False)
         self.MYAPP.reset_sum_colors()
         SET_COLOR(instance, HIGHLIGHT_COLOR)
-        row = instance.ANUM
+        #row = instance.ANUM
         #self.MYAPP.hightlight_Remaining_Options(p_row=row)
         #
         # TODO: Why am I not reading the value directly from the box?
@@ -334,8 +429,11 @@ class SumRow(myTextInput):
         if thesum is None:
             return
         if isinstance(thesum, int):
-            assert int(instance.text) == thesum
-            self.MYAPP.SUM20_INPUT.SET_TEXT(thesum)
+            if instance.text:
+                assert int(instance.text) == thesum
+                self.MYAPP.SUM20_INPUT.SET_TEXT(thesum)
+            else:
+                self.MYAPP.SUM20_INPUT.SET_TEXT()
         #
         numevens = self.MYAPP.get_numevens(row=row)
         # if isinstance(numevens, int):
@@ -362,7 +460,7 @@ class SumRow(myTextInput):
             self.MYAPP.POTENTIAL_SOLUTIONS.SET_TEXT(pot_sols)
         else:
             _joe = 12  # now what?
-        self.MYAPP.hightlight_Remaining_Options(p_row=row)
+        self.MYAPP.hightlight_Remaining_Options(p_row=row)  # SumRow
         return
 # ----- class SumRow - END   ----------------------------------------------------------------------------------------
 
@@ -376,19 +474,22 @@ class SumCol(myTextInput):
         super().__init__(*args, **kwargs)
 
     def on_focus(self, instance, value, *largs):  # SumCol
+        col = instance.ANUM
         if value is False:
-            return
+            #self.MYAPP.hightlight_Remaining_Options(p_col=col)  DO NOT DO THIS!
+            return  # works
         self.MYAPP.reset_top_boxes(colors_only=False)
         self.MYAPP.reset_sum_colors()
         SET_COLOR(instance, HIGHLIGHT_COLOR)
-        col = instance.ANUM
+        #col = instance.ANUM
         #self.MYAPP.hightlight_Remaining_Options(p_col=col)
         # TODO: Why am I not reading the value directly from the box?
         thesum = self.MYAPP.Int_COL_SUMS[col]
         if thesum is None:
             return
         if isinstance(thesum, int):
-            assert int(instance.text) == thesum
+            if instance.text != "":
+                assert int(instance.text) == thesum
             self.MYAPP.SUM20_INPUT.SET_TEXT(thesum)
         #
         numevens = self.MYAPP.get_numevens(col=col)
@@ -415,7 +516,7 @@ class SumCol(myTextInput):
             self.MYAPP.POTENTIAL_SOLUTIONS.SET_TEXT(pot_sols)
         else:
             _joe = 12  # now what?
-        self.MYAPP.hightlight_Remaining_Options(p_col=col)
+        self.MYAPP.hightlight_Remaining_Options(p_col=col)  # SumCol
         return
 # ----- class SumCol - END   ----------------------------------------------------------------------------------------
 
@@ -428,20 +529,28 @@ class MySolution(myTextInput):
 
     def __init__(self, *args, **kwargs):
         kwargs["readonly"] = True
-        kwargs["mycolor"] = "white"
+        kwargs["mycolor"] = MY_SOLUTION_COLOR
         kwargs["multiline"] = False
         super().__init__(*args, **kwargs)
         SET_COLOR(self, MY_SOLUTION_COLOR)
 
     def on_focus(self, instance, value, *largs):  # MySolution
-        self.MYAPP.reset_sum_colors()
+        if value is False:
+            SET_COLOR(self, MY_SOLUTION_COLOR)
+            return
+        self.MYAPP.reset_sum_colors()  # works
         self.MYAPP.reset_top_boxes(colors_only=True)
         if value is True:
             SET_COLOR(instance, HIGHLIGHT_COLOR)
         else:
             SET_COLOR(instance, MY_SOLUTION_COLOR)
+        #
+        joe = [[self.MYAPP.MyTextInput_REMAINING_OPTIONS[2][0].text], [self.MYAPP.MyTextInput_REMAINING_OPTIONS[2][1].text],
+               [self.MYAPP.MyTextInput_REMAINING_OPTIONS[2][2].text], [self.MYAPP.MyTextInput_REMAINING_OPTIONS[2][3].text]]
+        if self.MYAPP.Int_MY_SOLUTION[instance.AROW][instance.ACOL] != 0:
+            # Only do this when there is something put into the solution
+            self.MYAPP.RipItGood()
         return
-
 # ----- class MySolution - END   ------------------------------------------------------------------------------------
 
 
@@ -502,7 +611,6 @@ class myButton(ToggleButton):
         _LastTopBoxes = self.MYAPP.LastTopBoxes
         row = _LastTopBoxes["row"]
         col = _LastTopBoxes["col"]
-
         widget = None
         if row is not None:
             new_numevens  = self.MYAPP.get_numevens(row)
@@ -515,6 +623,7 @@ class myButton(ToggleButton):
         else:
             _joe = 12  # Nothing to do?
             #return
+        self.MYAPP.SAVE_AN_UNDO_FILE = True
         self.MYAPP.MEGA_POPULATE_OPTIONS()
         if widget:
             widget.focus = True
@@ -540,21 +649,29 @@ class myInputs(GridLayout):
     UNIQUE_TO_ALL = None
     ELIMINATED_SOLUTIONS = None
     POTENTIAL_SOLUTIONS = None
-    Int_CELL_OPTIONS = [[None, None, None, None], [None, None, None, None], [None, None, None, None], [None, None, None, None]]
-    Buttons_ODD_EVEN = [[None, None, None, None], [None, None, None, None], [None, None, None, None], [None, None, None, None]]
-    MyTextInputs_REMAINING_OPTIONS = [[None, None, None, None], [None, None, None, None], [None, None, None, None], [None, None, None, None]]
-    MyTextInputs_MY_SOLUTION_CELLS = [[None, None, None, None], [None, None, None, None], [None, None, None, None], [None, None, None, None]]
+    # -------------------------------------------------------------------------------------------------------------------
+    #Int_CELL_OPTIONS = [[None, None, None, None], [None, None, None, None], [None, None, None, None], [None, None, None, None]]
+    Int_CELL_OPTIONS = [[[], [], [], []], [[], [], [], []], [[], [], [], []], [[], [], [], []], ]
     Int_MY_SOLUTION = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+    Buttons_ODD_EVEN = [[None, None, None, None], [None, None, None, None], [None, None, None, None], [None, None, None, None]]
+    BUTTON_UNDO = None
+    #
+    MyTextInput_REMAINING_OPTIONS = [[None, None, None, None], [None, None, None, None], [None, None, None, None], [None, None, None, None]]
+    MyTextInput_MY_SOLUTION_CELLS = [[None, None, None, None], [None, None, None, None], [None, None, None, None], [None, None, None, None]]
+    #
     Int_NUM_EVENS_BY_ROW = [None, None, None, None]
     Int_NUM_EVENS_BY_COL = [None, None, None, None]
     Int_ROW_SUMS = [None, None, None, None]
     Int_COL_SUMS = [None, None, None, None]
     MyTextInput_ROW_SUMS = [None, None, None, None]
     MyTextInput_COL_SUMS = [None, None, None, None]
+
+    LAST_UNDO_FILE_NUM = 0
+    SAVE_AN_UNDO_FILE = False
     DO_NOT_MEGA_POPULATE = False
 
     def __init__(self, which, **kwargs):
-        self.RESET_VARIABLES()
+        #self.RESET_VARIABLES()
         #
         self.which = which
         #myVariables.__init__(self)
@@ -573,21 +690,52 @@ class myInputs(GridLayout):
         return f"myInputs()"  # {self.TAB})"
 
     def RESET_VARIABLES(self):
+        """
+        self.DO_NOT_MEGA_POPULATE = False
+        self.ELIMINATED_SOLUTIONS = None
+        self.GUI_CREATED = False
+        self.MUST_HAVE_INPUT = None
+        """
+        self.SUM20_INPUT.SET_TEXT()
+        self.NUM_EVENS_INPUT.SET_TEXT()
+        self.MUST_HAVE_INPUT.SET_TEXT()
+        self.UNIQUE_TO_ALL.SET_TEXT()
+        self.POTENTIAL_SOLUTIONS.SET_TEXT()
+        self.ELIMINATED_SOLUTIONS.SET_TEXT()
+        #
+        for dd in self.MyTextInput_COL_SUMS:
+            dd.SET_TEXT()
+        for row in range(4):
+            self.MyTextInput_ROW_SUMS[row].SET_TEXT()
+            self.MyTextInput_COL_SUMS[row].SET_TEXT()
+            for col in range(4):
+                self.MyTextInput_MY_SOLUTION_CELLS[row][col].SET_TEXT()
+                self.MyTextInput_REMAINING_OPTIONS[row][col].SET_TEXT()
+        # self.Buttons_ODD_EVEN = [[None, None, None, None], [None, None, None, None], [None, None, None, None], [None, None, None, None]]
+        # self.MyTextInput_COL_SUMS = [None, None, None, None]
+        # self.MyTextInput_MY_SOLUTION_CELLS = [[None, None, None, None], [None, None, None, None], [None, None, None, None], [None, None, None, None]]
+        # self.MyTextInput_REMAINING_OPTIONS = [[None, None, None, None], [None, None, None, None], [None, None, None, None], [None, None, None, None]]
+        # self.MyTextInput_ROW_SUMS = [None, None, None, None]
+        # self.NUM_EVENS_INPUT = None
+        # self.POTENTIAL_SOLUTIONS = None
+        # self.SUM20_INPUT = None
+        # self.UNIQUE_TO_ALL = None
+        self.Int_COL_SUMS = [None, None, None, None]  # MyTextInput_COL_SUMS
+        self.Int_MY_SOLUTION = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]  # MyTextInput_MY_SOLUTION_CELLS
+        self.Int_CELL_OPTIONS = [[[], [], [], []], [[], [], [], []], [[], [], [], []], [[], [], [], []]]  # MyTextInput_REMAINING_OPTIONS
+        self.Int_ROW_SUMS = [None, None, None, None]  # MyTextInput_ROW_SUMS
+
         self.LastTopBoxes = {"row": None, "col": None, "thesum": None, "numevens": None, "musthave": None}
-        self.Int_CELL_OPTIONS = [[None, None, None, None], [None, None, None, None], [None, None, None, None], [None, None, None, None]]
-        self.Int_MY_SOLUTION = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+
         self.Int_NUM_EVENS_BY_ROW = [None, None, None, None]
         self.Int_NUM_EVENS_BY_COL = [None, None, None, None]
-        self.Int_ROW_SUMS = [None, None, None, None]
-        self.Int_COL_SUMS = [None, None, None, None]
+
         return
 
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     def CREATE_THE_GUI(self):
-
-        _joe = 12
-
+        #
         self.add_widget(self.MAKE_UTIL_BUTTONS(size_hint=(1, .1)))
         #
         self.add_widget(self.MAKE_Sum20_NumEvens_MustHave(size_hint=(1, .2)))
@@ -608,15 +756,22 @@ class myInputs(GridLayout):
                   then it leaves a blank, black, space to fill in the rest
         """
         mainlayout = GridLayout(size_hint=size_hint)  # row_force_default=True, row_default_height=100, col_force_default=True, col_default_width=400)
-        mainlayout.cols = 5
+        mainlayout.cols = 7
 
         mainlayout.add_widget(Button(text="CLEAR", on_press=self.CLEAR))
         #
-        mainlayout.add_widget(Button(text="Load Puzzle", on_press=self.LoadPuzzle))
+        #mainlayout.add_widget(Button(text="Choose Puzzle", on_press=self.ChoosePuzzle))
+        #
+        mainlayout.add_widget(Button(text="Load\nPuzzle", on_press=self.LoadPuzzle))
+        #
+        mainlayout.add_widget(Button(text="Load saved\nPuzzle", on_press=self.btn_LoadSavedPuzzle))
         #
         mainlayout.add_widget(Button(text="Save Puzzle", on_press=self.SavePuzzle))
         #
-        mainlayout.add_widget(Button(text="Undo", on_press=self.Undo))
+        mainlayout.add_widget(Button(text="Rip it good", on_press=self.RipItGood))
+        #
+        self.BUTTON_UNDO = Button(text="Undo", on_press=self.Undo)
+        mainlayout.add_widget(self.BUTTON_UNDO)
         #
         mainlayout.add_widget(Button(text="Exit", on_press=self.Exit))
         #
@@ -625,20 +780,25 @@ class myInputs(GridLayout):
     def MAKE_Sum20_NumEvens_MustHave(self, size_hint):
         SUM_EV_MUST = GridLayout(size_hint=size_hint)  # row_force_default=True, row_default_height=40, col_force_default=True, col_default_width=400)
         SUM_EV_MUST.cols = 1
+        # # Accepts input:
+        # self.SUM20_INPUT     = cls_Label_and_TextInput(app=self, GUI=SUM_EV_MUST, name="Sum", textbindfn=self.entry_THE_SUM)
+        # self.NUM_EVENS_INPUT = cls_Label_and_TextInput(app=self, GUI=SUM_EV_MUST, name="# Evens", textbindfn=self.entry_NUM_EVENS)
+        # self.MUST_HAVE_INPUT = cls_Label_and_TextInput(app=self, GUI=SUM_EV_MUST, name="Must have", textbindfn=self.entry_MUST_HAVE)
         # Accepts input:
-        self.SUM20_INPUT     = cls_Label_and_TextInput(app=self, GUI=SUM_EV_MUST, name="Sum", textbindfn=self.entry_THE_SUM)
-        self.NUM_EVENS_INPUT = cls_Label_and_TextInput(app=self, GUI=SUM_EV_MUST, name="# Evens", textbindfn=self.entry_NUM_EVENS)
-        self.MUST_HAVE_INPUT = cls_Label_and_TextInput(app=self, GUI=SUM_EV_MUST, name="Must have", textbindfn=self.entry_MUST_HAVE)
+        self.SUM20_INPUT     = cls_Label_and_TextInput(app=self, GUI=SUM_EV_MUST, name="Sum", textbindfn=self.entry_COVER)
+        self.NUM_EVENS_INPUT = cls_Label_and_TextInput(app=self, GUI=SUM_EV_MUST, name="# Evens", textbindfn=self.entry_COVER)
+        self.MUST_HAVE_INPUT = cls_Label_and_TextInput(app=self, GUI=SUM_EV_MUST, name="Must have", textbindfn=self.entry_COVER)
         return SUM_EV_MUST
 
     def MAKE_Sol_Section(self, size_hint):
         TOP_SECTION = GridLayout(size_hint=size_hint)  # row_force_default=True, row_default_height=40, col_force_default=True, col_default_width=400)
         TOP_SECTION.cols = 1
         # Readonly:
-        self.UNIQUE_TO_ALL        = cls_Label_and_TextInput(app=self, GUI=TOP_SECTION, name="Unique to all", readonly=True)
-        self.POTENTIAL_SOLUTIONS  = cls_Label_and_TextInput(app=self, GUI=TOP_SECTION, name="Potential Solutions", readonly=True, multiline=False)
+        self.UNIQUE_TO_ALL        = cls_Label_and_TextInput(app=self, GUI=TOP_SECTION, name="Number in all", readonly=True)
+        self.POTENTIAL_SOLUTIONS  = cls_Label_and_TextInput(app=self, GUI=TOP_SECTION, name="Remaining Solutions", readonly=True, multiline=False)
         self.ELIMINATED_SOLUTIONS = cls_Label_and_TextInput(app=self, GUI=TOP_SECTION, name="Eliminated Solutions", readonly=True, multiline=True)
         return TOP_SECTION
+
 
     def MAKE_Odd_Even_Buttons(self, size_hint):
         # The 4x4 of odd/even cells
@@ -666,7 +826,7 @@ class myInputs(GridLayout):
             #
             arow_right1_txt = SumRow(self, "rowsum", num=row)
             arow_right1_txt.bind(text=self.entry_TEXT)  # entry_R_SUM)                                  # 'r sum'
-            arow_right1_txt.bind(focus=arow_right1_txt.on_focus)
+            #arow_right1_txt.bind(focus=arow_right1_txt.on_focus)
             arow_right_r_sum.add_widget(arow_right1_txt)
             AROW.add_widget(arow_right_r_sum)
             self.MyTextInput_ROW_SUMS[row] = arow_right1_txt
@@ -685,11 +845,11 @@ class myInputs(GridLayout):
         # LEFT SIDE:
         bottom_middle = BoxLayout()
         for col in range(4):
-            txt = SumCol(self, "colsum", num=col)  # , size_hint=(.8, 1))
-            txt.bind(text=self.entry_TEXT)  # entry_C_SUM)
-            txt.bind(focus=txt.on_focus)
-            bottom_middle.add_widget(txt)
-            self.MyTextInput_COL_SUMS[col] = txt
+            aSumCol = SumCol(self, "colsum", num=col)  # , size_hint=(.8, 1))
+            aSumCol.bind(text=self.entry_TEXT)  # entry_C_SUM)
+            #txt.bind(focus=txt._on_focus)
+            bottom_middle.add_widget(aSumCol)
+            self.MyTextInput_COL_SUMS[col] = aSumCol
         BOTTOM_ROW.add_widget(bottom_middle)
 
         # RIGHT SIDE (just a blank)
@@ -710,8 +870,8 @@ class myInputs(GridLayout):
         for row in range(4):
             row_layout = BoxLayout()
             for col in range(4):
-                box = RemainingOptions(self, "REMAINING_OPTIONS", row=row, col=col, mycolor="white", multiline=False, readonly=True, is_focusable=False)
-                self.MyTextInputs_REMAINING_OPTIONS[row][col] = box
+                box = RemainingOptions(self, "REMAINING_OPTIONS", row=row, col=col, mycolor="white", multiline=False, readonly=True)  # , is_focusable=False)
+                self.MyTextInput_REMAINING_OPTIONS[row][col] = box
                 row_layout.add_widget(box)
             OPTIONS.add_widget(row_layout)
         #
@@ -726,9 +886,9 @@ class myInputs(GridLayout):
             row_layout = BoxLayout()
             for col in range(4):
                 box = MySolution(self, "MY_SOLUTION", row=row, col=col)  # , mycolor="white", multiline=False)
-                self.MyTextInputs_MY_SOLUTION_CELLS[row][col] = box
+                self.MyTextInput_MY_SOLUTION_CELLS[row][col] = box
                 box.bind(text=self.entry_A_SOLUTION)
-                box.bind(focus=box.on_focus)
+                #box.bind(focus=box.on_focus)
                 row_layout.add_widget(box)
             SOLUTIONS.add_widget(row_layout)
         #
@@ -752,6 +912,8 @@ class myInputs(GridLayout):
         #thesum = -9
         if value:
             thesum = int(value)
+        else:
+            return
         if thesum < 10:
             return
         if isinstance(instance, SumRow):
@@ -774,6 +936,12 @@ class myInputs(GridLayout):
         else:
             _joe = 12  # What am I?
         self.MEGA_POPULATE_OPTIONS()
+
+        which = instance.MY_TAB_NUMBER
+        next_tabber = (which + 1) % (myTextInput.TOTAL_NUMBER_OF_TABS + 1)
+        instance.TAB_NEXT = next_tabber
+        instance.TAB_ORDER[instance.TAB_NEXT].focus = True
+
         return
 
     def SET_TEXT(self, widget, text: str):  # myInputs
@@ -781,7 +949,7 @@ class myInputs(GridLayout):
             _joe = 12  # get this right son
             widget = widget.MYTEXTBOX
         if not isinstance(widget, myButton):
-            if widget.ANAME == "Potential Solutions":
+            if widget.ANAME == "Remaining Solutions":
                 _joe = 12
         if not isinstance(text, str):
             _joe = 12  # Could be a list like "[[6, 7, 8, 9]]
@@ -805,39 +973,35 @@ class myInputs(GridLayout):
             SET_COLOR(cell, NORMAL_COLOR)
         return
 
+    def reset_remaining_options_colors(self):
+        for row in range(4):
+            for col in range(4):
+                SET_COLOR(self.MyTextInput_REMAINING_OPTIONS[row][col], REMAINING_OPTIONS_COLOR)
+        return
+
+
     def hightlight_Remaining_Options(self, p_row=None, p_col=None):
-        #assert p_row is not None or p_col is not None
-        # Reset all the colors:
         _joe = 12
         for row in range(4):
             for col in range(4):
-                cell = self.MyTextInputs_REMAINING_OPTIONS[row][col]
-                cur_color = cell.background_color
+                cur_color = self.MyTextInput_REMAINING_OPTIONS[row][col].background_color
                 if cur_color != MY_RED:
-                    SET_COLOR(cell, REMAINING_OPTIONS_COLOR)
-                else:
-                    # What should I be?
-                    _joe = 12
-        # Now highlight:
+                    SET_COLOR(self.MyTextInput_REMAINING_OPTIONS[row][col], REMAINING_OPTIONS_COLOR)
         if p_row is not None:
-            for cell in self.MyTextInputs_REMAINING_OPTIONS[p_row]:
+            # Highlight row:
+            for cell in self.MyTextInput_REMAINING_OPTIONS[p_row]:
                 cur_color = cell.background_color
                 if cur_color != MY_RED:
                     SET_COLOR(cell, HIGHLIGHT_COLOR)
                     _joe = cell.background_color
-                else:
-                    # What should I be?
-                    _joe = 12
         elif p_col is not None:
-            for row in self.MyTextInputs_REMAINING_OPTIONS:
+            # Highlight col:
+            for row in self.MyTextInput_REMAINING_OPTIONS:
                 cell = row[p_col]
                 cur_color = cell.background_color
                 if cur_color != MY_RED:
                     SET_COLOR(cell, HIGHLIGHT_COLOR)
                     _joe = cell.background_color
-                else:
-                    # What should I be?
-                    _joe = 12
         return
 
     def get_one_of_these(self, row=None, col=None):
@@ -852,14 +1016,14 @@ class myInputs(GridLayout):
 
     def on_focus(self, instance, value, *largs):  # myInputs
         self.reset_sum_colors()
-        # Why types am I here?  MySolution
         self.reset_top_boxes(colors_only=True)
         if value is True:
             SET_COLOR(instance, HIGHLIGHT_COLOR)
         return
 
 
-    def CLEAR(self, instance):
+    def CLEAR(self, instance=None):
+        # self.LAST_UNDO_FILE_NUM = 0
         self.DO_NOT_MEGA_POPULATE = True
         self.RESET_VARIABLES()
         #
@@ -870,16 +1034,41 @@ class myInputs(GridLayout):
             for col in range(4):
                 self.MyTextInput_COL_SUMS[row].SET_TEXT()
                 self.Buttons_ODD_EVEN[row][col].state = "normal"
-                self.MyTextInputs_REMAINING_OPTIONS[row][col].SET_TEXT()
-                self.MyTextInputs_MY_SOLUTION_CELLS[row][col].SET_TEXT()
-                self.MyTextInputs_REMAINING_OPTIONS[row][col].background_color = REMAINING_OPTIONS_COLOR
+                self.MyTextInput_REMAINING_OPTIONS[row][col].SET_TEXT()
+                SET_COLOR(self.MyTextInput_REMAINING_OPTIONS[row][col].background_color, REMAINING_OPTIONS_COLOR)
+                self.MyTextInput_MY_SOLUTION_CELLS[row][col].SET_TEXT()
+                SET_COLOR(self.MyTextInput_MY_SOLUTION_CELLS[row][col], MY_SOLUTION_COLOR)
         self.DO_NOT_MEGA_POPULATE = False
         self.SUM20_INPUT.MYTEXTBOX.focus = True
         return
 
 
     def Undo(self, instance):
-        _joe = 12  # now what?
+        #
+        DIR = "UndoFiles"
+        current_undo_file = f"{DIR}/{TODAY}_{self.LAST_UNDO_FILE_NUM}.txt"
+        #
+        if self.LAST_UNDO_FILE_NUM > 0:
+            self.LAST_UNDO_FILE_NUM -= 1
+        else:
+            self.CLEAR()  # does this get hit?
+            return  # instance.text = f"Undo"
+        if self.LAST_UNDO_FILE_NUM == 0:
+            self.CLEAR()
+            instance.text = "Undo"
+            os.remove(current_undo_file)
+            return
+        #
+        os.remove(current_undo_file)
+        #
+        instance.text = f"Undo ({self.LAST_UNDO_FILE_NUM})"
+        #
+        self.SAVE_AN_UNDO_FILE = False
+        filename = f"{DIR}/{TODAY}_{self.LAST_UNDO_FILE_NUM}.txt"
+        self.LoadSavedPuzzle(filename=filename, from_undo=True)
+        self.SAVE_AN_UNDO_FILE = True
+        #
+        return
 
     def Exit(self, instance):
         sys.exit(0)
@@ -935,6 +1124,17 @@ class myInputs(GridLayout):
         return numevens
 
 
+    def Save_Undo_Level(self):
+        if not self.SAVE_AN_UNDO_FILE:
+            return
+        DIR = "UndoFiles"
+        self.LAST_UNDO_FILE_NUM += 1
+        self.BUTTON_UNDO.text = f"Undo ({self.LAST_UNDO_FILE_NUM})"
+        filename = f"{DIR}/{TODAY}_{self.LAST_UNDO_FILE_NUM}.txt"
+        self.SavePuzzle(filename=filename)
+        return
+
+
     def MEGA_POPULATE_OPTIONS(self, ok=False):
         for row in range(4):
             thesum = self.Int_ROW_SUMS[row]
@@ -966,14 +1166,20 @@ class myInputs(GridLayout):
         for row in range(4):
             for col in range(4):
                 if self.Int_MY_SOLUTION[row][col] != 0:
-                    SET_COLOR(self.MyTextInputs_REMAINING_OPTIONS[row][col], NORMAL_COLOR)
+                    SET_COLOR(self.MyTextInput_REMAINING_OPTIONS[row][col], REMAINING_OPTIONS_COLOR)
                 else:
                     cell = self.Int_CELL_OPTIONS[row][col]
                     if self.Int_CELL_OPTIONS[row][col]:
                         if len(self.Int_CELL_OPTIONS[row][col]) == 1:
-                            SET_COLOR(self.MyTextInputs_REMAINING_OPTIONS[row][col], MY_RED)  #  "red"
+                            #SET_COLOR(self.MyTextInput_REMAINING_OPTIONS[row][col], MY_RED)  #  "red"
+                            SET_RED(self.MyTextInput_REMAINING_OPTIONS[row][col])
                         elif len(self.Int_CELL_OPTIONS[row][col]) == 0:
-                            SET_COLOR(self.MyTextInputs_REMAINING_OPTIONS[row][col], NORMAL_COLOR)
+                            SET_COLOR(self.MyTextInput_REMAINING_OPTIONS[row][col], NORMAL_COLOR)
+        #
+        # Back this up as a future 'undo' level
+        if self.SAVE_AN_UNDO_FILE:
+            self.Save_Undo_Level()
+        #
         return
 
 
@@ -1001,7 +1207,8 @@ class myInputs(GridLayout):
             unique_str = ", ".join([str(xx) for xx in res])
             self.UNIQUE_TO_ALL.SET_TEXT(unique_str)
             if len(res) == 1:
-                SET_COLOR(self.UNIQUE_TO_ALL, MY_RED)
+                #SET_COLOR(self.UNIQUE_TO_ALL, MY_RED)
+                SET_RED(self.UNIQUE_TO_ALL)
             else:
                 SET_COLOR(self.UNIQUE_TO_ALL, NO_FOCUS_COLOR)
         else:
@@ -1027,6 +1234,7 @@ class myInputs(GridLayout):
             return opts, opts_str
         # -----------------------------------------------------------------------
         assert rownum is not None or colnum is not None
+        self.reset_remaining_options_colors()
         unique_to_all = self.find_unique_to_all(pot_sols, ok=ok)
         unique_str = ""
         if unique_to_all:
@@ -1034,8 +1242,9 @@ class myInputs(GridLayout):
         self.UNIQUE_TO_ALL.SET_TEXT(unique_str)
         flat_pot_sols = list(set(flatten_list(pot_sols)))
         if not rownum is None:
-            the_cells = self.MyTextInputs_REMAINING_OPTIONS
-            the_row = the_cells[rownum]
+            #the_cells = self.MyTextInput_REMAINING_OPTIONS
+            #the_row = the_cells[rownum]
+            #the_row = self.MyTextInput_REMAINING_OPTIONS[rownum]
             odd_evens = self.Buttons_ODD_EVEN[rownum]
             for col in range(4):
                 sol = self.Int_MY_SOLUTION[rownum][col]
@@ -1045,7 +1254,7 @@ class myInputs(GridLayout):
             even_pot_sols.sort()
             odd_pot_sols = [xx for xx in flat_pot_sols if xx not in [2, 4, 6, 8]]
             odd_pot_sols.sort()
-            for col, cell in enumerate(the_row):
+            for col, cell in enumerate(self.MyTextInput_REMAINING_OPTIONS[rownum]):
                 if self.Int_MY_SOLUTION[rownum][col] != 0:
                     # A solved cell has no remaining options
                     self.SET_TEXT(cell, "")
@@ -1064,11 +1273,18 @@ class myInputs(GridLayout):
                             for ct in range(4):
                                 if uu in self.Int_CELL_OPTIONS[rownum][ct]:
                                     # TODO: Must remove other red cells I made like this
-                                    SET_COLOR(self.MyTextInputs_REMAINING_OPTIONS[rownum][ct], MY_RED)
-                                    SET_COLOR(self.MyTextInputs_MY_SOLUTION_CELLS[rownum][ct], MY_RED)
-                if len(unique_to_all) == 1 and unique_to_all[0] in kk:
-                    SET_COLOR(cell, MY_RED)
-                    SET_COLOR(self.UNIQUE_TO_ALL, MY_RED)
+                                    #self.Int_MY_SOLUTION[rownum][ct] = uu
+                                    #self.MyTextInput_MY_SOLUTION_CELLS[rownum][ct].SET_TEXT(uu)
+                                    #SET_COLOR(self.MyTextInput_REMAINING_OPTIONS[rownum][ct], MY_RED)
+                                    SET_RED(self.MyTextInput_REMAINING_OPTIONS[rownum][ct])
+                if len(unique_to_all) == 1:
+                    if unique_to_all[0] in kk:
+                        if len(kk) == 1:
+                            SET_RED(cell)
+                            SET_RED(self.UNIQUE_TO_ALL)
+                        else:
+                            SET_COLOR(cell, "palevioletred")
+                            #SET_COLOR(self.UNIQUE_TO_ALL, "palevioletred")
                 else:
                     # Number is probably a solution already
                     SET_COLOR(cell, REMAINING_OPTIONS_COLOR)
@@ -1085,36 +1301,42 @@ class myInputs(GridLayout):
             for row in range(4):
                 if self.Int_MY_SOLUTION[row][colnum] != 0:
                     # A solved cell has no remaining options
-                    self.MyTextInputs_REMAINING_OPTIONS[row][colnum].SET_TEXT()
+                    if self.MyTextInput_REMAINING_OPTIONS[row][colnum].text:
+                        self.MyTextInput_REMAINING_OPTIONS[row][colnum].SET_TEXT()
                     continue
                 if self.Buttons_ODD_EVEN[row][colnum].MYTEXT == "EVEN":
                     kk, kkstr = net_out(row, colnum, even_pot_sols)
                     self.Int_CELL_OPTIONS[row][colnum] = kk
-                    self.MyTextInputs_REMAINING_OPTIONS[row][colnum].SET_TEXT(kkstr)
+                    self.MyTextInput_REMAINING_OPTIONS[row][colnum].SET_TEXT(kkstr)
                 else:
                     kk, kkstr = net_out(row, colnum, odd_pot_sols)
                     self.Int_CELL_OPTIONS[row][colnum] = kk
-                    self.MyTextInputs_REMAINING_OPTIONS[row][colnum].SET_TEXT(kkstr)
-                if INIT_IS_DONE and len(unique_to_all) != 1 and colnum==3:
+                    self.MyTextInput_REMAINING_OPTIONS[row][colnum].SET_TEXT(kkstr)
+                if INIT_IS_DONE and len(unique_to_all) != 1:
                     for uu in unique_to_all:
                         if sum([1 for xx in [xx[colnum] for xx in self.Int_CELL_OPTIONS] if uu in xx]) == 1:
                             for ct in range(4):
                                 if uu in self.Int_CELL_OPTIONS[ct][colnum]:
                                     # TODO: Must remove other red cells I made like this
-                                    SET_COLOR(self.MyTextInputs_REMAINING_OPTIONS[ct][colnum], MY_RED)
-                                    SET_COLOR(self.MyTextInputs_MY_SOLUTION_CELLS[ct][colnum], MY_RED)
+                                    #self.Int_MY_SOLUTION[ct][colnum] = uu
+                                    #self.MyTextInput_MY_SOLUTION_CELLS[ct][colnum].SET_TEXT(uu)
+                                    #SET_COLOR(self.MyTextInput_REMAINING_OPTIONS[ct][colnum], MY_RED)
+                                    SET_RED(self.MyTextInput_REMAINING_OPTIONS[ct][colnum])
                 if len(unique_to_all) == 1 and unique_to_all[0] in kk:
-                    SET_COLOR(self.MyTextInputs_REMAINING_OPTIONS[row][colnum], MY_RED)
-                    SET_COLOR(self.UNIQUE_TO_ALL, MY_RED)
+                    # SET_COLOR(self.MyTextInput_REMAINING_OPTIONS[row][colnum], MY_RED)
+                    # SET_COLOR(self.UNIQUE_TO_ALL, MY_RED)
+                    SET_RED(self.MyTextInput_REMAINING_OPTIONS[row][colnum])
+                    SET_RED(self.UNIQUE_TO_ALL)
                 else:
                     # Number is probably a solution already
-                    SET_COLOR(self.MyTextInputs_REMAINING_OPTIONS[row][colnum], REMAINING_OPTIONS_COLOR)
+                    SET_COLOR(self.MyTextInput_REMAINING_OPTIONS[row][colnum], REMAINING_OPTIONS_COLOR)
                     SET_COLOR(self.UNIQUE_TO_ALL, NO_FOCUS_COLOR)
         return
 
 
 
     def entry_A_SOLUTION(self, instance, value):
+        global INIT_IS_DONE
         # when I enter something into a solution, it then acts as a 'must have' for that row and col
         if value == "":
             sol = 0
@@ -1123,7 +1345,7 @@ class myInputs(GridLayout):
         row = instance.AROW
         col = instance.ACOL
         self.Int_MY_SOLUTION[row][col] = sol
-        global INIT_IS_DONE
+        self.Int_CELL_OPTIONS[row][col] = []
         if INIT_IS_DONE and self.DO_NOT_MEGA_POPULATE is False:
             self.MEGA_POPULATE_OPTIONS(ok=True)
         return
@@ -1190,6 +1412,27 @@ class myInputs(GridLayout):
         return eliminated_sols, good_sols
 
 
+    def entry_COVER(self, instance, value):
+        self.SAVE_AN_UNDO_FILE = False
+        if instance.ANAME == "Sum":
+            cur = self.SUM20_INPUT.MYTEXTBOX.text
+            if cur != value:
+                self.entry_THE_SUM(instance, value)
+        elif instance.ANAME == "# Evens":
+            cur = self.NUM_EVENS_INPUT.MYTEXTBOX.text
+            if cur != value:
+                self.entry_NUM_EVENS(instance, value)
+        elif instance.ANAME == "Must have":
+            cur = self.MUST_HAVE_INPUT.MYTEXTBOX.text
+            if cur != value:
+                self.entry_MUST_HAVE(instance, value)
+        else:
+            _joe = 12  # ??
+        self.SAVE_AN_UNDO_FILE = True
+        #instance.text = f"Undo ({self.LAST_UNDO_FILE_NUM})"
+        return
+
+
     def entry_THE_SUM(self, instance, value):
         # this is the one at the very top of the GUI
         thesum = value
@@ -1197,6 +1440,8 @@ class myInputs(GridLayout):
         musthave = self.MUST_HAVE_INPUT.MYTEXTBOX.text
         if thesum and numevens:
             self.populate_potential_solutions_box(thesum=thesum, numevens=numevens, must_have=musthave, one_of_these=[])
+            if INIT_IS_DONE and self.DO_NOT_MEGA_POPULATE is False:
+                self.MEGA_POPULATE_OPTIONS(ok=True)
         return
 
     def entry_NUM_EVENS(self, instance, value):
@@ -1205,6 +1450,8 @@ class myInputs(GridLayout):
         musthave = self.MUST_HAVE_INPUT.MYTEXTBOX.text
         if thesum and numevens:
             self.populate_potential_solutions_box(thesum=thesum, numevens=numevens, must_have=musthave, one_of_these=[])
+            if INIT_IS_DONE and self.DO_NOT_MEGA_POPULATE is False:
+                self.MEGA_POPULATE_OPTIONS(ok=True)
         return
 
     def entry_MUST_HAVE(self, instance, value):
@@ -1213,24 +1460,114 @@ class myInputs(GridLayout):
         musthave = value
         if thesum and numevens:
             self.populate_potential_solutions_box(thesum=thesum, numevens=numevens, must_have=musthave, one_of_these=[])
+            if INIT_IS_DONE and self.DO_NOT_MEGA_POPULATE is False:
+                self.MEGA_POPULATE_OPTIONS(ok=True)
         return
 
 
-    def SavePuzzle(self, instance=None):
-        _joe = 12  # now what?
+    def SavePuzzle(self, instance=None, filename=""):
+        # pfilename = f"saved_puzzle.p"
+        # pickle.dump(self, open(pfilename, "wb"))
+        if not filename:
+            filename = f"saved_puzzle.txt"
+        with open(filename, "w") as file:
+            for xx in range(4):
+                val1 = self.Int_ROW_SUMS[xx] or 0
+                file.write(f"{val1}\n")
+            for xx in range(4):
+                val2 = self.Int_COL_SUMS[xx] or 0
+                file.write(f"{val2}\n")
+            #
+            for row in range(4):
+                for col in range(4):
+                    file.write(f"{self.Buttons_ODD_EVEN[row][col].MYTEXT}\n")
+            #
+            for row in range(4):
+                for col in range(4):
+                    file.write(f"{self.Int_MY_SOLUTION[row][col]}\n")
+        return
+
+    def btn_LoadSavedPuzzle(self, instance=None):
+        self.LoadSavedPuzzle(instance)
+        self.SAVE_AN_UNDO_FILE = True
+        self.Save_Undo_Level()
+        return
+
+
+    def LoadSavedPuzzle(self, instance=None, filename="", from_undo=False):
+        global INIT_IS_DONE
+        """ """
+        self.CLEAR()
+
+        if not filename:
+            filename = f"saved_puzzle.txt"
+        with open(filename, "r") as file:
+            onebigline = file.read()
+        all_lines = onebigline.split()
+
+        ct = -1
+        # Row sums:
+        for xx in range(4):
+            ct += 1
+            res0 = int(all_lines[ct])
+            self.Int_ROW_SUMS[xx] = res0
+            if res0 == 0:
+                self.MyTextInput_ROW_SUMS[xx].SET_TEXT()
+            else:
+                self.MyTextInput_ROW_SUMS[xx].SET_TEXT(res0)
+        # Col sums:
+        for xx in range(4):
+            ct += 1
+            res1 = int(all_lines[ct])
+            self.Int_COL_SUMS[xx] = res1
+            if res1 == 0:
+                self.MyTextInput_COL_SUMS[xx].SET_TEXT()
+            else:
+                self.MyTextInput_COL_SUMS[xx].SET_TEXT(res1)
+        # Odd/Even buttons:
+        for row in range(4):
+            for col in range(4):
+                ct += 1
+                res2 = all_lines[ct]
+                if res2.lower() == "even":
+                    self.Buttons_ODD_EVEN[row][col].state = "down"
+        # My solution so far:
+        for row in range(4):
+            for col in range(4):
+                ct += 1
+                res3 = int(all_lines[ct])
+                self.Int_MY_SOLUTION[row][col] = res3
+                if res3 == 0:
+                    self.MyTextInput_MY_SOLUTION_CELLS[row][col].SET_TEXT()
+                else:
+                    self.MyTextInput_MY_SOLUTION_CELLS[row][col].SET_TEXT(res3)
+        #
+        if not from_undo:
+            self.RipItGood()
+        self.Save_Undo_Level()
+        INIT_IS_DONE = True
+        return
+
+
+    def ChoosePuzzle(self, instance=None):
+        tt = APP_MainApp()
+        tt.title = "Choose a puzzle!"
+        tt.run()
+        return
 
     def LoadPuzzle(self, instance=None):
         global INIT_IS_DONE
+
+        if INIT_IS_DONE:
+            # No need to clear if this is the first time through
+            self.CLEAR(instance)
 
         PUZZLES = {}
 
         PUZZLES[0] = {"rowsum": [(0, 12), (1, 17), (2, 21), (3, 20)],
                       "colsum": [(0, 10), (1, 22), (2, 10), (3, 28)],
                       "oddevens": [(0,2), (0,3), (1,0), (2,0), (2,1), (2,3), (3,1), (3,2)],
-                      "solutions": [(0, 2, 2),
-                                    (1, 0, 2), (1, 2, 1),
-                                    (2, 0, 4), (2, 2, 3), (2, 3, 8),
-                                    (3, 2, 4)]
+                      "solutions": []  #(0, 2, 2), (1, 0, 2), (1, 2, 1), (2, 0, 4), (2, 2, 3), (2, 3, 8), (3, 2, 4)]
                       }
         PUZZLES[1] = {"rowsum": [(0, 30), (1, 25), (2, 13), (3, 29)],
                       "colsum": [(0, 26), (1, 20), (2, 28), (3, 23)],
@@ -1257,32 +1594,56 @@ class myInputs(GridLayout):
             col, val = arr
             self.MyTextInput_COL_SUMS[col].SET_TEXT(val)
 
-        # for cell in apuzzle["oddevens"]:
-        #     row, col = cell
-        #     self.Buttons_ODD_EVEN[row][col].state = "down"
-
         for row, col, num in apuzzle["solutions"]:
-            self.MyTextInputs_MY_SOLUTION_CELLS[row][col].SET_TEXT(num)
+            self.MyTextInput_MY_SOLUTION_CELLS[row][col].SET_TEXT(num)
 
-        self.reset_top_boxes(colors_only=False)
-        self.MEGA_POPULATE_OPTIONS()
-        for row in range(4):
-            self.MyTextInput_ROW_SUMS[row].focus = True
-        for col in range(4):
-            self.MyTextInput_COL_SUMS[col].focus = True
+        self.RipItGood()
 
         INIT_IS_DONE = True
+        return
+
+    def RipItGood(self, instance=None):
+        self.reset_top_boxes(colors_only=False)
+        for row in range(4):
+            self.MyTextInput_ROW_SUMS[row].focus = True
+            self.MyTextInput_ROW_SUMS[row].focus = False
+        for col in range(4):
+            self.MyTextInput_COL_SUMS[col].focus = True
+            self.MyTextInput_COL_SUMS[col].focus = False
+        #
+        self.SAVE_AN_UNDO_FILE = False
+        self.MEGA_POPULATE_OPTIONS()
+        self.SAVE_AN_UNDO_FILE = True
+        #
+        self.NUM_EVENS_INPUT.focus = True
         return
 
 # ----- class myInputs - END   -----------------------------------------------------------------------------------
 
 
-# ----- class MainApp - START ---------------------------------------------------------------------------------------
-class MainApp(App):
+# ----- class AskQuestion - START -----------------------------------------------------------------------------------
+class AskQuestion(App):
+    """ Do this via a 'Screen Manager':
+        https://kivy.org/doc/stable/api-kivy.uix.screenmanager.html?highlight=multiple%20windows
+    """
     def __init__(self):
         super().__init__()
 
     def build(self):
+        questionlayout = GridLayout()
+        questionlayout.cols = 1
+        questionlayout.add_widget(cls_Label_and_TextInput(app=self, GUI=tt, name="Choose Puzzle"))
+        return questionlayout
+# ----- class AskQuestion - END   -----------------------------------------------------------------------------------
+
+
+# ----- class APP_MainApp - START ---------------------------------------------------------------------------------------
+class APP_MainApp(App):
+    def __init__(self):
+        super().__init__()
+
+    def build(self):
+        self.delete_undo_files()
         main_layout = myInputs(which)
         machine = os.environ.get("MACHINE")
         if machine == "PC":
@@ -1290,7 +1651,18 @@ class MainApp(App):
             #main_layout.LoadPuzzle()
         main_layout.SUM20_INPUT.MYTEXTBOX.focus = True
         return main_layout
-# ----- class MainApp - END   ---------------------------------------------------------------------------------------
+
+    def delete_undo_files(self):
+        DIR = "UndoFiles"
+        for root, dirs, files in os.walk(DIR):
+            for ct, filename in enumerate(files):
+                file = f"{root}/{filename}"
+                try:
+                    os.remove(file)
+                except FileNotFoundError:
+                    pass
+        return
+# ----- class APP_MainApp - END   ---------------------------------------------------------------------------------------
 
 
 if __name__ == "__main__":
@@ -1298,6 +1670,6 @@ if __name__ == "__main__":
     if "pydevd" not in sys.modules:
         which = "PRODUCTION"
     #
-    app = MainApp()
+    app = APP_MainApp()
     app.title = which
     app.run()

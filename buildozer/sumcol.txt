@@ -1,0 +1,43 @@
+    def on_focus(self, instance, value, *largs):
+        global INIT_IS_DONE
+        dinge = instance.ANUM
+        if value is False:
+            return
+        self.MYAPP.reset_top_boxes(colors_only=False)
+        self.MYAPP.reset_sum_colors()
+        SET_COLOR(instance, HIGHLIGHT_COLOR)
+
+        thesum = self.MYAPP.Int_COL_SUMS[dinge]
+        if thesum is None:
+            return
+        if isinstance(thesum, int):
+            if instance.text != "":
+                assert int(instance.text) == thesum
+            self.MYAPP.SUM20_INPUT.SET_TEXT(thesum)
+        #
+        numevens = self.MYAPP.get_numevens(col=dinge)
+        self.MYAPP.NUM_EVENS_INPUT.SET_TEXT(numevens)
+        #
+        must_have = self.MYAPP.get_must_have(col=dinge)
+        if must_have:
+            self.MYAPP.MUST_HAVE_INPUT.SET_TEXT(", ".join(map(str, must_have)))
+        else:
+            self.MYAPP.MUST_HAVE_INPUT.SET_TEXT()
+
+        self.MYAPP.LastTopBoxes = {"row": None, "col": dinge, "thesum": thesum, "numevens": numevens, "musthave": must_have}
+
+        # "One of these" is when a cell has its options set, like (1, 3, 5), therefore, any potential
+        # option must have at least ONE of those numbers
+        one_of_these = self.MYAPP.get_one_of_these(col=dinge)
+        res = self.MYAPP.populate_potential_solutions_box(thesum=thesum, numevens=numevens, must_have=must_have, one_of_these=one_of_these)
+        eliminated_sols = res[0]
+        pot_sols = res[1]
+        self.MYAPP.ELIMINATED_SOLUTIONS.SET_TEXT(eliminated_sols)
+        if pot_sols:
+            self.MYAPP.find_unique_to_all(pot_sols)
+            self.MYAPP.populate_remaining_options(pot_sols, colnum=dinge)
+            self.MYAPP.POTENTIAL_SOLUTIONS.SET_TEXT(pot_sols)
+        else:
+            _joe = 12  # now what?
+        self.MYAPP.hightlight_Remaining_Options(p_col=dinge)  # SumCol
+        return

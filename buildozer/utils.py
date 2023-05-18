@@ -1,3 +1,5 @@
+import os
+
 # Working with multiple kivy screens:
 # https://noudedata.com/2023/04/kivy-screen-navigation/
 
@@ -17,6 +19,28 @@ NO_FOCUS_COLOR = "blanchedalmond"  #
 HIGHLIGHT_COLOR = "lightpink"      # [1.0, 0.7137254901960784, 0.7568627450980392, 1.0]
 REMAINING_OPTIONS_COLOR = "lightcyan"        # "lightgoldenrodyellow"
 MY_SOLUTION_COLOR = "lightsteelblue"
+
+
+def delete_undo_files():
+    DIR = "UndoFiles"
+    for root, dirs, files in os.walk(DIR):
+        for ct, filename in enumerate(files):
+            file = f"{root}/{filename}"
+            try:
+                os.remove(file)
+            except FileNotFoundError:
+                pass
+    return
+
+
+def file_exists(file):
+    """ File exists, and is not empty """
+    # file_dir = os.path.split(file)[0]
+    # if file_dir:
+    #     if not os.path.isdir(file_dir):
+    #         myjoe()  # now what?  make_all_needed_directories()
+    res = os.path.isfile(file) and bool(os.path.getsize(file))
+    return res
 
 
 ALL_POTENTIAL_SOLUTIONS = {

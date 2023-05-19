@@ -35,7 +35,7 @@
         self.MYAPP.ELIMINATED_SOLUTIONS.SET_TEXT(eliminated_sols)
         if pot_sols:
             self.MYAPP.find_unique_to_all(pot_sols)
-            self.MYAPP.populate_remaining_options(pot_sols, colnum=dinge)
+            self.MYAPP.refresh_remaining_options(pot_sols, colnum=dinge)
             self.MYAPP.POTENTIAL_SOLUTIONS.SET_TEXT(pot_sols)
         else:
             _joe = 12  # now what?

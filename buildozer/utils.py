@@ -1,4 +1,5 @@
 import os
+import logging
 
 # Working with multiple kivy screens:
 # https://noudedata.com/2023/04/kivy-screen-navigation/
@@ -21,6 +22,39 @@ REMAINING_OPTIONS_COLOR = "lightcyan"        # "lightgoldenrodyellow"
 MY_SOLUTION_COLOR = "lightsteelblue"
 
 
+def scrub_text(value, margin=50):
+    if value == []:
+        return "", ""
+    # 'value' can be any type
+    ll = 1
+    tmp, text = "", ""
+    if isinstance(value, int):
+        text = str(value)
+    elif isinstance(value, list):
+        ll = len(value)
+        for ct in range(len(value)):
+            if tmp:
+                tmp += ", "
+            tmp += ", ".join(map(str, value[ct:ct+1]))
+            _lt = len(tmp)
+            if len(tmp) >= margin:
+                text += f"{tmp}\n"
+                tmp = ""
+        text += tmp
+    elif isinstance(value, str):
+        text = value
+    return ll, text
+
+def get_sql_today(withDay=False):
+    import datetime
+    currentdt = datetime.datetime.now()
+    today = currentdt.strftime("%Y-%m-%d")
+    hour = int(currentdt.strftime("%H"))
+    return today, hour
+
+
+TODAY, HOUR = get_sql_today()
+
 def delete_undo_files():
     DIR = "UndoFiles"
     for root, dirs, files in os.walk(DIR):
@@ -32,6 +66,36 @@ def delete_undo_files():
                 pass
     return
 
+def create_loggers():
+    with open("Logs/this_session_only.txt", "w") as fp:
+        pass  # just blanks it out
+    #today = get_sql_today()
+    fmtlong = logging.Formatter(f"{TODAY} %(asctime)s.%(msecs)03d  %(levelname)s  %(message)s", datefmt="%H:%M:%S")
+    fmtkivy = logging.Formatter(f"{TODAY}  %(asctime)s.%(msecs)06d  [%(levelname)s]  %(message)s", datefmt="%H:%M:%S")
+    # ---------------------------
+    # Snag what IB/TWS is logging
+    # ---------------------------
+    KIVY_logger = logging.getLogger()  # <--- the 'root' logger
+    KIVY_logger.propagate = False
+    KIVY_logger.setLevel(logging.INFO)
+    KIVY_handler = logging.FileHandler(f"Logs/kivy_log_{TODAY}.txt")
+    KIVY_handler.setFormatter(fmtkivy)
+    KIVY_logger.addHandler(KIVY_handler)
+    # THIS SESSION ONLY
+    thisonlylogger = logging.getLogger()
+    thisonlylogger.setLevel(logging.DEBUG)
+    thisonlyhandler = logging.FileHandler("Logs/this_session_only.txt")
+    thisonlyhandler.setFormatter(fmtlong)
+    thisonlylogger.addHandler(thisonlyhandler)
+    # # MAIN
+    # mainlogger = logging.getLogger("myapp")
+    # mainlogger.setLevel(logging.DEBUG)
+    # mainhandler = logging.FileHandler("Logs/my_log.txt")
+    # mainlogger.propagate = False
+    # mainhandler.setFormatter(fmtlong)
+    # mainlogger.addHandler(mainhandler)
+    #
+    return #mainlogger, thisonlylogger
 
 def file_exists(file):
     """ File exists, and is not empty """
@@ -100,15 +164,6 @@ ALL_POTENTIAL_SOLUTIONS = {
 
   30: {2: [[6,7,8,9]]}
 }
-
-
-def get_sql_today(withDay=False):
-    import datetime
-    currentdt = datetime.datetime.now()
-    today = currentdt.strftime("%Y-%m-%d")
-    hour = int(currentdt.strftime("%H"))
-    return today, hour
-
 
 def static_vars(**kwargs):
     def decorate(func):

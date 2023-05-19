@@ -568,8 +568,8 @@
 2023-05-16  09:04:46.000972  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
 2023-05-16  09:04:46.000972  [WARNING]  stderr:   File "kivy\_event.pyx", line 1213, in kivy._event.EventObservers._dispatch
 2023-05-16  09:04:46.000972  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 463, in on_focus
-2023-05-16  09:04:46.000972  [WARNING]  stderr:     self.MYAPP.populate_remaining_options(pot_sols, rownum=row)
-2023-05-16  09:04:46.000972  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1296, in populate_remaining_options
+2023-05-16  09:04:46.000972  [WARNING]  stderr:     self.MYAPP.refresh_remaining_options(pot_sols, rownum=row)
+2023-05-16  09:04:46.000972  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1296, in refresh_remaining_options
 2023-05-16  09:04:46.000972  [WARNING]  stderr:     SET_RED(cell)
 2023-05-16  09:04:46.000972  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 86, in SET_RED
 2023-05-16  09:04:46.000972  [WARNING]  stderr:     _joe = 12  # check why doubling is occurring

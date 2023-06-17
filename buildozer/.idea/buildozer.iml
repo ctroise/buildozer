@@ -8,6 +8,7 @@
       <excludeFolder url="file://$MODULE_DIR$/bin" />
       <excludeFolder url="file://$MODULE_DIR$/.buildozer" />
       <excludeFolder url="file://$MODULE_DIR$/.idea" />
+      <excludeFolder url="file://$MODULE_DIR$/Logs" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.9 (buildozer)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />

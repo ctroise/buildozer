@@ -1,3 +1,5 @@
+# "2023-06-11"
+#
 import os
 import logging
 
@@ -15,34 +17,77 @@ FONT_DIR = "Pycharm/buildozer/venv/Lib/site-packages/kivy/data/fonts"
 MY_RED = [1, 0, 0, 1]
 MY_WHITE = [1, 1, 1, 1]
 
-NORMAL_COLOR = "white"             #
-NO_FOCUS_COLOR = "blanchedalmond"  #
-HIGHLIGHT_COLOR = "lightpink"      # [1.0, 0.7137254901960784, 0.7568627450980392, 1.0]
-REMAINING_OPTIONS_COLOR = "lightcyan"        # "lightgoldenrodyellow"
+NORMAL_COLOR = "white"                 # ? [0.8784313725490196, 1.0, 1.0, 1.0]
+NO_FOCUS_COLOR = "blanchedalmond"      #
+HIGHLIGHT_COLOR = "lightpink"          # [1.0, 0.7137254901960784, 0.7568627450980392, 1.0]
+REMAINING_OPTIONS_COLOR = "lightcyan"  # "lightgoldenrodyellow"
+MY_SOLUTION_HIGHLIGHT_COLOR = "lightskyblue"
 MY_SOLUTION_COLOR = "lightsteelblue"
 
+def static_vars(**kwargs):  # do not delete me
+    def decorate(func):
+        for k in kwargs:
+            setattr(func, k, kwargs[k])
+        return func
+    return decorate
 
-def scrub_text(value, margin=50):
-    if value == []:
+@static_vars(ct_dict={})
+def myjoe(what="", stop:bool=True):
+    if what != "":
+        if what in myjoe.ct_dict:
+            return
+        else:
+            myjoe.ct_dict[what] = 1
+    if stop:
+        _joe = 12  #  this line Needs a breakpoint
+
+
+def did_I_come_here_from(function_p):
+    if isinstance(function_p, str):
+        function_p = [function_p]
+    import inspect
+    a_INSPECT_STACK = inspect.stack()
+    for ct, values in enumerate(a_INSPECT_STACK):
+        frame, filename, linenum, function, line_of_code, index = values
+        for fn in function_p:
+            if function.lower() == fn.lower():
+                return True
+    return False
+
+def flatten_list(alist):
+    # only works for one level deep
+    res = [item for xx in alist for item in xx]
+    return res
+
+def scrub_text(value):
+    MARGIN = 50
+    if not value:  #  value == []:
         return "", ""
-    # 'value' can be any type
-    ll = 1
-    tmp, text = "", ""
+    #
+    assert value  # if it passed the above test then it should be fine
     if isinstance(value, int):
-        text = str(value)
-    elif isinstance(value, list):
-        ll = len(value)
+        return 1, str(value)
+    #
+    ll = len(value)
+    if isinstance(value, list):
+        tmp = ""
+        text = ""
         for ct in range(len(value)):
             if tmp:
                 tmp += ", "
-            tmp += ", ".join(map(str, value[ct:ct+1]))
-            _lt = len(tmp)
-            if len(tmp) >= margin:
+            tmp += ", ".join(map(str, value[ct:ct + 1]))
+            if len(tmp) >= MARGIN:
                 text += f"{tmp}\n"
                 tmp = ""
         text += tmp
     elif isinstance(value, str):
         text = value
+    #
+    if text[-1] == "\n":
+        text = text[:-1]
+    if text[-1] == ",":
+        text = text[:-1]  # does this ever get hit?  2023-05-27
+    #
     return ll, text
 
 def get_sql_today(withDay=False):
@@ -54,6 +99,15 @@ def get_sql_today(withDay=False):
 
 
 TODAY, HOUR = get_sql_today()
+
+def backup_to_one_drive():
+    from shutil import copy
+    to_dir = "/mnt/c/Users/ctroi/OneDrive/Pycharm"
+    for file in ["main.py", "util.py", "saved_puzzle.txt"]:
+        from_file = f"./{file}"
+        to_file = f"{to_dir}/{file}"
+        copy(from_file, to_file)
+    return
 
 def delete_undo_files():
     DIR = "UndoFiles"
@@ -105,6 +159,98 @@ def file_exists(file):
     #         myjoe()  # now what?  make_all_needed_directories()
     res = os.path.isfile(file) and bool(os.path.getsize(file))
     return res
+
+def get_calling_function(levels_back=1, ignoreInit=False, withdetails=False, debug=True):
+    import inspect, os
+    IGNORE_STACK = []
+    a_INSPECT_STACK = inspect.stack()
+    a_STACK = []
+    for ct, values in enumerate(a_INSPECT_STACK):
+        if ct in [0, 1]:
+            continue
+        v3 = values[3]
+        if v3 in IGNORE_STACK:
+            continue
+        frame, _filename, linenum, fn, line_of_code, index = values
+        filename = os.path.basename(_filename)
+        a_STACK.append((fn, filename, linenum, line_of_code, index, frame))
+    if a_STACK[1][0] == "__init__" and a_STACK[2][0] == "<module>":
+        name = a_STACK[2][5].f_locals["__name__"]
+        fn = f"{name}.py (while being imported)"
+        assert fn != "snapped_already"
+        return fn
+
+    went_back_ct = 1
+    a_RET_VAL, filename, linenum, function = "", "", "", ""
+    for ct, a_FrameInfo in enumerate(a_STACK):
+        function, filename, linenum, line_of_code, index, frame = a_FrameInfo
+        if function == "__init__" and ignoreInit:
+            continue
+        if function in ["__setitem__", "__getitem__"]:
+            continue
+        # if function in ["__enter__"]:  # , "__exit__"]:
+        #     myjoe("context managers")  # "__exit__" got hit 2022-09-23, and worked
+        fn = ""
+        if function[:2] == "__" and function[-2:] == "__":
+            x_locals = frame.f_locals
+            fn = x_locals['self']
+            if not a_RET_VAL:
+                a_RET_VAL = f"{fn}.{function}()"
+            else:
+                a_RET_VAL = f"{fn} - {function}()"
+            if went_back_ct == levels_back:
+                break
+            else:
+                went_back_ct += 1
+                continue
+        if fn:
+            function = f"{function}() - {fn}()"
+        if went_back_ct == levels_back:
+            break
+        else:
+            went_back_ct += 1
+            continue
+    if not a_RET_VAL:
+        a_RET_VAL = function
+
+    # if withdetails:
+    #     return a_RET_VAL, filename, linenum
+    # else:
+    return a_RET_VAL
+
+
+# -------------------------------------------------------------------------------------------------------------------
+# ----- WRAPPERS ----------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------------------
+def static_vars(**kwargs):
+    def decorate(func):
+        for k in kwargs:
+            setattr(func, k, kwargs[k])
+        return func
+    return decorate
+
+# DO_NOT_MEGA_POPULATE_OPTIONS, SAVE_AN_UNDO_FILE
+
+def wrap_mega_populate1(func):
+    def wrapper(*arg, **kwargs):
+        curvalue = MEG
+        t1 = time.time()
+        #
+        res = func(*arg, **kwargs)                      # <--------------------------------------------
+        #
+        t2 = time.time()
+        time_in_secs = t2 - t1
+        msg = f"timeit(): {func.__name__}(): Time taken: {time_in_secs:,.4f} seconds"
+        print(f"{msg}")
+        newlogger.debug(msg)
+        return res
+    return wrapper
+
+
+# -------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------------------
+
 
 
 ALL_POTENTIAL_SOLUTIONS = {
@@ -164,18 +310,4 @@ ALL_POTENTIAL_SOLUTIONS = {
 
   30: {2: [[6,7,8,9]]}
 }
-
-def static_vars(**kwargs):
-    def decorate(func):
-        for k in kwargs:
-            setattr(func, k, kwargs[k])
-        return func
-    return decorate
-
-
-def flatten_list(alist):
-    # only works for one level deep
-    res = [item for xx in alist for item in xx]
-    return res
-
 

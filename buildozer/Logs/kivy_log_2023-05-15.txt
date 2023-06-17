@@ -3795,7 +3795,7 @@
 2023-05-15  13:38:41.000505  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
 2023-05-15  13:38:41.000505  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
 2023-05-15  13:38:41.000505  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
-2023-05-15  13:38:41.000506  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1455, in btn_LoadSavedPuzzle
+2023-05-15  13:38:41.000506  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1455, in LoadSavedPuzzle_btn
 2023-05-15  13:38:41.000506  [WARNING]  stderr:     self.LoadSavedPuzzle(instance)
 2023-05-15  13:38:41.000506  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1510, in LoadSavedPuzzle
 2023-05-15  13:38:41.000506  [WARNING]  stderr:     self.RipItGood()

@@ -49,7 +49,7 @@
 2023-05-16  07:37:33.000938  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
 2023-05-16  07:37:33.000938  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
 2023-05-16  07:37:33.000938  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
-2023-05-16  07:37:33.000938  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1455, in btn_LoadSavedPuzzle
+2023-05-16  07:37:33.000938  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1455, in LoadSavedPuzzle_btn
 2023-05-16  07:37:33.000938  [WARNING]  stderr:     self.LoadSavedPuzzle(instance)
 2023-05-16  07:37:33.000938  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1464, in LoadSavedPuzzle
 2023-05-16  07:37:33.000938  [WARNING]  stderr:     self.CLEAR()
@@ -95,7 +95,7 @@
 2023-05-16  07:42:30.000673  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
 2023-05-16  07:42:30.000673  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
 2023-05-16  07:42:30.000673  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
-2023-05-16  07:42:30.000673  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1476, in btn_LoadSavedPuzzle
+2023-05-16  07:42:30.000673  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1476, in LoadSavedPuzzle_btn
 2023-05-16  07:42:30.000676  [WARNING]  stderr:     self.LoadSavedPuzzle(instance)
 2023-05-16  07:42:30.000676  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1502, in LoadSavedPuzzle
 2023-05-16  07:42:30.000677  [WARNING]  stderr:     self.MyTextInput_ROW_SUMS[xx].SET_TEXT(res0)
@@ -170,7 +170,7 @@
 2023-05-16  07:44:45.000034  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
 2023-05-16  07:44:45.000034  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
 2023-05-16  07:44:45.000034  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
-2023-05-16  07:44:45.000034  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1478, in btn_LoadSavedPuzzle
+2023-05-16  07:44:45.000034  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1478, in LoadSavedPuzzle_btn
 2023-05-16  07:44:45.000034  [WARNING]  stderr:     self.LoadSavedPuzzle(instance)
 2023-05-16  07:44:45.000034  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1533, in LoadSavedPuzzle
 2023-05-16  07:44:45.000034  [WARNING]  stderr:     self.RipItGood()
@@ -366,7 +366,7 @@
 2023-05-16  07:56:36.000343  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
 2023-05-16  07:56:36.000343  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
 2023-05-16  07:56:36.000343  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
-2023-05-16  07:56:36.000343  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1476, in btn_LoadSavedPuzzle
+2023-05-16  07:56:36.000343  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1476, in LoadSavedPuzzle_btn
 2023-05-16  07:56:36.000343  [WARNING]  stderr:     self.LoadSavedPuzzle(instance)
 2023-05-16  07:56:36.000343  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1531, in LoadSavedPuzzle
 2023-05-16  07:56:36.000343  [WARNING]  stderr:     self.RipItGood()
@@ -976,7 +976,7 @@
 2023-05-16  09:32:25.000282  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
 2023-05-16  09:32:25.000282  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
 2023-05-16  09:32:25.000282  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
-2023-05-16  09:32:25.000283  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1491, in btn_LoadSavedPuzzle
+2023-05-16  09:32:25.000283  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1491, in LoadSavedPuzzle_btn
 2023-05-16  09:32:25.000283  [WARNING]  stderr:     self.LoadSavedPuzzle(instance)
 2023-05-16  09:32:25.000283  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1500, in LoadSavedPuzzle
 2023-05-16  09:32:25.000283  [WARNING]  stderr:     self.CLEAR()
@@ -1024,7 +1024,7 @@
 2023-05-16  09:32:52.000111  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
 2023-05-16  09:32:52.000111  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
 2023-05-16  09:32:52.000111  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
-2023-05-16  09:32:52.000111  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1491, in btn_LoadSavedPuzzle
+2023-05-16  09:32:52.000111  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1491, in LoadSavedPuzzle_btn
 2023-05-16  09:32:52.000111  [WARNING]  stderr:     self.LoadSavedPuzzle(instance)
 2023-05-16  09:32:52.000111  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1500, in LoadSavedPuzzle
 2023-05-16  09:32:52.000111  [WARNING]  stderr:     self.CLEAR()
@@ -2261,7 +2261,7 @@
 2023-05-16  11:37:41.000408  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
 2023-05-16  11:37:41.000408  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
 2023-05-16  11:37:41.000408  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
-2023-05-16  11:37:41.000408  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1478, in btn_LoadSavedPuzzle
+2023-05-16  11:37:41.000408  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1478, in LoadSavedPuzzle_btn
 2023-05-16  11:37:41.000408  [WARNING]  stderr:     self.LoadSavedPuzzle(instance)
 2023-05-16  11:37:41.000408  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1513, in LoadSavedPuzzle
 2023-05-16  11:37:41.000408  [WARNING]  stderr:     self.MyTextInput_COL_SUMS[xx].SET_TEXT(res1)
@@ -2972,7 +2972,7 @@
 2023-05-16  14:02:16.000897  [WARNING]  stderr:   File "kivy\_event.pyx", line 727, in kivy._event.EventDispatcher.dispatch
 2023-05-16  14:02:16.000897  [WARNING]  stderr:   File "kivy\_event.pyx", line 1307, in kivy._event.EventObservers.dispatch
 2023-05-16  14:02:16.000897  [WARNING]  stderr:   File "kivy\_event.pyx", line 1231, in kivy._event.EventObservers._dispatch
-2023-05-16  14:02:16.000897  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1474, in btn_LoadSavedPuzzle
+2023-05-16  14:02:16.000897  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1474, in LoadSavedPuzzle_btn
 2023-05-16  14:02:16.000897  [WARNING]  stderr:     self.LoadSavedPuzzle(instance)
 2023-05-16  14:02:16.000898  [WARNING]  stderr:   File "C:\Users\ctroi\Pycharm\buildozer\main.py", line 1529, in LoadSavedPuzzle
 2023-05-16  14:02:16.000898  [WARNING]  stderr:     self.RipItGood()
